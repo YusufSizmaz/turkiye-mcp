@@ -26,3 +26,5 @@ export * as havaKalitesi from "./sources/hava-cevre/hava-kalitesi.js";
 export * as mgm from "./sources/hava-cevre/mgm.js";
 export * as resmiGazete from "./sources/resmi/resmi-gazete.js";
 export * as eczane from "./sources/saglik/eczane/index.js";
+export * as acikVeri from "./sources/sehir/ckan.js";
+export * as ibb from "./sources/sehir/ibb.js";

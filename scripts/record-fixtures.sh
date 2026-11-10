@@ -39,7 +39,8 @@ if want hava-cevre; then
   # hk-stations.json elle küçültüldü (Ankara/İstanbul/Batman istasyonları): POST GetAirQualityStations {"Location":null,"Date":"DD.MM.YYYY HH:mm:ss"}
 fi
 if want enerji; then
-  get enerji/opet-35.json "https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=35"
+  get enerji/opet-provinces.json "https://api.opet.com.tr/api/fuelprices/provinces"
+  for c in 34 35 934; do get enerji/opet-$c.json "https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=$c"; done
 fi
 if want sehir; then
   get sehir/ibb-trafik.json "https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont"

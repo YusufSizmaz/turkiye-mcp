@@ -9,7 +9,8 @@ const rozetUrl = (id: string) =>
 
 export const durumRozeti = (id: string) => `![durum](${rozetUrl(id)})`;
 /** HTML içinde (ör. <summary>) markdown işlenmediği için <img>. */
-export const durumRozetiHtml = (id: string) => `<img src="${rozetUrl(id)}" alt="durum" align="top">`;
+export const durumRozetiHtml = (id: string) =>
+  `<img src="${rozetUrl(id)}" alt="durum" align="top">`;
 
 /** GitHub başlık çapası (github-slugger ile uyumlu). */
 export function capa(baslik: string): string {
@@ -75,15 +76,25 @@ function rozetMetni(s: SourceMeta): string {
 function kaynakDetayi(s: SourceMeta, araclar: ToolDef[], ornekler: Record<string, string>): string {
   const satirlar: string[] = [];
   satirlar.push(`<details>`);
-  satirlar.push(`<summary><b>${s.ad}</b> — ${rozetMetni(s)} ${durumRozetiHtml(s.id)}</summary>`, "");
+  satirlar.push(
+    `<summary><b>${s.ad}</b> — ${rozetMetni(s)} ${durumRozetiHtml(s.id)}</summary>`,
+    "",
+  );
   satirlar.push(s.aciklama, "");
   satirlar.push(`- **Resmî site:** ${s.resmiUrl}`);
-  satirlar.push(`- **Önbellek:** ${s.ttlSaniye >= 3600 ? `${s.ttlSaniye / 3600} saat` : s.ttlSaniye >= 60 ? `${s.ttlSaniye / 60} dakika` : `${s.ttlSaniye} saniye`}`);
+  satirlar.push(
+    `- **Önbellek:** ${s.ttlSaniye >= 3600 ? `${s.ttlSaniye / 3600} saat` : s.ttlSaniye >= 60 ? `${s.ttlSaniye / 60} dakika` : `${s.ttlSaniye} saniye`}`,
+  );
   if (s.anahtarGerekli) {
-    satirlar.push(`- **Gerekli ortam değişkenleri:** ${s.envVars.map((v) => `\`${v}\``).join(", ")}`);
+    satirlar.push(
+      `- **Gerekli ortam değişkenleri:** ${s.envVars.map((v) => `\`${v}\``).join(", ")}`,
+    );
     if (s.anahtarNasilAlinir) satirlar.push(`- **Anahtar nasıl alınır:** ${s.anahtarNasilAlinir}`);
   }
-  if (s.deneysel) satirlar.push("- 🧪 **Deneysel:** resmî belgelere göre yazıldı, henüz gerçek anahtarla doğrulanmadı.");
+  if (s.deneysel)
+    satirlar.push(
+      "- 🧪 **Deneysel:** resmî belgelere göre yazıldı, henüz gerçek anahtarla doğrulanmadı.",
+    );
   satirlar.push("", "**Uç noktalar**", "", "```text", ...s.ucNoktalar, "```", "");
   for (const t of araclar) {
     satirlar.push(`**MCP aracı: \`${t.name}\`** — ${t.title}`, "", `> ${t.description}`, "");
@@ -105,7 +116,10 @@ export function renderKategori(k: KategoriModulu, ornekler: Record<string, strin
   out.push("| Kaynak | Rozet | MCP araçları | Durum |", "|---|---|---|---|");
   const araclari = (s: SourceMeta) => k.tools.filter((t) => t.sources.some((m) => m.id === s.id));
   for (const s of k.sources) {
-    const a = araclari(s).map((t) => `\`${t.name}\``).join("<br>") || "—";
+    const a =
+      araclari(s)
+        .map((t) => `\`${t.name}\``)
+        .join("<br>") || "—";
     out.push(`| ${s.ad} | ${rozetMetni(s)} | ${a} | ${durumRozeti(s.id)} |`);
   }
   out.push("");
@@ -113,7 +127,10 @@ export function renderKategori(k: KategoriModulu, ornekler: Record<string, strin
   return out.join("\n");
 }
 
-export function renderKatalog(moduller: KategoriModulu[], ornekler: Record<string, string> = {}): string {
+export function renderKatalog(
+  moduller: KategoriModulu[],
+  ornekler: Record<string, string> = {},
+): string {
   return moduller.map((k) => renderKategori(k, ornekler)).join("\n");
 }
 
@@ -132,6 +149,7 @@ export function readmeGuncelle(readme: string, isaret: string, icerik: string): 
   const son = `<!-- ${isaret}:BITIR -->`;
   const i = readme.indexOf(bas);
   const j = readme.indexOf(son);
-  if (i === -1 || j === -1 || j < i) throw new Error(`README'de ${bas} … ${son} işaretleri bulunamadı`);
+  if (i === -1 || j === -1 || j < i)
+    throw new Error(`README'de ${bas} … ${son} işaretleri bulunamadı`);
   return `${readme.slice(0, i + bas.length)}\n${icerik}\n${readme.slice(j)}`;
 }

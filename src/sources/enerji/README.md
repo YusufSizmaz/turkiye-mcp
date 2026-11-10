@@ -4,9 +4,9 @@
 
 İl/ilçe bazında akaryakıt pompa fiyatları ve EPİAŞ elektrik piyasası verileri.
 
-| Kaynak | Rozet | MCP araçları | Durum |
-|---|---|---|---|
-| Opet Akaryakıt Fiyatları | ✅ Birinci taraf | `enerji_get_fuel_prices` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fopet.json) |
+| Kaynak                    | Rozet                               | MCP araçları                    | Durum                                                                                                                 |
+| ------------------------- | ----------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Opet Akaryakıt Fiyatları  | ✅ Birinci taraf                    | `enerji_get_fuel_prices`        | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fopet.json)  |
 | EPİAŞ Şeffaflık Platformu | 🏛️ Resmî · 🔑 Anahtar · 🧪 Deneysel | `enerji_get_electricity_market` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fepias.json) |
 
 <details>
@@ -28,10 +28,10 @@ GET https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode={plaka}   (İstan
 
 > Current fuel pump prices in Türkiye by province/district from Opet (akaryakıt, benzin, motorin, mazot, LPG fiyatı).
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `il` | metin | ✔ | — | İl adı veya plaka, ör. "İstanbul" ya da 34 |
-| `ilce` | metin | — | — | İlçe adı. Boşsa ilk 10 ilçe. |
+| Parametre | Tip   | Zorunlu | Varsayılan | Açıklama                                   |
+| --------- | ----- | ------- | ---------- | ------------------------------------------ |
+| `il`      | metin | ✔       | —          | İl adı veya plaka, ör. "İstanbul" ya da 34 |
+| `ilce`    | metin | —       | —          | İlçe adı. Boşsa ilk 10 ilçe.               |
 
 Örnek sorular:
 
@@ -72,10 +72,10 @@ POST https://seffaflik.epias.com.tr/electricity-service/v1/consumption/data/real
 
 > Turkish electricity market data from EPİAŞ Transparency Platform: hourly day-ahead market clearing price (PTF, elektrik fiyatı) or real-time consumption (tüketim). Requires EPIAS_USERNAME and EPIAS_PASSWORD.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `veri` | `ptf` \| `tuketim` | — | `"ptf"` | ptf: piyasa takas fiyatı · tuketim: gerçek zamanlı tüketim |
-| `tarih` | metin | — | — | Tarih (YYYY-MM-DD). Boşsa bugün. |
+| Parametre | Tip                | Zorunlu | Varsayılan | Açıklama                                                   |
+| --------- | ------------------ | ------- | ---------- | ---------------------------------------------------------- |
+| `veri`    | `ptf` \| `tuketim` | —       | `"ptf"`    | ptf: piyasa takas fiyatı · tuketim: gerçek zamanlı tüketim |
+| `tarih`   | metin              | —       | —          | Tarih (YYYY-MM-DD). Boşsa bugün.                           |
 
 Örnek sorular:
 

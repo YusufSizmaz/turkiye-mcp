@@ -4,8 +4,8 @@
 
 81 il, ilçe ve mahalle bilgileri: nüfus, yüzölçümü, rakım, bölge, plaka, telefon kodu, koordinat.
 
-| Kaynak | Rozet | MCP araçları | Durum |
-|---|---|---|---|
+| Kaynak     | Rozet       | MCP araçları                                                                         | Durum                                                                                                                      |
+| ---------- | ----------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | TurkiyeAPI | 🌐 Topluluk | `cografya_get_provinces`<br>`cografya_get_districts`<br>`cografya_get_neighborhoods` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fturkiyeapi.json) |
 
 <details>
@@ -27,9 +27,9 @@ GET https://api.turkiyeapi.dev/v1/neighborhoods?province={İl}&district={İlçe}
 
 > Turkish provinces (il) facts: plate code, population (nüfus), area, altitude, region, metropolitan/coastal, phone area code, coordinates. One province by name or all 81.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `ad` | metin | — | — | İl adı veya plaka. Boşsa 81 il. |
+| Parametre | Tip   | Zorunlu | Varsayılan | Açıklama                        |
+| --------- | ----- | ------- | ---------- | ------------------------------- |
+| `ad`      | metin | —       | —          | İl adı veya plaka. Boşsa 81 il. |
 
 Örnek sorular:
 
@@ -40,9 +40,9 @@ GET https://api.turkiyeapi.dev/v1/neighborhoods?province={İl}&district={İlçe}
 
 > Districts (ilçe) of a Turkish province with population and area, most populous first.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `il` | metin | ✔ | — | İl adı veya plaka |
+| Parametre | Tip   | Zorunlu | Varsayılan | Açıklama          |
+| --------- | ----- | ------- | ---------- | ----------------- |
+| `il`      | metin | ✔       | —          | İl adı veya plaka |
 
 Örnek sorular:
 
@@ -52,11 +52,11 @@ GET https://api.turkiyeapi.dev/v1/neighborhoods?province={İl}&district={İlçe}
 
 > Neighborhoods (mahalle) of a district with population.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `il` | metin | ✔ | — | İl |
-| `ilce` | metin | ✔ | — | İlçe |
-| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
+| Parametre | Tip   | Zorunlu | Varsayılan | Açıklama                                              |
+| --------- | ----- | ------- | ---------- | ----------------------------------------------------- |
+| `il`      | metin | ✔       | —          | İl                                                    |
+| `ilce`    | metin | ✔       | —          | İlçe                                                  |
+| `limit`   | sayı  | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
 
 Örnek sorular:
 

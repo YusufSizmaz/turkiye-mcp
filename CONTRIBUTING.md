@@ -39,9 +39,11 @@ npm run test:live # gerçek kaynaklar
 
 ```ts
 export const adaptor: EczaneAdaptoru = {
-  plakalar: [16],          // Bursa
-  meta,                    // id: "eczane-bursa", rozet: "resmi" (eczacı odası)
-  async getir(plaka, ilce) { /* … */ return sonuc(meta, url, eczaneler); },
+  plakalar: [16], // Bursa
+  meta, // id: "eczane-bursa", rozet: "resmi" (eczacı odası)
+  async getir(plaka, ilce) {
+    /* … */ return sonuc(meta, url, eczaneler);
+  },
 };
 ```
 

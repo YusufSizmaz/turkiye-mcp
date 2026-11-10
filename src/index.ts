@@ -11,4 +11,5 @@ export { VERSION } from "./core/version.js";
 export { buildServer, createServer } from "./mcp/server.js";
 export type { KategoriModulu, ToolDef } from "./mcp/tool.js";
 export { KATEGORILER, secilenKategoriler, TUM_KAYNAKLAR } from "./registry.js";
+export * as kap from "./sources/finans/kap.js";
 export * as tcmb from "./sources/finans/tcmb.js";

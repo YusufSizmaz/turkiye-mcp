@@ -16,6 +16,7 @@ if want finans; then
   get finans/kap-main.json -X POST -H "Content-Type: application/json" -H "Referer: https://www.kap.org.tr/tr/bildirim-sorgu" \
     -d '{"fromDate":"09.11.2026","toDate":"10.11.2026","memberTypes":["IGS"],"disclosureClass":""}' \
     "https://www.kap.org.tr/tr/api/disclosure/list/main"
+  get finans/kap-search-turk-hava.json -X POST -H "Content-Type: application/json" -d '{"keyword":"türk hava"}' "https://www.kap.org.tr/tr/api/search/combined"
   get finans/truncgil.json "https://finans.truncgil.com/v4/today.json"
   get finans/isyatirim-thyao.json "https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=01-11-2026&enddate=10-11-2026"
   get finans/btcturk.json "https://api.btcturk.com/api/v2/ticker"

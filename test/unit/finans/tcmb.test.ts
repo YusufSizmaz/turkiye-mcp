@@ -71,9 +71,10 @@ describe("finans_get_exchange_rates aracı", () => {
     const arac = finans.tools.find((t) => t.name === "finans_get_exchange_rates");
     if (!arac) throw new Error("araç yok");
     mockFetch([{ match: "today.xml", ...xml(fixture("finans/tcmb-today.xml")) }]);
-    const s = await arac.run(arac.inputSchema.parse({ kodlar: ["usd", "EUR"] }), {});
+    const g = arac.inputSchema.parse({ kodlar: ["usd", "EUR"] });
+    const s = await arac.run(g, {});
     expect((s.veri as { kurlar: unknown[] }).kurlar).toHaveLength(2);
-    const ozet = arac.ozet(s);
+    const ozet = arac.ozet(s, g);
     expect(ozet).toContain("10.11.2026");
     expect(ozet).toContain("USD");
     expect(ozet).toContain("50,1981");

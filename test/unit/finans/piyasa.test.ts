@@ -106,9 +106,10 @@ describe("finans_get_crypto_prices aracı", () => {
     const arac = finans.tools.find((t) => t.name === "finans_get_crypto_prices");
     if (!arac) throw new Error("araç yok");
     mockFetch([{ match: "paribu.com", ...json("finans/paribu.json") }]);
-    const s = await arac.run(arac.inputSchema.parse({ borsa: "paribu", pariteler: ["btc"] }), {});
+    const g = arac.inputSchema.parse({ borsa: "paribu", pariteler: ["btc"] });
+    const s = await arac.run(g, {});
     expect(s.kaynak.id).toBe("paribu");
-    expect(arac.ozet(s)).toContain("BTC/TRY");
-    expect(arac.ozet(s)).toContain("3.696.359");
+    expect(arac.ozet(s, g)).toContain("BTC/TRY");
+    expect(arac.ozet(s, g)).toContain("3.696.359");
   });
 });

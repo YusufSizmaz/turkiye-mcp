@@ -30,7 +30,7 @@ function aracKaydet(server: McpServer, t: ToolDef, env: NodeJS.ProcessEnv): void
         const anahtarli = t.sources.find((m) => m.id === s.kaynak.id)?.anahtarGerekli ?? false;
         return {
           content: [
-            { type: "text" as const, text: `${t.ozet(s)}\n\n${kaynakSatiri(s, anahtarli)}` },
+            { type: "text" as const, text: `${t.ozet(s, input)}\n\n${kaynakSatiri(s, anahtarli)}` },
             { type: "text" as const, text: JSON.stringify(s.veri) },
           ],
           structuredContent: s as unknown as Record<string, unknown>,

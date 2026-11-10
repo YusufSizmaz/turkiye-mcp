@@ -11,6 +11,8 @@ export { VERSION } from "./core/version.js";
 export { buildServer, createServer } from "./mcp/server.js";
 export type { KategoriModulu, ToolDef } from "./mcp/tool.js";
 export { KATEGORILER, secilenKategoriler, TUM_KAYNAKLAR } from "./registry.js";
+export * as afad from "./sources/deprem/afad.js";
+export * as kandilli from "./sources/deprem/kandilli.js";
 export * as btcturk from "./sources/finans/btcturk.js";
 export * as evds from "./sources/finans/evds.js";
 export * as isyatirim from "./sources/finans/isyatirim.js";

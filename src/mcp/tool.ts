@@ -13,7 +13,7 @@ export interface ToolDef<S extends z.ZodObject = z.ZodObject> {
   run(input: z.infer<S>, env: NodeJS.ProcessEnv): Promise<Sonuc<unknown>>;
   /** Türkçe, kısa, insan okunur özet. */
   // biome-ignore lint/suspicious/noExplicitAny: her aracın veri tipi farklıdır
-  ozet(s: Sonuc<any>): string;
+  ozet(s: Sonuc<any>, girdi: z.infer<S>): string;
 }
 
 export interface KategoriModulu {

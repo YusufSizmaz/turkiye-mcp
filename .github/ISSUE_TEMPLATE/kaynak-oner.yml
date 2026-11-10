@@ -1,0 +1,31 @@
+name: Yeni kaynak öner
+description: turkiye-mcp'ye eklenmesini istediğiniz bir veri kaynağı
+title: "Kaynak önerisi: "
+labels: ["kaynak-onerisi"]
+body:
+  - type: input
+    id: kaynak
+    attributes:
+      label: Kaynak ve kurum
+      placeholder: "ör. Bursa Eczacı Odası nöbetçi eczaneler"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Uç nokta veya sayfa adresi
+    validations:
+      required: true
+  - type: dropdown
+    id: rozet
+    attributes:
+      label: Rozet
+      options:
+        - 🏛️ Resmî (kamu kurumu / belediye / meslek odası)
+        - ✅ Birinci taraf (şirketin kendi API'si)
+        - 🌐 Topluluk (üçüncü taraf)
+  - type: textarea
+    id: soru
+    attributes:
+      label: Bu kaynakla hangi soruyu cevaplamak istiyorsunuz?
+      placeholder: "ör. “Nilüfer'de bugün nöbetçi eczane hangisi?”"

@@ -1,0 +1,23 @@
+name: Kaynak bozuldu
+description: Bir araç yanlış/eksik veri döndürüyor ya da hata veriyor
+title: "Kaynak bozuldu: "
+labels: ["kaynak-bozuk"]
+body:
+  - type: input
+    id: arac
+    attributes:
+      label: Araç veya fonksiyon
+      placeholder: "ör. deprem_get_recent / afad.getEarthquakes"
+    validations:
+      required: true
+  - type: textarea
+    id: girdi
+    attributes:
+      label: Girdi ve aldığınız çıktı/hata
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: beklenen
+    attributes:
+      label: Ne bekliyordunuz?

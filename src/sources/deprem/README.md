@@ -40,6 +40,18 @@ GET https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=…
 - “Son 24 saatte 4'ten büyük deprem oldu mu?”
 - “Kandilli'ye göre İzmir'de bugün deprem var mı?”
 
+Gerçek örnek çıktı:
+
+```text
+Son 24 saatte 2,5+ büyüklüğünde 3 deprem (en yeniden eskiye).
+En büyüğü: 3,7 — Aladağ (Adana), 10.11.2026 21:12
+- 10.11.2026 21:12 · 3,7 ML · 7 km · Aladağ (Adana)
+- 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
+- 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
+
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A13%3A00&end=2026-11-10T19%3A13%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:13:49+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -81,6 +93,18 @@ GET http://www.koeri.boun.edu.tr/scripts/lst0.asp  (windows-1254, <pre> içinde 
 
 - “Son 24 saatte 4'ten büyük deprem oldu mu?”
 - “Kandilli'ye göre İzmir'de bugün deprem var mı?”
+
+Gerçek örnek çıktı:
+
+```text
+Son 24 saatte 2,5+ büyüklüğünde 3 deprem (en yeniden eskiye).
+En büyüğü: 3,7 — Aladağ (Adana), 10.11.2026 21:12
+- 10.11.2026 21:12 · 3,7 ML · 7 km · Aladağ (Adana)
+- 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
+- 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
+
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A13%3A00&end=2026-11-10T19%3A13%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:13:49+03:00)
+```
 
 **Kütüphane olarak**
 

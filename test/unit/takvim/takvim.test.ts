@@ -62,6 +62,19 @@ describe("Namaz vakitleri (Ezan Vakti)", () => {
     expect(s.veri[0]?.yer).toBe("İZMİR / ALİAĞA");
   });
 
+  it("ilçe Diyanet listesinde yoksa (merkez ilçe) il merkezine düşer ve not ekler", async () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-11-10T09:00:00Z"));
+    mockFetch([
+      { match: "/sehirler/2", ...j("ezan-sehirler-2.json") },
+      { match: "/ilceler/540", ...j("ezan-ilceler-izmir.json") },
+      { match: "/vakitler/9560", ...j("ezan-vakitler-izmir.json") },
+    ]);
+    const s = await getPrayerTimes({ il: "izmir", ilce: "Bornova" }, {});
+    expect(s.veri[0]?.yer).toBe("İZMİR / İZMİR");
+    expect(s.not).toContain("Bornova");
+  });
+
   it("Diyanet anahtarı varsa Diyanet'e giriş yapar ve onu kaynak gösterir", async () => {
     vi.useFakeTimers({ toFake: ["Date"] });
     vi.setSystemTime(new Date("2026-11-10T09:00:00Z"));

@@ -68,7 +68,10 @@ export interface Vakit {
 const EZAN = "https://ezanvakti.emushaf.net";
 const TURKIYE = "2";
 
-async function ilceBul(il: string, ilce?: string): Promise<{ id: string; yer: string }> {
+async function ilceBul(
+  il: string,
+  ilce?: string,
+): Promise<{ id: string; yer: string; not?: string }> {
   const ilAd = ilBulVeyaHata(il, ezanMeta.id).ad;
   const sehirler = await cached("ezan:sehirler", 86_400 * 7, () =>
     fetchJson<Array<{ SehirAdi: string; SehirID: string }>>(`${EZAN}/sehirler/${TURKIYE}`, {
@@ -83,16 +86,28 @@ async function ilceBul(il: string, ilce?: string): Promise<{ id: string; yer: st
       sourceId: ezanMeta.id,
     }),
   );
-  const hedef = ilce ?? ilAd;
-  const bulunan = ilceler.find((x) => eslesir(x.IlceAdi, hedef));
-  if (!bulunan) {
+  const bul = (ad: string) => ilceler.find((x) => eslesir(x.IlceAdi, ad));
+  const yerOf = (x: { IlceAdi: string }) => `${sehir.SehirAdi} / ${x.IlceAdi}`;
+  const istenen = ilce ? bul(ilce) : undefined;
+  if (istenen) return { id: istenen.IlceID, yer: yerOf(istenen) };
+  // Diyanet merkez ilçeleri (Kadıköy, Üsküdar, Bornova…) ayrı listelemez; il merkezinin vakti geçerlidir.
+  const merkez = bul(ilAd);
+  if (!merkez) {
     throw new KaynakHatasi(
       ezanMeta.id,
       "bulunamadi",
-      `${ilAd} ilinde "${hedef}" bulunamadı. İlçeler: ${ilceler.map((x) => x.IlceAdi).join(", ")}`,
+      `${ilAd} ilinde "${ilce ?? ilAd}" bulunamadı. İlçeler: ${ilceler.map((x) => x.IlceAdi).join(", ")}`,
     );
   }
-  return { id: bulunan.IlceID, yer: `${sehir.SehirAdi} / ${bulunan.IlceAdi}` };
+  return {
+    id: merkez.IlceID,
+    yer: yerOf(merkez),
+    ...(ilce
+      ? {
+          not: `Diyanet "${ilce}" için ayrı vakit yayımlamıyor (merkez ilçe); ${ilAd} merkez vakitleri verildi.`,
+        }
+      : {}),
+  };
 }
 
 const noktaliToIso = (s: string) => {
@@ -174,10 +189,10 @@ export async function getPrayerTimes(
   o: { il: string; ilce?: string; gunSayisi?: number },
   env: NodeJS.ProcessEnv,
 ): Promise<Sonuc<Vakit[]>> {
-  const { id, yer } = await ilceBul(o.il, o.ilce);
+  const { id, yer, not } = await ilceBul(o.il, o.ilce);
   const diyanet = kaynakAktif(diyanetMeta, env);
   const { url, vakitler } = diyanet ? await diyanetVakti(id, yer, env) : await ezanVakti(id, yer);
   const bugun = bugunTr();
   const secilen = vakitler.filter((v) => v.tarih >= bugun).slice(0, o.gunSayisi ?? 1);
-  return sonuc(diyanet ? diyanetMeta : ezanMeta, url, secilen);
+  return sonuc(diyanet ? diyanetMeta : ezanMeta, url, secilen, not);
 }

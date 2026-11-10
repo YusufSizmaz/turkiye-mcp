@@ -41,6 +41,16 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 - “Kadıköy'de hava şu an nasıl?”
 - “Ankara'da şu an kaç derece?”
 
+Gerçek örnek çıktı:
+
+```text
+Ankara / Keçiören — 10.11.2026 22:09
+3,1 °C (hissedilen 3,1 °C), Puslu
+Nem %96 · Rüzgâr 3,6 km/sa · Basınç 1.028,9 hPa
+
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:13:49+03:00)
+```
+
 **MCP aracı: `hava_get_forecast`** — Hava tahmini (MGM)
 
 > Weather forecast (hava tahmini) for a Turkish province/district from MGM: 5-day daily min/max and condition, or 3-hourly forecast.
@@ -55,6 +65,18 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 
 - “İzmir'de hafta sonu hava nasıl olacak?”
 - “Yarın Bursa'da yağmur var mı?”
+
+Gerçek örnek çıktı:
+
+```text
+- Çarşamba 11.11.2026: 12 / 21 °C, Sağanak Yağışlı
+- Perşembe 12.11.2026: 16 / 23 °C, Gökgürültülü Sağanak Yağışlı
+- Cuma 13.11.2026: 15 / 24 °C, Gökgürültülü Sağanak Yağışlı
+- Cumartesi 14.11.2026: 16 / 24 °C, Gökgürültülü Sağanak Yağışlı
+- Pazar 15.11.2026: 14 / 24 °C, Gökgürültülü Sağanak Yağışlı
+
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:13:49+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -96,6 +118,16 @@ POST https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0  {"Location":n
 
 - “Ankara'da hava kalitesi nasıl?”
 - “Şu an Türkiye'de havası en kirli yerler neresi?”
+
+Gerçek örnek çıktı:
+
+```text
+- İstanbul - Fikirtepe -MTHM: 90 (Orta, baskın NO2)
+- İstanbul - Kağıthane: 72 (Orta, baskın PM10)
+- İstanbul - Arnavutköy: 70 (Orta, baskın NO2)
+
+Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:13:50+03:00)
+```
 
 **Kütüphane olarak**
 

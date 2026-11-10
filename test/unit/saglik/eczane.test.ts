@@ -62,6 +62,19 @@ describe("Nöbetçi eczane — İzmir", () => {
     });
   });
 
+  it("nöbet notları (kırmızı paragraflar) adres sanılmaz, nobet alanına girer", async () => {
+    mockFetch([{ match: "izmireczaciodasi.org.tr", ...f("izmir.html", "text/html") }]);
+    const s = await getOnDuty({ il: "izmir", limit: 200 });
+    const e = s.veri.find((x) => x.ad === "HAKAN BİLGİLİ ECZANESİ");
+    expect(e).toMatchObject({
+      adres: "ATATÜRK MAH. SÜLEYMANİYE CAD. NO:87/A",
+      telefon: "05521676967",
+      konum: { enlem: 38.481029, boylam: 27.193975 },
+    });
+    expect(e?.nobet).toContain("23:59");
+    expect(e?.nobet).toContain("BORNOVA 3");
+  });
+
   it("semt/ilçe filtresi", async () => {
     mockFetch([{ match: "izmireczaciodasi.org.tr", ...f("izmir.html", "text/html") }]);
     const s = await getOnDuty({ il: "izmir", ilce: "alsancak" });

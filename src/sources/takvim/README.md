@@ -37,6 +37,25 @@ GET https://date.nager.at/api/v3/PublicHolidays/{yıl}/TR
 - “Bu yıl Kurban Bayramı ne zaman?”
 - “2027 resmî tatilleri hangi günlere denk geliyor?”
 
+Gerçek örnek çıktı:
+
+```text
+- 01.01.2026 Perşembe: Yılbaşı
+- 20.03.2026 Cuma: Ramazan Bayramı 1. Gün
+- 21.03.2026 Cumartesi: Ramazan Bayramı 2. Gün
+- 22.03.2026 Pazar: Ramazan Bayramı 3. Gün
+- 23.04.2026 Perşembe: Ulusal Egemenlik ve Çocuk Bayramı
+- 01.05.2026 Cuma: İşçi Bayramı
+- 19.05.2026 Salı: Atatürk'ü Anma, Gençlik ve Spor Bayramı
+- 27.05.2026 Çarşamba: Kurban Bayramı 1. Gün
+- 28.05.2026 Perşembe: Kurban Bayramı 2. Gün
+- 29.05.2026 Cuma: Kurban Bayramı 3. Gün
+- 30.05.2026 Cumartesi: Kurban Bayramı 4. Gün
+- 15.07.2026 Çarşamba: Demokrasi ve Millî Birlik Günü
+- 30.08.2026 Pazar: Zafer Bayramı
+- 29.10.2026 Perşembe: Cumhuriyet Bayramı
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -77,6 +96,16 @@ GET https://ezanvakti.emushaf.net/vakitler/{ilceId}
 
 - “İstanbul'da bugün akşam ezanı kaçta?”
 - “Üsküdar için bu haftanın namaz vakitleri”
+
+Gerçek örnek çıktı:
+
+```text
+İSTANBUL / İSTANBUL
+Salı 10.11.2026 (1 Cemaziyelahir 1448): İmsak 06:11 · Güneş 07:38 · Öğle 12:53 · İkindi 15:33 · Akşam 17:58 · Yatsı 19:20
+
+Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:13:53+03:00)
+Not: Diyanet "Üsküdar" için ayrı vakit yayımlamıyor (merkez ilçe); İstanbul merkez vakitleri verildi.
+```
 
 **Kütüphane olarak**
 

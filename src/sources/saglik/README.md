@@ -40,6 +40,21 @@ GET https://www.istanbuleczaciodasi.org.tr/api/nobetci-eczane-web/?action=distri
 - “Kadıköy'de bugün nöbetçi eczane hangisi?”
 - “Çankaya'da açık eczane var mı?”
 
+Gerçek örnek çıktı:
+
+```text
+• BENLIOGLU ECZANESİ (BORNOVA 1)
+  ERGENE MAH. MUSTAFA KEMAL CAD. NO:26/D HİLAL NECMİYE HÜSNÜ ATABERK İLKÖĞRETİM OKULU KARŞISI
+  Tel: 02323424557
+  Harita: https://www.google.com/maps?q=38.465192,27.216396
+• BORNOVA ORDU ECZANESİ (BORNOVA 2)
+  KAZIM DİRİK MAH. FATİH SULTAN MEHMET CAD. NO:3/A
+  Tel: 02323737449
+  Harita: https://www.google.com/maps?q=38.464071,27.206464
+
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -79,6 +94,21 @@ GET https://www.izmireczaciodasi.org.tr/nobetci-eczaneler   (HTML)
 - “Kadıköy'de bugün nöbetçi eczane hangisi?”
 - “Çankaya'da açık eczane var mı?”
 
+Gerçek örnek çıktı:
+
+```text
+• BENLIOGLU ECZANESİ (BORNOVA 1)
+  ERGENE MAH. MUSTAFA KEMAL CAD. NO:26/D HİLAL NECMİYE HÜSNÜ ATABERK İLKÖĞRETİM OKULU KARŞISI
+  Tel: 02323424557
+  Harita: https://www.google.com/maps?q=38.465192,27.216396
+• BORNOVA ORDU ECZANESİ (BORNOVA 2)
+  KAZIM DİRİK MAH. FATİH SULTAN MEHMET CAD. NO:3/A
+  Tel: 02323737449
+  Harita: https://www.google.com/maps?q=38.464071,27.206464
+
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -117,6 +147,21 @@ GET https://www.aeo.org.tr/getPharmacies/{YYYY-MM-DD}   (JSON içinde HTML parç
 
 - “Kadıköy'de bugün nöbetçi eczane hangisi?”
 - “Çankaya'da açık eczane var mı?”
+
+Gerçek örnek çıktı:
+
+```text
+• BENLIOGLU ECZANESİ (BORNOVA 1)
+  ERGENE MAH. MUSTAFA KEMAL CAD. NO:26/D HİLAL NECMİYE HÜSNÜ ATABERK İLKÖĞRETİM OKULU KARŞISI
+  Tel: 02323424557
+  Harita: https://www.google.com/maps?q=38.465192,27.216396
+• BORNOVA ORDU ECZANESİ (BORNOVA 2)
+  KAZIM DİRİK MAH. FATİH SULTAN MEHMET CAD. NO:3/A
+  Tel: 02323737449
+  Harita: https://www.google.com/maps?q=38.464071,27.206464
+
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+```
 
 **Kütüphane olarak**
 

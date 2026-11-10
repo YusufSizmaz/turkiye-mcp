@@ -43,6 +43,17 @@ GET https://www.tcmb.gov.tr/kurlar/{YYYYMM}/{DDMMYYYY}.xml
 - “Dolar ve euro bugün kaç TL?”
 - “1 Ocak 2026'da TCMB sterlin satış kuru neydi?”
 
+Gerçek örnek çıktı:
+
+```text
+TCMB kurları — 10.11.2026 (bülten 2026/211)
+USD (1 ABD DOLARI): alış 50,1078 · satış 50,1981
+EUR (1 EURO): alış 56,2781 · satış 56,3795
+GBP (1 İNGİLİZ STERLİNİ): alış 67,2269 · satış 67,5774
+
+Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -87,6 +98,17 @@ POST https://www.kap.org.tr/tr/api/search/combined  {"keyword":"türk hava"}
 - “KAP'a son düşen bildirimler neler?”
 - “THYAO bu hafta KAP'a ne açıkladı?”
 
+Gerçek örnek çıktı:
+
+```text
+3 KAP bildirimi:
+- 10.11.2026 22:00 · LUXERA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri Hakkında (https://www.kap.org.tr/tr/Bildirim/1696756)
+- 10.11.2026 21:51 · PC İLETİŞİM VE MEDYA HİZMETLERİ SANAYİ TİCARET A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri (https://www.kap.org.tr/tr/Bildirim/1696755)
+- 10.11.2026 20:58 · İSTANBUL ULUSLARARASI DERECELENDİRME HİZMETLERİ A.Ş.: Kredi Derecelendirmesi — Kredi Derecelendirme Notunun Askıya Alınması (https://www.kap.org.tr/tr/Bildirim/1696754)
+
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **MCP aracı: `finans_search_kap_companies`** — KAP şirket/fon arama
 
 > Search companies and funds on KAP by name or ticker (şirket ara, hisse kodu bul). Returns name, ticker and KAP company page link.
@@ -99,6 +121,14 @@ POST https://www.kap.org.tr/tr/api/search/combined  {"keyword":"türk hava"}
 
 - “Aselsan'ın hisse kodu ne?”
 - “KAP'ta 'enerji' geçen şirketleri bul”
+
+Gerçek örnek çıktı:
+
+```text
+- ASELS — ASELSAN ELEKTRONİK SANAYİ VE TİCARET A.Ş.
+
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:13:48+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -138,6 +168,17 @@ GET https://finans.truncgil.com/v4/today.json
 
 - “Gram altın ve çeyrek altın şu an kaç TL?”
 - “Gümüşün gramı ne kadar?”
+
+Gerçek örnek çıktı:
+
+```text
+Serbest piyasa — 10.11.2026 22:13
+- Gram Altın: alış 6.508,2 · satış 6.509,18 TL (-2,58%)
+- Çeyrek Altın: alış 10.590 · satış 10.677 TL (-2,47%)
+- Tam Altın: alış 42.281 · satış 42.538 TL (-2,47%)
+
+Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:13:48+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -179,6 +220,16 @@ GET https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/
 - “THYAO son bir ayda nasıl gitti?”
 - “ASELS'in dünkü kapanışı neydi?”
 
+Gerçek örnek çıktı:
+
+```text
+12.10.2026 → 09.11.2026 (20 işlem günü)
+Son kapanış: 310 TL · Dönem değişimi: +8,49%
+Dönem en düşük/en yüksek: 242,2 / 310,25 TL
+
+Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -218,6 +269,16 @@ GET https://api.btcturk.com/api/v2/ticker
 - “Bitcoin şu an kaç TL?”
 - “Paribu'da ETH ve AVAX fiyatları ne?”
 
+Gerçek örnek çıktı:
+
+```text
+- BTC/TRY: 3.681.406 (24s -1,53%)
+- ETH/TRY: 102.546 (24s -3,57%)
+- USDT/TRY: 50,184 (24s +0,18%)
+
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -255,6 +316,16 @@ GET https://www.paribu.com/ticker
 
 - “Bitcoin şu an kaç TL?”
 - “Paribu'da ETH ve AVAX fiyatları ne?”
+
+Gerçek örnek çıktı:
+
+```text
+- BTC/TRY: 3.681.406 (24s -1,53%)
+- ETH/TRY: 102.546 (24s -3,57%)
+- USDT/TRY: 50,184 (24s +0,18%)
+
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+```
 
 **Kütüphane olarak**
 

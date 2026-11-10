@@ -162,6 +162,17 @@ GET https://www.tcmb.gov.tr/kurlar/{YYYYMM}/{DDMMYYYY}.xml
 - “Dolar ve euro bugün kaç TL?”
 - “1 Ocak 2026'da TCMB sterlin satış kuru neydi?”
 
+Gerçek örnek çıktı:
+
+```text
+TCMB kurları — 10.11.2026 (bülten 2026/211)
+USD (1 ABD DOLARI): alış 50,1078 · satış 50,1981
+EUR (1 EURO): alış 56,2781 · satış 56,3795
+GBP (1 İNGİLİZ STERLİNİ): alış 67,2269 · satış 67,5774
+
+Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -206,6 +217,17 @@ POST https://www.kap.org.tr/tr/api/search/combined  {"keyword":"türk hava"}
 - “KAP'a son düşen bildirimler neler?”
 - “THYAO bu hafta KAP'a ne açıkladı?”
 
+Gerçek örnek çıktı:
+
+```text
+3 KAP bildirimi:
+- 10.11.2026 22:00 · LUXERA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri Hakkında (https://www.kap.org.tr/tr/Bildirim/1696756)
+- 10.11.2026 21:51 · PC İLETİŞİM VE MEDYA HİZMETLERİ SANAYİ TİCARET A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri (https://www.kap.org.tr/tr/Bildirim/1696755)
+- 10.11.2026 20:58 · İSTANBUL ULUSLARARASI DERECELENDİRME HİZMETLERİ A.Ş.: Kredi Derecelendirmesi — Kredi Derecelendirme Notunun Askıya Alınması (https://www.kap.org.tr/tr/Bildirim/1696754)
+
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **MCP aracı: `finans_search_kap_companies`** — KAP şirket/fon arama
 
 > Search companies and funds on KAP by name or ticker (şirket ara, hisse kodu bul). Returns name, ticker and KAP company page link.
@@ -218,6 +240,14 @@ POST https://www.kap.org.tr/tr/api/search/combined  {"keyword":"türk hava"}
 
 - “Aselsan'ın hisse kodu ne?”
 - “KAP'ta 'enerji' geçen şirketleri bul”
+
+Gerçek örnek çıktı:
+
+```text
+- ASELS — ASELSAN ELEKTRONİK SANAYİ VE TİCARET A.Ş.
+
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:13:48+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -257,6 +287,17 @@ GET https://finans.truncgil.com/v4/today.json
 
 - “Gram altın ve çeyrek altın şu an kaç TL?”
 - “Gümüşün gramı ne kadar?”
+
+Gerçek örnek çıktı:
+
+```text
+Serbest piyasa — 10.11.2026 22:13
+- Gram Altın: alış 6.508,2 · satış 6.509,18 TL (-2,58%)
+- Çeyrek Altın: alış 10.590 · satış 10.677 TL (-2,47%)
+- Tam Altın: alış 42.281 · satış 42.538 TL (-2,47%)
+
+Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:13:48+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -298,6 +339,16 @@ GET https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/
 - “THYAO son bir ayda nasıl gitti?”
 - “ASELS'in dünkü kapanışı neydi?”
 
+Gerçek örnek çıktı:
+
+```text
+12.10.2026 → 09.11.2026 (20 işlem günü)
+Son kapanış: 310 TL · Dönem değişimi: +8,49%
+Dönem en düşük/en yüksek: 242,2 / 310,25 TL
+
+Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -337,6 +388,16 @@ GET https://api.btcturk.com/api/v2/ticker
 - “Bitcoin şu an kaç TL?”
 - “Paribu'da ETH ve AVAX fiyatları ne?”
 
+Gerçek örnek çıktı:
+
+```text
+- BTC/TRY: 3.681.406 (24s -1,53%)
+- ETH/TRY: 102.546 (24s -3,57%)
+- USDT/TRY: 50,184 (24s +0,18%)
+
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -374,6 +435,16 @@ GET https://www.paribu.com/ticker
 
 - “Bitcoin şu an kaç TL?”
 - “Paribu'da ETH ve AVAX fiyatları ne?”
+
+Gerçek örnek çıktı:
+
+```text
+- BTC/TRY: 3.681.406 (24s -1,53%)
+- ETH/TRY: 102.546 (24s -3,57%)
+- USDT/TRY: 50,184 (24s +0,18%)
+
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -470,6 +541,18 @@ GET https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=…
 - “Son 24 saatte 4'ten büyük deprem oldu mu?”
 - “Kandilli'ye göre İzmir'de bugün deprem var mı?”
 
+Gerçek örnek çıktı:
+
+```text
+Son 24 saatte 2,5+ büyüklüğünde 3 deprem (en yeniden eskiye).
+En büyüğü: 3,7 — Aladağ (Adana), 10.11.2026 21:12
+- 10.11.2026 21:12 · 3,7 ML · 7 km · Aladağ (Adana)
+- 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
+- 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
+
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A13%3A00&end=2026-11-10T19%3A13%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:13:49+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -511,6 +594,18 @@ GET http://www.koeri.boun.edu.tr/scripts/lst0.asp  (windows-1254, <pre> içinde 
 
 - “Son 24 saatte 4'ten büyük deprem oldu mu?”
 - “Kandilli'ye göre İzmir'de bugün deprem var mı?”
+
+Gerçek örnek çıktı:
+
+```text
+Son 24 saatte 2,5+ büyüklüğünde 3 deprem (en yeniden eskiye).
+En büyüğü: 3,7 — Aladağ (Adana), 10.11.2026 21:12
+- 10.11.2026 21:12 · 3,7 ML · 7 km · Aladağ (Adana)
+- 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
+- 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
+
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A13%3A00&end=2026-11-10T19%3A13%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:13:49+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -557,6 +652,25 @@ GET https://www.resmigazete.gov.tr/eskiler/{YYYY}/{MM}/{YYYYMMDD}.htm  (windows-
 
 - “Bugünkü Resmî Gazete'de neler var?”
 - “Bu haftaki Resmî Gazete'lerde vergiyle ilgili bir düzenleme çıktı mı?”
+
+Gerçek örnek çıktı:
+
+```text
+Resmî Gazete — 10.11.2026, Sayı 33426 (11 madde)
+HÂKİMLER VE SAVCILAR KURULU KARARLARI
+  – Hâkimler ve Savcılar Kuruluna Ait Kararlar
+YÖNETMELİKLER
+  – Gençlik ve Spor Bakanlığı Yurt Hizmetleri Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik
+  – İller Bankası Anonim Şirketi İnsan Kaynakları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik
+  – Türkiye Sağlık Enstitüleri Başkanlığı Bünyesinde Oluşturulacak Bilim Kurulları Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik
+GENELGE
+  – Yeşil Mutabakat Eylem Planı (2026-2030) ile İlgili 2026/12 Sayılı Cumhurbaşkanlığı Genelgesi
+TEBLİĞLER
+  – Vergi Usul Kanunu Genel Tebliği (Sıra No: 597)
+  – Türk Gıda Kodeksi Peynir Tebliği (No: 2026/24)
+İLÂN BÖLÜMÜ
+  – Yargı İlânları
+```
 
 **Kütüphane olarak**
 
@@ -610,6 +724,16 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 - “Kadıköy'de hava şu an nasıl?”
 - “Ankara'da şu an kaç derece?”
 
+Gerçek örnek çıktı:
+
+```text
+Ankara / Keçiören — 10.11.2026 22:09
+3,1 °C (hissedilen 3,1 °C), Puslu
+Nem %96 · Rüzgâr 3,6 km/sa · Basınç 1.028,9 hPa
+
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:13:49+03:00)
+```
+
 **MCP aracı: `hava_get_forecast`** — Hava tahmini (MGM)
 
 > Weather forecast (hava tahmini) for a Turkish province/district from MGM: 5-day daily min/max and condition, or 3-hourly forecast.
@@ -624,6 +748,18 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 
 - “İzmir'de hafta sonu hava nasıl olacak?”
 - “Yarın Bursa'da yağmur var mı?”
+
+Gerçek örnek çıktı:
+
+```text
+- Çarşamba 11.11.2026: 12 / 21 °C, Sağanak Yağışlı
+- Perşembe 12.11.2026: 16 / 23 °C, Gökgürültülü Sağanak Yağışlı
+- Cuma 13.11.2026: 15 / 24 °C, Gökgürültülü Sağanak Yağışlı
+- Cumartesi 14.11.2026: 16 / 24 °C, Gökgürültülü Sağanak Yağışlı
+- Pazar 15.11.2026: 14 / 24 °C, Gökgürültülü Sağanak Yağışlı
+
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:13:49+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -665,6 +801,16 @@ POST https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0  {"Location":n
 
 - “Ankara'da hava kalitesi nasıl?”
 - “Şu an Türkiye'de havası en kirli yerler neresi?”
+
+Gerçek örnek çıktı:
+
+```text
+- İstanbul - Fikirtepe -MTHM: 90 (Orta, baskın NO2)
+- İstanbul - Kağıthane: 72 (Orta, baskın PM10)
+- İstanbul - Arnavutköy: 70 (Orta, baskın NO2)
+
+Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:13:50+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -714,6 +860,17 @@ GET https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode={plaka}   (İstan
 
 - “Kadıköy'de benzin litresi kaç TL?”
 - “Ankara'da motorin fiyatı ne?”
+
+Gerçek örnek çıktı:
+
+```text
+İSTANBUL ANADOLU / KADIKÖY
+  Kurşunsuz Benzin 95: 74,49 TL
+  Motorin UltraForce: 95,09 TL
+  Motorin EcoForce: 95,09 TL
+
+Kaynak: ✅ Birinci taraf Opet Akaryakıt Fiyatları — https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=34 (alındı 2026-11-10T22:13:50+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -808,6 +965,21 @@ GET https://www.istanbuleczaciodasi.org.tr/api/nobetci-eczane-web/?action=distri
 - “Kadıköy'de bugün nöbetçi eczane hangisi?”
 - “Çankaya'da açık eczane var mı?”
 
+Gerçek örnek çıktı:
+
+```text
+• BENLIOGLU ECZANESİ (BORNOVA 1)
+  ERGENE MAH. MUSTAFA KEMAL CAD. NO:26/D HİLAL NECMİYE HÜSNÜ ATABERK İLKÖĞRETİM OKULU KARŞISI
+  Tel: 02323424557
+  Harita: https://www.google.com/maps?q=38.465192,27.216396
+• BORNOVA ORDU ECZANESİ (BORNOVA 2)
+  KAZIM DİRİK MAH. FATİH SULTAN MEHMET CAD. NO:3/A
+  Tel: 02323737449
+  Harita: https://www.google.com/maps?q=38.464071,27.206464
+
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -847,6 +1019,21 @@ GET https://www.izmireczaciodasi.org.tr/nobetci-eczaneler   (HTML)
 - “Kadıköy'de bugün nöbetçi eczane hangisi?”
 - “Çankaya'da açık eczane var mı?”
 
+Gerçek örnek çıktı:
+
+```text
+• BENLIOGLU ECZANESİ (BORNOVA 1)
+  ERGENE MAH. MUSTAFA KEMAL CAD. NO:26/D HİLAL NECMİYE HÜSNÜ ATABERK İLKÖĞRETİM OKULU KARŞISI
+  Tel: 02323424557
+  Harita: https://www.google.com/maps?q=38.465192,27.216396
+• BORNOVA ORDU ECZANESİ (BORNOVA 2)
+  KAZIM DİRİK MAH. FATİH SULTAN MEHMET CAD. NO:3/A
+  Tel: 02323737449
+  Harita: https://www.google.com/maps?q=38.464071,27.206464
+
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -885,6 +1072,21 @@ GET https://www.aeo.org.tr/getPharmacies/{YYYY-MM-DD}   (JSON içinde HTML parç
 
 - “Kadıköy'de bugün nöbetçi eczane hangisi?”
 - “Çankaya'da açık eczane var mı?”
+
+Gerçek örnek çıktı:
+
+```text
+• BENLIOGLU ECZANESİ (BORNOVA 1)
+  ERGENE MAH. MUSTAFA KEMAL CAD. NO:26/D HİLAL NECMİYE HÜSNÜ ATABERK İLKÖĞRETİM OKULU KARŞISI
+  Tel: 02323424557
+  Harita: https://www.google.com/maps?q=38.465192,27.216396
+• BORNOVA ORDU ECZANESİ (BORNOVA 2)
+  KAZIM DİRİK MAH. FATİH SULTAN MEHMET CAD. NO:3/A
+  Tel: 02323737449
+  Harita: https://www.google.com/maps?q=38.464071,27.206464
+
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -932,6 +1134,16 @@ _Parametre yok._
 - “İstanbul'da trafik şu an nasıl?”
 - “Anadolu yakasında trafik yoğun mu?”
 
+Gerçek örnek çıktı:
+
+```text
+İstanbul trafik endeksi
+Genel: 20/100 (akıcı)
+Anadolu: 13/100 (akıcı) · Avrupa: 26/100 (akıcı)
+
+Kaynak: 🏛️ Resmî İBB Trafik Endeksi — https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont (alındı 2026-11-10T22:13:51+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -969,6 +1181,16 @@ GET https://api.ibb.gov.tr/ispark/Park
 Örnek sorular:
 
 - “Kadıköy'de boş yeri olan İSPARK otoparkları hangileri?”
+
+Gerçek örnek çıktı:
+
+```text
+- Kadıköy Yeni Salı Pazarı PD Katlı Otoparkı (KADIKÖY): 488/1350 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+- Bostancı Açık (KADIKÖY): 342/394 boş · AÇIK OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+- Kadıköy Hasanpaşa Gazhane Katlı Otoparkı (KADIKÖY): 169/310 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+
+Kaynak: 🏛️ Resmî İSPARK Otopark Doluluk — https://api.ibb.gov.tr/ispark/Park (alındı 2026-11-10T22:13:51+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -1009,6 +1231,20 @@ GET https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id={id}&q=&li
 
 - “İBB açık veride baraj doluluk verisi var mı?”
 - “İzmir'de afet toplanma alanları veri seti”
+
+Gerçek örnek çıktı:
+
+```text
+4 veri seti bulundu:
+• İstanbul Barajlarında Yağış ve Günlük Tüketim Verileri — İSKİ (güncelleme 2024-08-26)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlarina-dusen-gunluk-toplam-yagis-miktari
+  - [XLSX] İstanbul Barajlarına Düşen Yağış Ve Günlük Tüketim Verileri · sorgulanabilir: 762b802e-c5f9-4175-a5c1-78b892d9764b
+• İstanbul Barajları Günlük Doluluk Oranları — İSKİ (güncelleme 2024-03-01)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
+  - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
+
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula
 
@@ -1066,6 +1302,20 @@ GET https://acikveri.bizizmir.com/api/3/action/datastore_search?resource_id={id}
 
 - “İBB açık veride baraj doluluk verisi var mı?”
 - “İzmir'de afet toplanma alanları veri seti”
+
+Gerçek örnek çıktı:
+
+```text
+4 veri seti bulundu:
+• İstanbul Barajlarında Yağış ve Günlük Tüketim Verileri — İSKİ (güncelleme 2024-08-26)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlarina-dusen-gunluk-toplam-yagis-miktari
+  - [XLSX] İstanbul Barajlarına Düşen Yağış Ve Günlük Tüketim Verileri · sorgulanabilir: 762b802e-c5f9-4175-a5c1-78b892d9764b
+• İstanbul Barajları Günlük Doluluk Oranları — İSKİ (güncelleme 2024-03-01)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
+  - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
+
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula
 
@@ -1129,6 +1379,14 @@ GET https://api.turkiyeapi.dev/v1/neighborhoods?province={İl}&district={İlçe}
 - “Ankara'nın nüfusu ve yüzölçümü ne?”
 - “Kıyısı olan büyükşehirler hangileri?”
 
+Gerçek örnek çıktı:
+
+```text
+- Eskişehir (26) · İç Anadolu · nüfus 927.956 · 13.960 km² · rakım 796 m · tel 222 · büyükşehir
+
+Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/provinces?name=Eski%C5%9Fehir (alındı 2026-11-10T22:13:52+03:00)
+```
+
 **MCP aracı: `cografya_get_districts`** — İlçeler
 
 > Districts (ilçe) of a Turkish province with population and area, most populous first.
@@ -1140,6 +1398,25 @@ GET https://api.turkiyeapi.dev/v1/neighborhoods?province={İl}&district={İlçe}
 Örnek sorular:
 
 - “İzmir'in en kalabalık ilçeleri hangileri?”
+
+Gerçek örnek çıktı:
+
+```text
+13 ilçe:
+- Bodrum: 207.196 kişi, 650 km²
+- Fethiye: 187.332 kişi, 875 km²
+- Milas: 152.275 kişi, 2.067 km²
+- Menteşe: 126.288 kişi, 1.659 km²
+- Marmaris: 97.373 kişi, 906 km²
+- Seydikemer: 65.648 kişi, 2.208 km²
+- Ortaca: 58.704 kişi, 285 km²
+- Dalaman: 53.327 kişi, 608 km²
+- Yatağan: 45.024 kişi, 851 km²
+- Köyceğiz: 41.810 kişi, 1.329 km²
+- Ula: 27.649 kişi, 479 km²
+- Datça: 26.067 kişi, 436 km²
+- Kavaklıdere: 10.854 kişi, 302 km²
+```
 
 **MCP aracı: `cografya_get_neighborhoods`** — Mahalleler
 
@@ -1154,6 +1431,16 @@ GET https://api.turkiyeapi.dev/v1/neighborhoods?province={İl}&district={İlçe}
 Örnek sorular:
 
 - “Kadıköy'ün mahalleleri ve nüfusları”
+
+Gerçek örnek çıktı:
+
+```text
+- Abbasağa: 4.054
+- Akat: 12.089
+- Arnavutköy: 3.371
+
+Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/neighborhoods?province=%C4%B0stanbul&district=Be%C5%9Fikta%C5%9F&limit=1000 (alındı 2026-11-10T22:13:52+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -1203,6 +1490,25 @@ GET https://date.nager.at/api/v3/PublicHolidays/{yıl}/TR
 - “Bu yıl Kurban Bayramı ne zaman?”
 - “2027 resmî tatilleri hangi günlere denk geliyor?”
 
+Gerçek örnek çıktı:
+
+```text
+- 01.01.2026 Perşembe: Yılbaşı
+- 20.03.2026 Cuma: Ramazan Bayramı 1. Gün
+- 21.03.2026 Cumartesi: Ramazan Bayramı 2. Gün
+- 22.03.2026 Pazar: Ramazan Bayramı 3. Gün
+- 23.04.2026 Perşembe: Ulusal Egemenlik ve Çocuk Bayramı
+- 01.05.2026 Cuma: İşçi Bayramı
+- 19.05.2026 Salı: Atatürk'ü Anma, Gençlik ve Spor Bayramı
+- 27.05.2026 Çarşamba: Kurban Bayramı 1. Gün
+- 28.05.2026 Perşembe: Kurban Bayramı 2. Gün
+- 29.05.2026 Cuma: Kurban Bayramı 3. Gün
+- 30.05.2026 Cumartesi: Kurban Bayramı 4. Gün
+- 15.07.2026 Çarşamba: Demokrasi ve Millî Birlik Günü
+- 30.08.2026 Pazar: Zafer Bayramı
+- 29.10.2026 Perşembe: Cumhuriyet Bayramı
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -1243,6 +1549,16 @@ GET https://ezanvakti.emushaf.net/vakitler/{ilceId}
 
 - “İstanbul'da bugün akşam ezanı kaçta?”
 - “Üsküdar için bu haftanın namaz vakitleri”
+
+Gerçek örnek çıktı:
+
+```text
+İSTANBUL / İSTANBUL
+Salı 10.11.2026 (1 Cemaziyelahir 1448): İmsak 06:11 · Güneş 07:38 · Öğle 12:53 · İkindi 15:33 · Akşam 17:58 · Yatsı 19:20
+
+Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:13:53+03:00)
+Not: Diyanet "Üsküdar" için ayrı vakit yayımlamıyor (merkez ilçe); İstanbul merkez vakitleri verildi.
+```
 
 **Kütüphane olarak**
 

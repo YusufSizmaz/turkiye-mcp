@@ -32,7 +32,13 @@ export function ayristir(html: string): Eczane[] {
     const baslik = temiz($(el).text());
     const m = /^(.*?ECZANES[İI])\s*-\s*(.+)$/i.exec(baslik);
     if (!m) return;
-    const p = $(el).nextAll("p").first();
+    const paragraflar = $(el).nextAll("p");
+    const notlar = paragraflar
+      .filter((_, x) => $(x).hasClass("red"))
+      .map((_, x) => temiz($(x).text()))
+      .get()
+      .filter(Boolean);
+    const p = paragraflar.filter((_, x) => !$(x).hasClass("red")).first();
     const adres = temiz(p.contents().first().text()) || temiz(p.text().split(/\d{10,11}/)[0]);
     const tel = p.find('a[href^="tel:"]').first().attr("href")?.replace("tel:", "").trim();
     out.push({
@@ -42,7 +48,7 @@ export function ayristir(html: string): Eczane[] {
       telefon: tel || null,
       konum: konumAyristir(p.find('a[href*="google.com/maps"]').first().attr("href")),
       tarif: null,
-      nobet: null,
+      nobet: notlar.length ? notlar.join(" · ") : null,
     });
   });
   if (!out.length)

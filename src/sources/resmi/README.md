@@ -36,6 +36,25 @@ GET https://www.resmigazete.gov.tr/eskiler/{YYYY}/{MM}/{YYYYMMDD}.htm  (windows-
 - “Bugünkü Resmî Gazete'de neler var?”
 - “Bu haftaki Resmî Gazete'lerde vergiyle ilgili bir düzenleme çıktı mı?”
 
+Gerçek örnek çıktı:
+
+```text
+Resmî Gazete — 10.11.2026, Sayı 33426 (11 madde)
+HÂKİMLER VE SAVCILAR KURULU KARARLARI
+  – Hâkimler ve Savcılar Kuruluna Ait Kararlar
+YÖNETMELİKLER
+  – Gençlik ve Spor Bakanlığı Yurt Hizmetleri Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik
+  – İller Bankası Anonim Şirketi İnsan Kaynakları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik
+  – Türkiye Sağlık Enstitüleri Başkanlığı Bünyesinde Oluşturulacak Bilim Kurulları Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik
+GENELGE
+  – Yeşil Mutabakat Eylem Planı (2026-2030) ile İlgili 2026/12 Sayılı Cumhurbaşkanlığı Genelgesi
+TEBLİĞLER
+  – Vergi Usul Kanunu Genel Tebliği (Sıra No: 597)
+  – Türk Gıda Kodeksi Peynir Tebliği (No: 2026/24)
+İLÂN BÖLÜMÜ
+  – Yargı İlânları
+```
+
 **Kütüphane olarak**
 
 ```ts

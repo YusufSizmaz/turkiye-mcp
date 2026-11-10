@@ -36,6 +36,16 @@ _Parametre yok._
 - “İstanbul'da trafik şu an nasıl?”
 - “Anadolu yakasında trafik yoğun mu?”
 
+Gerçek örnek çıktı:
+
+```text
+İstanbul trafik endeksi
+Genel: 20/100 (akıcı)
+Anadolu: 13/100 (akıcı) · Avrupa: 26/100 (akıcı)
+
+Kaynak: 🏛️ Resmî İBB Trafik Endeksi — https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont (alındı 2026-11-10T22:13:51+03:00)
+```
+
 **Kütüphane olarak**
 
 ```ts
@@ -73,6 +83,16 @@ GET https://api.ibb.gov.tr/ispark/Park
 Örnek sorular:
 
 - “Kadıköy'de boş yeri olan İSPARK otoparkları hangileri?”
+
+Gerçek örnek çıktı:
+
+```text
+- Kadıköy Yeni Salı Pazarı PD Katlı Otoparkı (KADIKÖY): 488/1350 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+- Bostancı Açık (KADIKÖY): 342/394 boş · AÇIK OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+- Kadıköy Hasanpaşa Gazhane Katlı Otoparkı (KADIKÖY): 169/310 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+
+Kaynak: 🏛️ Resmî İSPARK Otopark Doluluk — https://api.ibb.gov.tr/ispark/Park (alındı 2026-11-10T22:13:51+03:00)
+```
 
 **Kütüphane olarak**
 
@@ -113,6 +133,20 @@ GET https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id={id}&q=&li
 
 - “İBB açık veride baraj doluluk verisi var mı?”
 - “İzmir'de afet toplanma alanları veri seti”
+
+Gerçek örnek çıktı:
+
+```text
+4 veri seti bulundu:
+• İstanbul Barajlarında Yağış ve Günlük Tüketim Verileri — İSKİ (güncelleme 2024-08-26)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlarina-dusen-gunluk-toplam-yagis-miktari
+  - [XLSX] İstanbul Barajlarına Düşen Yağış Ve Günlük Tüketim Verileri · sorgulanabilir: 762b802e-c5f9-4175-a5c1-78b892d9764b
+• İstanbul Barajları Günlük Doluluk Oranları — İSKİ (güncelleme 2024-03-01)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
+  - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
+
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula
 
@@ -170,6 +204,20 @@ GET https://acikveri.bizizmir.com/api/3/action/datastore_search?resource_id={id}
 
 - “İBB açık veride baraj doluluk verisi var mı?”
 - “İzmir'de afet toplanma alanları veri seti”
+
+Gerçek örnek çıktı:
+
+```text
+4 veri seti bulundu:
+• İstanbul Barajlarında Yağış ve Günlük Tüketim Verileri — İSKİ (güncelleme 2024-08-26)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlarina-dusen-gunluk-toplam-yagis-miktari
+  - [XLSX] İstanbul Barajlarına Düşen Yağış Ve Günlük Tüketim Verileri · sorgulanabilir: 762b802e-c5f9-4175-a5c1-78b892d9764b
+• İstanbul Barajları Günlük Doluluk Oranları — İSKİ (güncelleme 2024-03-01)
+  https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
+  - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
+
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula
 

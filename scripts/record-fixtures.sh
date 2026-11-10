@@ -62,4 +62,6 @@ fi
 if want takvim; then
   get takvim/nager-2026.json "https://date.nager.at/api/v3/PublicHolidays/2026/TR"
   get takvim/ezan-sehirler-2.json "https://ezanvakti.emushaf.net/sehirler/2"
+  get takvim/ezan-ilceler-izmir.json "https://ezanvakti.emushaf.net/ilceler/540"
+  get takvim/ezan-vakitler-izmir.json "https://ezanvakti.emushaf.net/vakitler/9560"
 fi

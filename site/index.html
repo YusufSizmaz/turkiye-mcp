@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>turkiye-mcp kaynak durumu</title>
+<meta name="description" content="turkiye-mcp'nin kullandığı Türkiye veri kaynaklarının günlük canlı kontrol sonuçları.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --zemin: #f3f5f6;
+    --yuzey: #ffffff;
+    --murekkep: #15212c;
+    --soluk: #5d6b78;
+    --cizgi: #dde3e7;
+    --yesil: #1d8a57;
+    --kirmizi: #c8102e;
+    --gri: #8d99a5;
+    --mavi: #2c68ad;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --zemin: #0e161e;
+      --yuzey: #15202a;
+      --murekkep: #e4eaef;
+      --soluk: #93a1ae;
+      --cizgi: #24323f;
+      --yesil: #3fbf82;
+      --kirmizi: #ff5a6e;
+      --gri: #6f7d8a;
+      --mavi: #6aa6ea;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--zemin);
+    color: var(--murekkep);
+    font: 400 16px/1.55 "Onest", system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  a { color: inherit; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--mavi); outline-offset: 2px; border-radius: 2px; }
+  main { max-width: 920px; margin: 0 auto; padding: 56px 20px 80px; }
+
+  header h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  header p { color: var(--soluk); margin: 12px 0 0; max-width: 60ch; }
+  .ozet { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 28px; font-size: 0.95rem; }
+  .ozet b { font-size: 1.6rem; font-weight: 700; display: block; line-height: 1.1; }
+  .ozet span { color: var(--soluk); }
+
+  /* Nabız şeridi: her kaynak bir kare, kategorilere göre gruplu */
+  .nabiz { display: flex; flex-wrap: wrap; gap: 14px; margin: 36px 0 8px; padding: 18px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 10px; }
+  .nabiz-grup { display: flex; gap: 4px; }
+  .kare { width: 22px; height: 34px; border-radius: 4px; background: var(--gri); display: block; transform-origin: bottom; }
+  .kare[data-durum="calisiyor"] { background: var(--yesil); }
+  .kare[data-durum="bozuk"] { background: var(--kirmizi); }
+  .kare[data-durum="anahtar-yok"] { background: var(--mavi); opacity: 0.55; }
+  .kare[data-durum="geo-kisitli"] { background: var(--gri); opacity: 0.6; }
+  .lejant { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--soluk); font-size: 0.85rem; margin-bottom: 40px; }
+  .lejant i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .kare { animation: yuksel 600ms cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i) * 22ms); }
+    @keyframes yuksel { from { transform: scaleY(0.15); opacity: 0; } }
+  }
+
+  section { margin-top: 36px; }
+  section h2 { font-size: 1.15rem; font-weight: 700; margin: 0 0 6px; display: flex; gap: 10px; align-items: baseline; }
+  section h2 small { color: var(--soluk); font-weight: 400; font-size: 0.9rem; }
+  ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--cizgi); }
+  li { display: grid; grid-template-columns: 1fr auto auto; gap: 4px 18px; align-items: center; padding: 12px 2px; border-bottom: 1px solid var(--cizgi); }
+  .ad { font-weight: 500; }
+  .ad a { text-decoration: none; }
+  .ad a:hover { text-decoration: underline; }
+  .rozet { color: var(--soluk); font-size: 0.85rem; white-space: nowrap; }
+  .durum { font-size: 0.9rem; font-weight: 500; white-space: nowrap; display: flex; align-items: center; gap: 8px; min-width: 9.5em; justify-content: flex-end; }
+  .durum::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+  .durum[data-durum="calisiyor"] { color: var(--yesil); }
+  .durum[data-durum="bozuk"] { color: var(--kirmizi); }
+  .durum[data-durum="anahtar-yok"] { color: var(--mavi); }
+  .durum[data-durum="geo-kisitli"] { color: var(--gri); }
+  .sure { color: var(--soluk); font-weight: 400; }
+  .hata { grid-column: 1 / -1; color: var(--soluk); font-size: 0.85rem; }
+  footer { margin-top: 56px; color: var(--soluk); font-size: 0.9rem; }
+  .bos { padding: 24px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 10px; }
+
+  @media (max-width: 600px) {
+    main { padding-top: 36px; }
+    li { grid-template-columns: 1fr auto; }
+    .rozet { grid-column: 1; grid-row: 2; }
+    .durum { grid-row: 1 / span 2; grid-column: 2; min-width: 0; }
+    .kare { width: 16px; height: 28px; }
+    .nabiz { gap: 10px; padding: 14px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Kaynaklar bugün çalışıyor mu?</h1>
+    <p><a href="https://github.com/YusufSizmaz/turkiye-mcp">turkiye-mcp</a>, Türkiye'nin kamu verilerini tek bir MCP sunucusunda topluyor. Bu sayfa her gün tüm kaynaklara gerçek bir istek atıp sonucu gösterir.</p>
+    <div class="ozet" id="ozet" aria-live="polite"></div>
+  </header>
+
+  <div class="nabiz" id="nabiz" role="img" aria-label="Kaynak durumları"></div>
+  <div class="lejant">
+    <span><i style="background:var(--yesil)"></i>Çalışıyor</span>
+    <span><i style="background:var(--kirmizi)"></i>Bozuk</span>
+    <span><i style="background:var(--mavi);opacity:.55"></i>Anahtar gerekli (kontrol edilmedi)</span>
+    <span><i style="background:var(--gri);opacity:.6"></i>Yalnızca Türkiye'den erişilebilir</span>
+  </div>
+
+  <div id="liste"></div>
+
+  <footer>
+    Rozetler: 🏛️ Resmî kurum, ✅ şirketin kendi API'si, 🌐 topluluk kaynağı. Bir kaynak bozuksa <a href="https://github.com/YusufSizmaz/turkiye-mcp/issues">GitHub'da</a> otomatik olarak bir kayıt açılır.
+  </footer>
+</main>
+<script>
+  const ROZET = { resmi: "🏛️ Resmî", "birinci-taraf": "✅ Birinci taraf", topluluk: "🌐 Topluluk" };
+  const DURUM = { calisiyor: "Çalışıyor", bozuk: "Bozuk", "anahtar-yok": "Anahtar gerekli", "geo-kisitli": "Yalnızca TR" };
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const zaman = (iso) => new Date(iso).toLocaleString("tr-TR", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Istanbul" });
+
+  fetch("status.json", { cache: "no-store" })
+    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then((d) => {
+      const s = d.ozet;
+      document.getElementById("ozet").innerHTML =
+        `<div><b>${s.calisiyor}/${s.toplam}</b><span>kaynak çalışıyor</span></div>` +
+        `<div><b>${s.bozuk}</b><span>bozuk</span></div>` +
+        `<div><b>${esc(zaman(d.olusturulma))}</b><span>son kontrol (TSİ)</span></div>`;
+
+      let i = 0;
+      const nabiz = document.getElementById("nabiz");
+      const liste = document.getElementById("liste");
+      for (const k of d.kategoriler) {
+        const kaynaklar = d.kaynaklar.filter((x) => x.kategori === k.kategori);
+        if (!kaynaklar.length) continue;
+        const grup = document.createElement("div");
+        grup.className = "nabiz-grup";
+        grup.title = k.ad;
+        grup.innerHTML = kaynaklar
+          .map((x) => `<span class="kare" style="--i:${i++}" data-durum="${x.durum}" title="${esc(x.ad)}: ${DURUM[x.durum]}"></span>`)
+          .join("");
+        nabiz.appendChild(grup);
+
+        const bolum = document.createElement("section");
+        const calisan = kaynaklar.filter((x) => x.durum === "calisiyor").length;
+        bolum.innerHTML =
+          `<h2>${k.ikon} ${esc(k.ad)} <small>${calisan}/${kaynaklar.length}</small></h2><ol>` +
+          kaynaklar
+            .map(
+              (x) =>
+                `<li><span class="ad">${x.resmiUrl ? `<a href="${esc(x.resmiUrl)}">${esc(x.ad)}</a>` : esc(x.ad)}${x.deneysel ? " 🧪" : ""}</span>` +
+                `<span class="rozet">${ROZET[x.rozet] ?? ""}${x.anahtarGerekli ? " 🔑" : ""}</span>` +
+                `<span class="durum" data-durum="${x.durum}">${DURUM[x.durum]} <span class="sure">${x.sureMs} ms</span></span>` +
+                (x.durum === "bozuk" && x.hata ? `<span class="hata">${esc(x.hata)}</span>` : "") +
+                `</li>`,
+            )
+            .join("") +
+          `</ol>`;
+        liste.appendChild(bolum);
+      }
+    })
+    .catch(() => {
+      document.getElementById("liste").innerHTML =
+        '<p class="bos">Durum dosyası yüklenemedi. Sağlık kontrolü henüz çalışmamış olabilir; GitHub Actions\'taki "Kaynak sağlığı" iş akışını tetikleyin.</p>';
+    });
+</script>
+</body>
+</html>

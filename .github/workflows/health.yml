@@ -1,0 +1,80 @@
+name: Kaynak sağlığı
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # her gün 09:00 TSİ
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: health
+  cancel-in-progress: true
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Tüm kaynakları canlı kontrol et
+        env:
+          TCMB_EVDS_KEY: ${{ secrets.TCMB_EVDS_KEY }}
+          EPIAS_USERNAME: ${{ secrets.EPIAS_USERNAME }}
+          EPIAS_PASSWORD: ${{ secrets.EPIAS_PASSWORD }}
+          DIYANET_EMAIL: ${{ secrets.DIYANET_EMAIL }}
+          DIYANET_PASSWORD: ${{ secrets.DIYANET_PASSWORD }}
+        run: npx tsx scripts/health.ts site-dist | tee health.log
+      - name: Özet
+        run: |
+          {
+            echo "## Kaynak sağlığı"
+            echo
+            echo '```'
+            cat health.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Bozuk kaynaklar için issue aç/güncelle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create kaynak-bozuk --color C8102E --description "Sağlık kontrolünde başarısız olan kaynak" 2>/dev/null || true
+          while IFS=$'\t' read -r id hata; do
+            [ -z "$id" ] && continue
+            baslik="Kaynak bozuldu: $id"
+            mevcut=$(gh issue list --state open --label kaynak-bozuk --search "\"$baslik\" in:title" --json number --jq '.[0].number')
+            govde="Günlük sağlık kontrolünde \`$id\` başarısız oldu.
+
+          Hata: \`$hata\`
+
+          Koşu: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            if [ -n "$mevcut" ]; then
+              gh issue comment "$mevcut" --body "$govde"
+            else
+              gh issue create --title "$baslik" --label kaynak-bozuk --body "$govde"
+            fi
+          done < site-dist/bozuk.txt
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-dist
+
+  yayinla:
+    needs: kontrol
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

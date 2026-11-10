@@ -13,7 +13,6 @@ import { defineTool } from "../../mcp/tool.js";
 export const meta: SourceMeta = {
   id: "tcmb-kurlar",
   kisaAd: "TCMB",
-  geoKisitli: true,
   ad: "TCMB Gösterge Niteliğindeki Döviz Kurları",
   kategori: "finans",
   rozet: "resmi",

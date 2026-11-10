@@ -59,7 +59,7 @@ Döviz kurları, altın, BIST hisseleri ve endeksleri, kripto paralar, KAP bildi
 | `finans_get_evds_series` | TCMB EVDS zaman serileri | “TÜFE endeksi (TP.FG.J0) son 12 ayda nasıl değişti?” |
 | `finans_get_bist_index` | BIST endeks bileşenleri | “BIST 30'da hangi hisseler var?” |
 
-**Kaynaklar:** 🏛️ TCMB 🇹🇷 · 🏛️ KAP · 🌐 Truncgil · 🌐 İş Yatırım · ✅ BtcTurk · ✅ Paribu · 🏛️ TCMB EVDS 🔑 · 🏛️ Borsa İstanbul  
+**Kaynaklar:** 🏛️ TCMB · 🏛️ KAP · 🌐 Truncgil · 🌐 İş Yatırım · ✅ BtcTurk · ✅ Paribu · 🏛️ TCMB EVDS 🔑 · 🏛️ Borsa İstanbul  
 [Parametreler, uç noktalar ve kod örnekleri →](src/sources/finans/README.md)
 
 ### 🌍 Deprem & Afet

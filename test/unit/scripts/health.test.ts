@@ -60,7 +60,6 @@ describe("yurt dışından engellenen kaynaklar", () => {
       "ibb-acik-veri",
       "ibb-trafik",
       "ispark",
-      "tcmb-kurlar",
     ]);
   });
 });

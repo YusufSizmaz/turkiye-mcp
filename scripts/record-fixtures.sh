@@ -42,6 +42,12 @@ if want enerji; then
   get enerji/opet-provinces.json "https://api.opet.com.tr/api/fuelprices/provinces"
   for c in 34 35 934; do get enerji/opet-$c.json "https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=$c"; done
 fi
+if want saglik; then
+  get saglik/ieo-sayfa.html "https://www.istanbuleczaciodasi.org.tr/nobetci-eczane/"
+  # ieo-kadikoy.json: sayfadaki boot token'ı ile ?action=district&id=18 (X-Web-Token + Referer) — bkz. src/sources/saglik/eczane/istanbul.ts
+  get saglik/izmir.html "https://www.izmireczaciodasi.org.tr/nobetci-eczaneler"
+  get saglik/ankara.json "https://www.aeo.org.tr/getPharmacies/$(date +%Y-%m-%d)"   # sonra ilk 12 kutuya küçültüldü
+fi
 if want sehir; then
   get sehir/ibb-trafik.json "https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont"
   get sehir/ispark.json "https://api.ibb.gov.tr/ispark/Park"

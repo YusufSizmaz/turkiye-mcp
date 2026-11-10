@@ -20,4 +20,6 @@ export * as kap from "./sources/finans/kap.js";
 export * as paribu from "./sources/finans/paribu.js";
 export * as tcmb from "./sources/finans/tcmb.js";
 export * as truncgil from "./sources/finans/truncgil.js";
+export * as havaKalitesi from "./sources/hava-cevre/hava-kalitesi.js";
+export * as mgm from "./sources/hava-cevre/mgm.js";
 export * as resmiGazete from "./sources/resmi/resmi-gazete.js";

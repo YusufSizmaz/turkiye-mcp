@@ -35,6 +35,8 @@ if want hava-cevre; then
   get hava-cevre/mgm-sondurum.json -H "Origin: https://www.mgm.gov.tr" "https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601"
   get hava-cevre/mgm-gunluk.json -H "Origin: https://www.mgm.gov.tr" "https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=90601"
   get hava-cevre/mgm-saatlik.json -H "Origin: https://www.mgm.gov.tr" "https://servis.mgm.gov.tr/web/tahminler/saatlik?istno=17130"
+  get hava-cevre/hk-status.json "https://sim.csb.gov.tr/Services/GetAirQualityStatus?type=0"
+  # hk-stations.json elle küçültüldü (Ankara/İstanbul/Batman istasyonları): POST GetAirQualityStations {"Location":null,"Date":"DD.MM.YYYY HH:mm:ss"}
 fi
 if want enerji; then
   get enerji/opet-35.json "https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=35"

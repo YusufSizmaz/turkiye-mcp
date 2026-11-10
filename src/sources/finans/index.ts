@@ -1,6 +1,15 @@
 import type { KategoriModulu } from "../../mcp/tool.js";
+import * as btcturk from "./btcturk.js";
+import * as isyatirim from "./isyatirim.js";
 import * as kap from "./kap.js";
+import * as kripto from "./kripto-arac.js";
+import * as paribu from "./paribu.js";
 import * as tcmb from "./tcmb.js";
+import * as truncgil from "./truncgil.js";
+
+const bosDegil = (ne: string) => (n: number) => {
+  if (!n) throw new Error(`${ne} boş döndü`);
+};
 
 export const finans: KategoriModulu = {
   kategori: "finans",
@@ -8,16 +17,31 @@ export const finans: KategoriModulu = {
   ikon: "💱",
   aciklama:
     "Döviz kurları, altın, BIST hisseleri, kripto paralar, KAP bildirimleri ve TCMB EVDS serileri.",
-  sources: [tcmb.meta, kap.meta],
-  tools: [...tcmb.araclar, ...kap.araclar],
+  sources: [tcmb.meta, kap.meta, truncgil.meta, isyatirim.meta, btcturk.meta, paribu.meta],
+  tools: [
+    ...tcmb.araclar,
+    ...kap.araclar,
+    ...truncgil.araclar,
+    ...isyatirim.araclar,
+    ...kripto.araclar,
+  ],
   probes: {
-    [tcmb.meta.id]: async () => {
-      const s = await tcmb.getRates();
-      if (!s.veri.kurlar.length) throw new Error("kur listesi boş");
+    [tcmb.meta.id]: async () => bosDegil("kur listesi")((await tcmb.getRates()).veri.kurlar.length),
+    [kap.meta.id]: async () =>
+      bosDegil("bildirim listesi")((await kap.getLatestDisclosures({ limit: 1 })).veri.length),
+    [truncgil.meta.id]: async () =>
+      bosDegil("altın listesi")((await truncgil.getGoldAndMarket()).veri.kalemler.length),
+    [isyatirim.meta.id]: async () => {
+      const { bugunTr, gunEkle } = await import("../../core/tarih.js");
+      const bitis = bugunTr();
+      const s = await isyatirim.getStockHistory({
+        hisse: "THYAO",
+        baslangic: gunEkle(bitis, -10),
+        bitis,
+      });
+      bosDegil("hisse geçmişi")(s.veri.length);
     },
-    [kap.meta.id]: async () => {
-      const s = await kap.getLatestDisclosures({ limit: 1 });
-      if (!s.veri.length) throw new Error("bildirim listesi boş");
-    },
+    [btcturk.meta.id]: async () => bosDegil("BtcTurk")((await btcturk.getTickers()).veri.length),
+    [paribu.meta.id]: async () => bosDegil("Paribu")((await paribu.getTickers()).veri.length),
   },
 };

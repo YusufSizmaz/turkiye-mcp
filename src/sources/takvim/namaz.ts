@@ -8,6 +8,7 @@ import { sonuc } from "../../core/sonuc.js";
 import { bugunTr } from "../../core/tarih.js";
 import type { Sonuc, SourceMeta } from "../../core/types.js";
 import { kaynakAktif } from "../../mcp/tool.js";
+import { getDistricts } from "../cografya/turkiyeapi.js";
 
 export const ezanMeta: SourceMeta = {
   id: "ezanvakti",
@@ -78,6 +79,13 @@ async function ilceBul(
       sourceId: ezanMeta.id,
     }),
   );
+  if (!Array.isArray(sehirler)) {
+    throw new KaynakHatasi(
+      ezanMeta.id,
+      "ayristirma",
+      "Ezan Vakti şehir listesi beklenen biçimde değil.",
+    );
+  }
   const sehir = sehirler.find((s) => eslesir(s.SehirAdi, ilAd));
   if (!sehir)
     throw new KaynakHatasi(ezanMeta.id, "bulunamadi", `${ilAd} için şehir kaydı bulunamadı.`);
@@ -86,13 +94,22 @@ async function ilceBul(
       sourceId: ezanMeta.id,
     }),
   );
+  if (!Array.isArray(ilceler)) {
+    throw new KaynakHatasi(
+      ezanMeta.id,
+      "ayristirma",
+      "Ezan Vakti ilçe listesi beklenen biçimde değil.",
+    );
+  }
   const bul = (ad: string) => ilceler.find((x) => eslesir(x.IlceAdi, ad));
   const yerOf = (x: { IlceAdi: string }) => `${sehir.SehirAdi} / ${x.IlceAdi}`;
   const istenen = ilce ? bul(ilce) : undefined;
   if (istenen) return { id: istenen.IlceID, yer: yerOf(istenen) };
   // Diyanet merkez ilçeleri (Kadıköy, Üsküdar, Bornova…) ayrı listelemez; il merkezinin vakti geçerlidir.
+  // Ama yalnız girdi gerçekten o ilin bir ilçesiyse: yazım hatası sessizce il merkezine düşmemeli.
   const merkez = bul(ilAd);
-  if (!merkez) {
+  const gercekIlce = ilce ? await ilinIlcesiMi(ilAd, ilce) : true;
+  if (!merkez || !gercekIlce) {
     throw new KaynakHatasi(
       ezanMeta.id,
       "bulunamadi",
@@ -108,6 +125,16 @@ async function ilceBul(
         }
       : {}),
   };
+}
+
+/** TurkiyeAPI'ye göre ilçe o ilin ilçesi mi? TurkiyeAPI'ye ulaşılamazsa doğrulanamadığı için kabul edilir. */
+async function ilinIlcesiMi(il: string, ilce: string): Promise<boolean> {
+  try {
+    const { veri } = await getDistricts(il);
+    return veri.some((d) => eslesir(d.ad, ilce));
+  } catch {
+    return true;
+  }
 }
 
 const noktaliToIso = (s: string) => {

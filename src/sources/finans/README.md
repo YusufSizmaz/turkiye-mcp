@@ -51,7 +51,7 @@ USD (1 ABD DOLARI): alış 50,1078 · satış 50,1981
 EUR (1 EURO): alış 56,2781 · satış 56,3795
 GBP (1 İNGİLİZ STERLİNİ): alış 67,2269 · satış 67,5774
 
-Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -106,7 +106,7 @@ Gerçek örnek çıktı:
 - 10.11.2026 21:51 · PC İLETİŞİM VE MEDYA HİZMETLERİ SANAYİ TİCARET A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri (https://www.kap.org.tr/tr/Bildirim/1696755)
 - 10.11.2026 20:58 · İSTANBUL ULUSLARARASI DERECELENDİRME HİZMETLERİ A.Ş.: Kredi Derecelendirmesi — Kredi Derecelendirme Notunun Askıya Alınması (https://www.kap.org.tr/tr/Bildirim/1696754)
 
-Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **MCP aracı: `finans_search_kap_companies`** — KAP şirket/fon arama
@@ -127,7 +127,7 @@ Gerçek örnek çıktı:
 ```text
 - ASELS — ASELSAN ELEKTRONİK SANAYİ VE TİCARET A.Ş.
 
-Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -172,12 +172,12 @@ GET https://finans.truncgil.com/v4/today.json
 Gerçek örnek çıktı:
 
 ```text
-Serbest piyasa — 10.11.2026 22:13
-- Gram Altın: alış 6.508,2 · satış 6.509,18 TL (-2,58%)
-- Çeyrek Altın: alış 10.590 · satış 10.677 TL (-2,47%)
-- Tam Altın: alış 42.281 · satış 42.538 TL (-2,47%)
+Serbest piyasa — 10.11.2026 22:24
+- Gram Altın: alış 6.509,31 · satış 6.510,16 TL (-2,57%)
+- Çeyrek Altın: alış 10.591 · satış 10.680 TL (-2,44%)
+- Tam Altın: alış 42.287 · satış 42.550 TL (-2,44%)
 
-Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -223,11 +223,11 @@ GET https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/
 Gerçek örnek çıktı:
 
 ```text
-12.10.2026 → 09.11.2026 (20 işlem günü)
-Son kapanış: 310 TL · Dönem değişimi: +8,49%
-Dönem en düşük/en yüksek: 242,2 / 310,25 TL
+12.10.2026 → 10.11.2026 (21 işlem günü)
+Son kapanış: 313,75 TL · Dönem değişimi: +9,8%
+Dönem en düşük/en yüksek: 242,2 / 318,25 TL
 
-Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -272,11 +272,11 @@ GET https://api.btcturk.com/api/v2/ticker
 Gerçek örnek çıktı:
 
 ```text
-- BTC/TRY: 3.681.406 (24s -1,53%)
-- ETH/TRY: 102.546 (24s -3,57%)
-- USDT/TRY: 50,184 (24s +0,18%)
+- BTC/TRY: 3.681.753 (24s -1,58%)
+- ETH/TRY: 102.448 (24s -3,7%)
+- USDT/TRY: 50,2 (24s +0,21%)
 
-Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -320,11 +320,11 @@ GET https://www.paribu.com/ticker
 Gerçek örnek çıktı:
 
 ```text
-- BTC/TRY: 3.681.406 (24s -1,53%)
-- ETH/TRY: 102.546 (24s -3,57%)
-- USDT/TRY: 50,184 (24s +0,18%)
+- BTC/TRY: 3.681.753 (24s -1,58%)
+- ETH/TRY: 102.448 (24s -3,7%)
+- USDT/TRY: 50,2 (24s +0,21%)
 
-Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**

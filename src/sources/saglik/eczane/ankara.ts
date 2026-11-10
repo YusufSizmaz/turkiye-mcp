@@ -4,7 +4,7 @@ import { KaynakHatasi } from "../../../core/errors.js";
 import { fetchJson } from "../../../core/http.js";
 import { eslesir } from "../../../core/metin.js";
 import { sonuc } from "../../../core/sonuc.js";
-import { bugunTr } from "../../../core/tarih.js";
+import { bugunTr, noktaliTarih, oncekiGun, trSaat } from "../../../core/tarih.js";
 import type { SourceMeta } from "../../../core/types.js";
 import { type Eczane, type EczaneAdaptoru, konumAyristir, temiz } from "./tipler.js";
 
@@ -44,14 +44,25 @@ export function ayristir(html: string): Eczane[] {
       nobet: null,
     });
   });
-  return out.filter((e) => e.ad);
+  const bulunan = out.filter((e) => e.ad);
+  if (!bulunan.length) {
+    throw new KaynakHatasi(meta.id, "ayristirma", "Ankara Eczacı Odası listesi ayrıştırılamadı.");
+  }
+  return bulunan;
+}
+
+/** Nöbet akşam başlar, ertesi sabah ~08:30–09:00'da biter: sabah 09:00'dan önce aktif nöbet önceki günündür. */
+export function nobetGunu(now: Date = new Date()): string {
+  const bugun = bugunTr(now);
+  return trSaat(now) < 9 ? oncekiGun(bugun) : bugun;
 }
 
 export const adaptor: EczaneAdaptoru = {
   plakalar: [6],
   meta,
   async getir(_plaka, ilce) {
-    const url = `https://www.aeo.org.tr/getPharmacies/${bugunTr()}`;
+    const gun = nobetGunu();
+    const url = `https://www.aeo.org.tr/getPharmacies/${gun}`;
     const tum = await cached(url, meta.ttlSaniye, async () => {
       const ham = await fetchJson<{ status?: string; html?: string }>(url, {
         sourceId: meta.id,
@@ -66,7 +77,11 @@ export const adaptor: EczaneAdaptoru = {
       }
       return ayristir(ham.html);
     });
-    const veri = ilce ? tum.filter((e) => eslesir(e.ilce, ilce)) : tum;
+    const nobet = `${noktaliTarih(gun)} nöbeti (ertesi sabaha kadar)`;
+    const veri = (ilce ? tum.filter((e) => eslesir(e.ilce, ilce)) : tum).map((e) => ({
+      ...e,
+      nobet,
+    }));
     return sonuc(meta, url, veri);
   },
 };

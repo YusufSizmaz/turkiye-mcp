@@ -3,6 +3,7 @@ import { KaynakHatasi } from "../../../core/errors.js";
 import { fetchJson, fetchText } from "../../../core/http.js";
 import { eslesir } from "../../../core/metin.js";
 import { sonuc } from "../../../core/sonuc.js";
+import { noktaliTarih } from "../../../core/tarih.js";
 import type { SourceMeta } from "../../../core/types.js";
 import type { Eczane, EczaneAdaptoru } from "./tipler.js";
 
@@ -60,6 +61,7 @@ interface Ham {
   tarif?: string | null;
   lat?: number | null;
   lng?: number | null;
+  nobetTarih?: string;
   nobetBaslangic?: string;
   nobetBitis?: string;
 }
@@ -111,7 +113,10 @@ export const adaptor: EczaneAdaptoru = {
             ? { enlem: e.lat, boylam: e.lng }
             : null,
         tarif: e.tarif?.trim() || null,
-        nobet: e.nobetBaslangic && e.nobetBitis ? `${e.nobetBaslangic}–${e.nobetBitis}` : null,
+        nobet:
+          e.nobetBaslangic && e.nobetBitis
+            ? `${e.nobetTarih ? `${noktaliTarih(e.nobetTarih)} ` : ""}${e.nobetBaslangic}–${e.nobetBitis}`
+            : null,
       }),
     );
     return sonuc(meta, SAYFA, veri);

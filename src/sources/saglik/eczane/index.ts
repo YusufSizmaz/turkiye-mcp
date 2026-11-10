@@ -28,7 +28,10 @@ export async function getOnDuty(o: {
     );
   }
   const s = await adaptor.getir(il.plaka, o.ilce);
-  return { ...s, veri: sinirla(s.veri, o.limit) };
+  const limit = o.limit ?? 20;
+  if (s.veri.length <= limit) return s;
+  const kesik = `${s.veri.length} eczaneden ilk ${limit} tanesi gösterildi; daha kısa liste için ilçe belirtin veya limit'i artırın.`;
+  return { ...s, veri: sinirla(s.veri, limit), not: s.not ? `${s.not} ${kesik}` : kesik };
 }
 
 export const metalar = ADAPTORLER.map((a) => a.meta);

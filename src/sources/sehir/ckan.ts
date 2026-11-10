@@ -130,6 +130,13 @@ export async function searchDatasets(
       rows: String(limit),
     },
   );
+  if (!Array.isArray(result?.results)) {
+    throw new KaynakHatasi(
+      portalMeta[portal].id,
+      "ayristirma",
+      `${portalMeta[portal].ad}: arama yanıtı beklenen biçimde değil.`,
+    );
+  }
   return sonuc(portalMeta[portal], url, {
     toplam: result.count,
     sonuclar: result.results.map((p) => ({
@@ -169,6 +176,13 @@ export async function queryDatastore(
     records: Record<string, unknown>[];
     total: number;
   }>(portal, "datastore_search", params);
+  if (!Array.isArray(result?.fields) || !Array.isArray(result?.records)) {
+    throw new KaynakHatasi(
+      portalMeta[portal].id,
+      "ayristirma",
+      `${portalMeta[portal].ad}: tablo yanıtı beklenen biçimde değil.`,
+    );
+  }
   return sonuc(portalMeta[portal], url, {
     alanlar: result.fields.map((f) => f.id).filter((f) => f !== "_id"),
     kayitlar: result.records.map(({ _id, ...r }) => r),

@@ -27,7 +27,7 @@ describe("Nöbetçi eczane — İstanbul", () => {
       telefon: null,
       konum: { enlem: 40.9830983267364, boylam: 29.0614057554761 },
       tarif: "Göztepe Vakıflar Bankası Karşısı",
-      nobet: "19:00–09:00",
+      nobet: "10.11.2026 19:00–09:00",
     });
   });
 
@@ -98,7 +98,7 @@ describe("Nöbetçi eczane — Ankara", () => {
       telefon: "03124720266",
       konum: { enlem: 39.88384095894, boylam: 32.820024490356 },
       tarif: null,
-      nobet: null,
+      nobet: expect.stringContaining("nöbeti"),
     });
   });
 

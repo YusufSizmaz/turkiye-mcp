@@ -44,10 +44,23 @@ describe("turkiyeapi", () => {
 
   it("mahalleler il+ilçe ile sorgulanır", async () => {
     const { calls } = mockFetch([
+      {
+        match: "/v1/provinces",
+        body: {
+          status: "OK",
+          data: [
+            {
+              id: 34,
+              name: "İstanbul",
+              districts: [{ id: 1421, name: "Kadıköy", population: 1, area: 1 }],
+            },
+          ],
+        },
+      },
       { match: "/v1/neighborhoods", ...j("neighborhoods-kadikoy.json") },
     ]);
     const s = await getNeighborhoods({ il: "istanbul", ilce: "Kadıköy", limit: 5 });
-    const u = new URL(calls[0]?.url ?? "");
+    const u = new URL(calls.find((c) => c.url.includes("neighborhoods"))?.url ?? "");
     expect(u.searchParams.get("province")).toBe("İstanbul");
     expect(u.searchParams.get("district")).toBe("Kadıköy");
     expect(s.veri[0]).toEqual({ id: 40528, ad: "19 Mayıs", nufus: 31515 });

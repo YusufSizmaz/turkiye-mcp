@@ -13,11 +13,11 @@ export const deprem: KategoriModulu = {
   probes: {
     [afad.meta.id]: async () => {
       const s = await afad.getEarthquakes({ saat: 72, limit: 1 });
-      if (!s.veri.length) throw new Error("son 72 saatte AFAD kaydı yok");
+      if (!s.veri.toplam) throw new Error("son 72 saatte AFAD kaydı yok");
     },
     [kandilli.meta.id]: async () => {
       const s = await kandilli.getEarthquakes({ saat: 72, limit: 1 });
-      if (!s.veri.length) throw new Error("son 72 saatte Kandilli kaydı yok");
+      if (!s.veri.toplam) throw new Error("son 72 saatte Kandilli kaydı yok");
     },
   },
 };

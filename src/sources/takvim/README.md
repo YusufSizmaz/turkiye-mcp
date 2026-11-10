@@ -103,7 +103,7 @@ Gerçek örnek çıktı:
 İSTANBUL / İSTANBUL
 Salı 10.11.2026 (1 Cemaziyelahir 1448): İmsak 06:11 · Güneş 07:38 · Öğle 12:53 · İkindi 15:33 · Akşam 17:58 · Yatsı 19:20
 
-Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:13:53+03:00)
+Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:24:35+03:00)
 Not: Diyanet "Üsküdar" için ayrı vakit yayımlamıyor (merkez ilçe); İstanbul merkez vakitleri verildi.
 ```
 

@@ -2,10 +2,10 @@ import { cached } from "../../core/cache.js";
 import { KaynakHatasi } from "../../core/errors.js";
 import { fetchJson } from "../../core/http.js";
 import { eslesir } from "../../core/metin.js";
-import { sinirla, sonuc } from "../../core/sonuc.js";
+import { sonuc } from "../../core/sonuc.js";
 import { istanbulIso } from "../../core/tarih.js";
 import type { Sonuc, SourceMeta } from "../../core/types.js";
-import type { Deprem, DepremSorgusu } from "./tipler.js";
+import { type Deprem, type DepremListesi, type DepremSorgusu, listele } from "./tipler.js";
 
 export const meta: SourceMeta = {
   id: "afad",
@@ -39,10 +39,12 @@ interface Ham {
   date: string;
 }
 
+const AFAD_SINIRI = 1000;
+
 /** Saniyeleri atılmış UTC zaman, "YYYY-MM-DDTHH:mm:00" */
 const utcDakika = (d: Date) => `${d.toISOString().slice(0, 16)}:00`;
 
-export async function getEarthquakes(o: DepremSorgusu = {}): Promise<Sonuc<Deprem[]>> {
+export async function getEarthquakes(o: DepremSorgusu = {}): Promise<Sonuc<DepremListesi>> {
   const saat = o.saat ?? 24;
   const bitis = new Date();
   const baslangic = new Date(bitis.getTime() - saat * 3_600_000);
@@ -51,7 +53,7 @@ export async function getEarthquakes(o: DepremSorgusu = {}): Promise<Sonuc<Depre
     end: utcDakika(bitis),
     minmag: String(o.minBuyukluk ?? 0),
     orderby: "timedesc",
-    limit: "1000",
+    limit: String(AFAD_SINIRI),
   });
   const url = `https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?${params}`;
   const ham = await cached(url, meta.ttlSaniye, () => fetchJson<Ham[]>(url, { sourceId: meta.id }));
@@ -74,5 +76,9 @@ export async function getEarthquakes(o: DepremSorgusu = {}): Promise<Sonuc<Depre
   );
   if (o.minBuyukluk) veri = veri.filter((d) => d.buyukluk >= (o.minBuyukluk ?? 0));
   if (o.il) veri = veri.filter((d) => d.il !== null && eslesir(d.il, o.il as string));
-  return sonuc(meta, url, sinirla(veri, o.limit));
+  const not =
+    ham.length >= AFAD_SINIRI
+      ? `AFAD sorgusu ${AFAD_SINIRI} kayıt sınırına ulaştı; daha eski depremler eksik olabilir. minBuyukluk'u artırın veya süreyi kısaltın.`
+      : undefined;
+  return sonuc(meta, url, listele(veri, o.limit), not);
 }

@@ -75,13 +75,17 @@ export async function findStation(il: string, ilce?: string): Promise<Istasyon> 
   if (!ilce) {
     const url = `${TABAN}/merkezler?il=${encodeURIComponent(ilAd)}`;
     const liste = await cached(url, 86_400, () => fetchJson<HamMerkez[]>(url, ISTEK));
-    const m = Array.isArray(liste) ? liste[0] : undefined;
+    if (!Array.isArray(liste))
+      throw new KaynakHatasi(meta.id, "ayristirma", "MGM istasyon yanıtı beklenen biçimde değil.");
+    const m = liste[0];
     if (!m) throw new KaynakHatasi(meta.id, "bulunamadi", `${ilAd} için MGM istasyonu bulunamadı.`);
     return istasyon(m);
   }
   const url = `${TABAN}/merkezler/ililcesi?il=${encodeURIComponent(ilAd)}`;
   const liste = await cached(url, 86_400, () => fetchJson<HamMerkez[]>(url, ISTEK));
-  const m = Array.isArray(liste) ? liste.find((x) => eslesir(x.ilce, ilce)) : undefined;
+  if (!Array.isArray(liste))
+    throw new KaynakHatasi(meta.id, "ayristirma", "MGM ilçe yanıtı beklenen biçimde değil.");
+  const m = liste.find((x) => eslesir(x.ilce, ilce));
   if (!m)
     throw new KaynakHatasi(meta.id, "bulunamadi", `${ilAd} ilinde "${ilce}" ilçesi bulunamadı.`);
   return istasyon(m);

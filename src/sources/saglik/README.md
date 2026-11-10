@@ -52,7 +52,8 @@ Gerçek örnek çıktı:
   Tel: 02323737449
   Harita: https://www.google.com/maps?q=38.464071,27.206464
 
-Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:24:33+03:00)
+Not: 4 eczaneden ilk 2 tanesi gösterildi; daha kısa liste için ilçe belirtin veya limit'i artırın.
 ```
 
 **Kütüphane olarak**
@@ -106,7 +107,8 @@ Gerçek örnek çıktı:
   Tel: 02323737449
   Harita: https://www.google.com/maps?q=38.464071,27.206464
 
-Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:24:33+03:00)
+Not: 4 eczaneden ilk 2 tanesi gösterildi; daha kısa liste için ilçe belirtin veya limit'i artırın.
 ```
 
 **Kütüphane olarak**
@@ -160,7 +162,8 @@ Gerçek örnek çıktı:
   Tel: 02323737449
   Harita: https://www.google.com/maps?q=38.464071,27.206464
 
-Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:24:33+03:00)
+Not: 4 eczaneden ilk 2 tanesi gösterildi; daha kısa liste için ilçe belirtin veya limit'i artırın.
 ```
 
 **Kütüphane olarak**

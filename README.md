@@ -170,7 +170,7 @@ USD (1 ABD DOLARI): alış 50,1078 · satış 50,1981
 EUR (1 EURO): alış 56,2781 · satış 56,3795
 GBP (1 İNGİLİZ STERLİNİ): alış 67,2269 · satış 67,5774
 
-Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -225,7 +225,7 @@ Gerçek örnek çıktı:
 - 10.11.2026 21:51 · PC İLETİŞİM VE MEDYA HİZMETLERİ SANAYİ TİCARET A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri (https://www.kap.org.tr/tr/Bildirim/1696755)
 - 10.11.2026 20:58 · İSTANBUL ULUSLARARASI DERECELENDİRME HİZMETLERİ A.Ş.: Kredi Derecelendirmesi — Kredi Derecelendirme Notunun Askıya Alınması (https://www.kap.org.tr/tr/Bildirim/1696754)
 
-Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **MCP aracı: `finans_search_kap_companies`** — KAP şirket/fon arama
@@ -246,7 +246,7 @@ Gerçek örnek çıktı:
 ```text
 - ASELS — ASELSAN ELEKTRONİK SANAYİ VE TİCARET A.Ş.
 
-Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -291,12 +291,12 @@ GET https://finans.truncgil.com/v4/today.json
 Gerçek örnek çıktı:
 
 ```text
-Serbest piyasa — 10.11.2026 22:13
-- Gram Altın: alış 6.508,2 · satış 6.509,18 TL (-2,58%)
-- Çeyrek Altın: alış 10.590 · satış 10.677 TL (-2,47%)
-- Tam Altın: alış 42.281 · satış 42.538 TL (-2,47%)
+Serbest piyasa — 10.11.2026 22:24
+- Gram Altın: alış 6.509,31 · satış 6.510,16 TL (-2,57%)
+- Çeyrek Altın: alış 10.591 · satış 10.680 TL (-2,44%)
+- Tam Altın: alış 42.287 · satış 42.550 TL (-2,44%)
 
-Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -342,11 +342,11 @@ GET https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/
 Gerçek örnek çıktı:
 
 ```text
-12.10.2026 → 09.11.2026 (20 işlem günü)
-Son kapanış: 310 TL · Dönem değişimi: +8,49%
-Dönem en düşük/en yüksek: 242,2 / 310,25 TL
+12.10.2026 → 10.11.2026 (21 işlem günü)
+Son kapanış: 313,75 TL · Dönem değişimi: +9,8%
+Dönem en düşük/en yüksek: 242,2 / 318,25 TL
 
-Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -391,11 +391,11 @@ GET https://api.btcturk.com/api/v2/ticker
 Gerçek örnek çıktı:
 
 ```text
-- BTC/TRY: 3.681.406 (24s -1,53%)
-- ETH/TRY: 102.546 (24s -3,57%)
-- USDT/TRY: 50,184 (24s +0,18%)
+- BTC/TRY: 3.681.753 (24s -1,58%)
+- ETH/TRY: 102.448 (24s -3,7%)
+- USDT/TRY: 50,2 (24s +0,21%)
 
-Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -439,11 +439,11 @@ GET https://www.paribu.com/ticker
 Gerçek örnek çıktı:
 
 ```text
-- BTC/TRY: 3.681.406 (24s -1,53%)
-- ETH/TRY: 102.546 (24s -3,57%)
-- USDT/TRY: 50,184 (24s +0,18%)
+- BTC/TRY: 3.681.753 (24s -1,58%)
+- ETH/TRY: 102.448 (24s -3,7%)
+- USDT/TRY: 50,2 (24s +0,21%)
 
-Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:13:48+03:00)
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -544,13 +544,13 @@ GET https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=…
 Gerçek örnek çıktı:
 
 ```text
-Son 24 saatte 2,5+ büyüklüğünde 3 deprem (en yeniden eskiye).
-En büyüğü: 3,7 — Aladağ (Adana), 10.11.2026 21:12
+Son 24 saatte 2,5+ büyüklüğünde 8 deprem. Aşağıda en yeni ilk 3 tanesi var.
+En büyüğü: 3,7 ML — Aladağ (Adana), 10.11.2026 21:12
 - 10.11.2026 21:12 · 3,7 ML · 7 km · Aladağ (Adana)
 - 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
 - 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
 
-Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A13%3A00&end=2026-11-10T19%3A13%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:13:49+03:00)
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A24%3A00&end=2026-11-10T19%3A24%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -598,13 +598,13 @@ GET http://www.koeri.boun.edu.tr/scripts/lst0.asp  (windows-1254, <pre> içinde 
 Gerçek örnek çıktı:
 
 ```text
-Son 24 saatte 2,5+ büyüklüğünde 3 deprem (en yeniden eskiye).
-En büyüğü: 3,7 — Aladağ (Adana), 10.11.2026 21:12
+Son 24 saatte 2,5+ büyüklüğünde 8 deprem. Aşağıda en yeni ilk 3 tanesi var.
+En büyüğü: 3,7 ML — Aladağ (Adana), 10.11.2026 21:12
 - 10.11.2026 21:12 · 3,7 ML · 7 km · Aladağ (Adana)
 - 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
 - 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
 
-Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A13%3A00&end=2026-11-10T19%3A13%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:13:49+03:00)
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A24%3A00&end=2026-11-10T19%3A24%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:24:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -727,11 +727,11 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 Gerçek örnek çıktı:
 
 ```text
-Ankara / Keçiören — 10.11.2026 22:09
+Ankara / Keçiören — 10.11.2026 22:19
 3,1 °C (hissedilen 3,1 °C), Puslu
-Nem %96 · Rüzgâr 3,6 km/sa · Basınç 1.028,9 hPa
+Nem %96 · Rüzgâr 5 km/sa · Basınç 1.028,9 hPa
 
-Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:13:49+03:00)
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:24:30+03:00)
 ```
 
 **MCP aracı: `hava_get_forecast`** — Hava tahmini (MGM)
@@ -758,7 +758,7 @@ Gerçek örnek çıktı:
 - Cumartesi 14.11.2026: 16 / 24 °C, Gökgürültülü Sağanak Yağışlı
 - Pazar 15.11.2026: 14 / 24 °C, Gökgürültülü Sağanak Yağışlı
 
-Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:13:49+03:00)
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:24:30+03:00)
 ```
 
 **Kütüphane olarak**
@@ -809,7 +809,7 @@ Gerçek örnek çıktı:
 - İstanbul - Kağıthane: 72 (Orta, baskın PM10)
 - İstanbul - Arnavutköy: 70 (Orta, baskın NO2)
 
-Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:13:50+03:00)
+Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:24:32+03:00)
 ```
 
 **Kütüphane olarak**
@@ -869,7 +869,7 @@ Gerçek örnek çıktı:
   Motorin UltraForce: 95,09 TL
   Motorin EcoForce: 95,09 TL
 
-Kaynak: ✅ Birinci taraf Opet Akaryakıt Fiyatları — https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=34 (alındı 2026-11-10T22:13:50+03:00)
+Kaynak: ✅ Birinci taraf Opet Akaryakıt Fiyatları — https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=34 (alındı 2026-11-10T22:24:32+03:00)
 ```
 
 **Kütüphane olarak**
@@ -977,7 +977,8 @@ Gerçek örnek çıktı:
   Tel: 02323737449
   Harita: https://www.google.com/maps?q=38.464071,27.206464
 
-Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:24:33+03:00)
+Not: 4 eczaneden ilk 2 tanesi gösterildi; daha kısa liste için ilçe belirtin veya limit'i artırın.
 ```
 
 **Kütüphane olarak**
@@ -1031,7 +1032,8 @@ Gerçek örnek çıktı:
   Tel: 02323737449
   Harita: https://www.google.com/maps?q=38.464071,27.206464
 
-Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:24:33+03:00)
+Not: 4 eczaneden ilk 2 tanesi gösterildi; daha kısa liste için ilçe belirtin veya limit'i artırın.
 ```
 
 **Kütüphane olarak**
@@ -1085,7 +1087,8 @@ Gerçek örnek çıktı:
   Tel: 02323737449
   Harita: https://www.google.com/maps?q=38.464071,27.206464
 
-Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İzmir Eczacı Odası — Nöbetçi Eczaneler — https://www.izmireczaciodasi.org.tr/nobetci-eczaneler (alındı 2026-11-10T22:24:33+03:00)
+Not: 4 eczaneden ilk 2 tanesi gösterildi; daha kısa liste için ilçe belirtin veya limit'i artırın.
 ```
 
 **Kütüphane olarak**
@@ -1141,7 +1144,7 @@ Gerçek örnek çıktı:
 Genel: 20/100 (akıcı)
 Anadolu: 13/100 (akıcı) · Avrupa: 26/100 (akıcı)
 
-Kaynak: 🏛️ Resmî İBB Trafik Endeksi — https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İBB Trafik Endeksi — https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **Kütüphane olarak**
@@ -1186,10 +1189,10 @@ Gerçek örnek çıktı:
 
 ```text
 - Kadıköy Yeni Salı Pazarı PD Katlı Otoparkı (KADIKÖY): 488/1350 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
-- Bostancı Açık (KADIKÖY): 342/394 boş · AÇIK OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+- Bostancı Açık (KADIKÖY): 341/394 boş · AÇIK OTOPARK · 24 Saat · ilk 15 dk ücretsiz
 - Kadıköy Hasanpaşa Gazhane Katlı Otoparkı (KADIKÖY): 169/310 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
 
-Kaynak: 🏛️ Resmî İSPARK Otopark Doluluk — https://api.ibb.gov.tr/ispark/Park (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İSPARK Otopark Doluluk — https://api.ibb.gov.tr/ispark/Park (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **Kütüphane olarak**
@@ -1243,7 +1246,7 @@ Gerçek örnek çıktı:
   https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
   - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
 
-Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula
@@ -1314,7 +1317,7 @@ Gerçek örnek çıktı:
   https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
   - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
 
-Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula
@@ -1384,7 +1387,7 @@ Gerçek örnek çıktı:
 ```text
 - Eskişehir (26) · İç Anadolu · nüfus 927.956 · 13.960 km² · rakım 796 m · tel 222 · büyükşehir
 
-Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/provinces?name=Eski%C5%9Fehir (alındı 2026-11-10T22:13:52+03:00)
+Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/provinces?name=Eski%C5%9Fehir (alındı 2026-11-10T22:24:34+03:00)
 ```
 
 **MCP aracı: `cografya_get_districts`** — İlçeler
@@ -1439,7 +1442,7 @@ Gerçek örnek çıktı:
 - Akat: 12.089
 - Arnavutköy: 3.371
 
-Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/neighborhoods?province=%C4%B0stanbul&district=Be%C5%9Fikta%C5%9F&limit=1000 (alındı 2026-11-10T22:13:52+03:00)
+Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/neighborhoods?province=%C4%B0stanbul&district=Be%C5%9Fikta%C5%9F&limit=1000 (alındı 2026-11-10T22:24:34+03:00)
 ```
 
 **Kütüphane olarak**
@@ -1556,7 +1559,7 @@ Gerçek örnek çıktı:
 İSTANBUL / İSTANBUL
 Salı 10.11.2026 (1 Cemaziyelahir 1448): İmsak 06:11 · Güneş 07:38 · Öğle 12:53 · İkindi 15:33 · Akşam 17:58 · Yatsı 19:20
 
-Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:13:53+03:00)
+Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:24:35+03:00)
 Not: Diyanet "Üsküdar" için ayrı vakit yayımlamıyor (merkez ilçe); İstanbul merkez vakitleri verildi.
 ```
 

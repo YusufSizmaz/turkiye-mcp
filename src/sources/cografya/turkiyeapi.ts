@@ -2,7 +2,7 @@ import { cached } from "../../core/cache.js";
 import { KaynakHatasi } from "../../core/errors.js";
 import { fetchJson } from "../../core/http.js";
 import { ilBul, ilBulVeyaHata } from "../../core/iller.js";
-import { basHarfBuyuk } from "../../core/metin.js";
+import { basHarfBuyuk, eslesir } from "../../core/metin.js";
 import { sinirla, sonuc } from "../../core/sonuc.js";
 import type { Sonuc, SourceMeta } from "../../core/types.js";
 
@@ -119,14 +119,30 @@ export async function getNeighborhoods(o: {
   limit?: number;
 }): Promise<Sonuc<Array<{ id: number; ad: string; nufus: number }>>> {
   const il = ilBulVeyaHata(o.il, meta.id).ad;
-  const ilce = basHarfBuyuk(o.ilce);
+  const ilceler = (await getDistricts(il)).veri;
+  const bulunan = ilceler.find((d) => eslesir(d.ad, o.ilce));
+  if (!bulunan) {
+    throw new KaynakHatasi(
+      meta.id,
+      "bulunamadi",
+      `${il} ilinde "${o.ilce}" ilçesi bulunamadı. İlçeler: ${ilceler.map((d) => d.ad).join(", ")}`,
+    );
+  }
+  const ilce = bulunan.ad;
   const url = `${TABAN}/neighborhoods?province=${encodeURIComponent(il)}&district=${encodeURIComponent(ilce)}&limit=1000`;
   const h = await cached(url, meta.ttlSaniye, () =>
     fetchJson<{ data?: Array<{ id: number; name: string; population: number }> }>(url, {
       sourceId: meta.id,
     }),
   );
-  if (!Array.isArray(h?.data))
+  if (!Array.isArray(h?.data)) {
+    throw new KaynakHatasi(
+      meta.id,
+      "ayristirma",
+      "TurkiyeAPI mahalle yanıtı beklenen biçimde değil.",
+    );
+  }
+  if (!h.data.length)
     throw new KaynakHatasi(meta.id, "bulunamadi", `${il} / ${ilce} için mahalle bulunamadı.`);
   return sonuc(
     meta,

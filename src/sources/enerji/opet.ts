@@ -55,8 +55,11 @@ export async function getFuelPrices(o: {
       cached(u, meta.ttlSaniye, () => fetchJson<Ham[]>(u, { sourceId: meta.id, browserUA: true })),
     ),
   );
+  if (!listeler.every(Array.isArray)) {
+    throw new KaynakHatasi(meta.id, "ayristirma", "Opet yanıtı beklenen biçimde değil.");
+  }
   const tum = listeler.flat();
-  if (!tum.length || !Array.isArray(listeler[0])) {
+  if (!tum.length) {
     throw new KaynakHatasi(meta.id, "bulunamadi", `${il.ad} için Opet fiyatı bulunamadı.`);
   }
   const ilceler = tum

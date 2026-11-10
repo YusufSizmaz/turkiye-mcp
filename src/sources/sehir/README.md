@@ -43,7 +43,7 @@ Gerçek örnek çıktı:
 Genel: 20/100 (akıcı)
 Anadolu: 13/100 (akıcı) · Avrupa: 26/100 (akıcı)
 
-Kaynak: 🏛️ Resmî İBB Trafik Endeksi — https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İBB Trafik Endeksi — https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **Kütüphane olarak**
@@ -88,10 +88,10 @@ Gerçek örnek çıktı:
 
 ```text
 - Kadıköy Yeni Salı Pazarı PD Katlı Otoparkı (KADIKÖY): 488/1350 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
-- Bostancı Açık (KADIKÖY): 342/394 boş · AÇIK OTOPARK · 24 Saat · ilk 15 dk ücretsiz
+- Bostancı Açık (KADIKÖY): 341/394 boş · AÇIK OTOPARK · 24 Saat · ilk 15 dk ücretsiz
 - Kadıköy Hasanpaşa Gazhane Katlı Otoparkı (KADIKÖY): 169/310 boş · KAPALI OTOPARK · 24 Saat · ilk 15 dk ücretsiz
 
-Kaynak: 🏛️ Resmî İSPARK Otopark Doluluk — https://api.ibb.gov.tr/ispark/Park (alındı 2026-11-10T22:13:51+03:00)
+Kaynak: 🏛️ Resmî İSPARK Otopark Doluluk — https://api.ibb.gov.tr/ispark/Park (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **Kütüphane olarak**
@@ -145,7 +145,7 @@ Gerçek örnek çıktı:
   https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
   - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
 
-Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula
@@ -216,7 +216,7 @@ Gerçek örnek çıktı:
   https://data.ibb.gov.tr/dataset/istanbul-barajlari-gunluk-doluluk-oranlari
   - [XLSX] İstanbul Barajları Günlük Doluluk Oranları · sorgulanabilir: af0b3902-cfd9-4096-85f7-e2c3017e4f21
 
-Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:13:52+03:00)
+Kaynak: 🏛️ Resmî İBB Açık Veri Portalı — https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=2 (alındı 2026-11-10T22:24:33+03:00)
 ```
 
 **MCP aracı: `opendata_query`** — Belediye açık veri tablosu sorgula

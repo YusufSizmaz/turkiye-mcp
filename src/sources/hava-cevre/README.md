@@ -44,11 +44,11 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 Gerçek örnek çıktı:
 
 ```text
-Ankara / Keçiören — 10.11.2026 22:09
+Ankara / Keçiören — 10.11.2026 22:19
 3,1 °C (hissedilen 3,1 °C), Puslu
-Nem %96 · Rüzgâr 3,6 km/sa · Basınç 1.028,9 hPa
+Nem %96 · Rüzgâr 5 km/sa · Basınç 1.028,9 hPa
 
-Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:13:49+03:00)
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:24:30+03:00)
 ```
 
 **MCP aracı: `hava_get_forecast`** — Hava tahmini (MGM)
@@ -75,7 +75,7 @@ Gerçek örnek çıktı:
 - Cumartesi 14.11.2026: 16 / 24 °C, Gökgürültülü Sağanak Yağışlı
 - Pazar 15.11.2026: 14 / 24 °C, Gökgürültülü Sağanak Yağışlı
 
-Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:13:49+03:00)
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:24:30+03:00)
 ```
 
 **Kütüphane olarak**
@@ -126,7 +126,7 @@ Gerçek örnek çıktı:
 - İstanbul - Kağıthane: 72 (Orta, baskın PM10)
 - İstanbul - Arnavutköy: 70 (Orta, baskın NO2)
 
-Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:13:50+03:00)
+Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:24:32+03:00)
 ```
 
 **Kütüphane olarak**

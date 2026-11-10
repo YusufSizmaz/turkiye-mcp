@@ -1,11 +1,12 @@
 import * as cheerio from "cheerio";
 import { cached } from "../../core/cache.js";
 import { KaynakHatasi } from "../../core/errors.js";
+import { trZaman } from "../../core/format.js";
 import { fetchText } from "../../core/http.js";
 import { eslesir } from "../../core/metin.js";
-import { sinirla, sonuc } from "../../core/sonuc.js";
+import { sonuc } from "../../core/sonuc.js";
 import type { Sonuc, SourceMeta } from "../../core/types.js";
-import type { Deprem, DepremSorgusu } from "./tipler.js";
+import { type Deprem, type DepremListesi, type DepremSorgusu, listele } from "./tipler.js";
 
 export const meta: SourceMeta = {
   id: "kandilli",
@@ -59,10 +60,17 @@ export function ayristir(html: string): Deprem[] {
       kaynak: "kandilli",
     });
   }
+  if (!out.length) {
+    throw new KaynakHatasi(
+      meta.id,
+      "ayristirma",
+      "Kandilli listesi ayrıştırılamadı (sayfa biçimi değişmiş olabilir).",
+    );
+  }
   return out;
 }
 
-export async function getEarthquakes(o: DepremSorgusu = {}): Promise<Sonuc<Deprem[]>> {
+export async function getEarthquakes(o: DepremSorgusu = {}): Promise<Sonuc<DepremListesi>> {
   const tum = await cached("kandilli", meta.ttlSaniye, async () =>
     ayristir(await fetchText(URL_, { sourceId: meta.id, encoding: "windows-1254" })),
   );
@@ -73,5 +81,10 @@ export async function getEarthquakes(o: DepremSorgusu = {}): Promise<Sonuc<Depre
       d.buyukluk >= (o.minBuyukluk ?? 0) &&
       (!o.il || (d.il !== null && eslesir(d.il, o.il))),
   );
-  return sonuc(meta, URL_, sinirla(veri, o.limit));
+  const enEski = tum.at(-1);
+  const not =
+    enEski && Date.parse(enEski.tarih) > sinir
+      ? `Kandilli yalnız son 500 depremi yayımlar; liste ${trZaman(enEski.tarih)} sonrasını kapsıyor, istenen sürenin tamamını değil.`
+      : undefined;
+  return sonuc(meta, URL_, listele(veri, o.limit), not);
 }

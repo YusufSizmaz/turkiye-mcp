@@ -47,7 +47,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh label create kaynak-bozuk --color C8102E --description "Sağlık kontrolünde başarısız olan kaynak" 2>/dev/null || true
-          while IFS=$'\t' read -r id hata; do
+          while IFS=$'\t' read -r id hata || [ -n "$id" ]; do
             [ -z "$id" ] && continue
             baslik="Kaynak bozuldu: $id"
             mevcut=$(gh issue list --state open --label kaynak-bozuk --search "\"$baslik\" in:title" --json number --jq '.[0].number')

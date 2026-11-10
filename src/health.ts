@@ -42,6 +42,14 @@ export function shieldsJson(k: DurumKaydi): {
   return { schemaVersion: 1, label: "durum", ...ROZET[k.durum] };
 }
 
+/** Bozuk kaynaklar, satır başına "id<TAB>hata". Her satır (sonuncusu dahil) newline ile biter: bash `read` son satırı atlamasın. */
+export function bozukMetni(kayitlar: DurumKaydi[]): string {
+  return kayitlar
+    .filter((k) => k.durum === "bozuk")
+    .map((k) => `${k.id}\t${(k.hata ?? "").replace(/[\t\r\n]+/g, " ")}\n`)
+    .join("");
+}
+
 const SINIR_MS = 30_000;
 
 function zamanSiniri<T>(p: Promise<T>): Promise<T> {
@@ -123,12 +131,6 @@ export async function runHealth(
   );
   const sablon = join(dirname(fileURLToPath(import.meta.url)), "..", "site", "index.html");
   await writeFile(join(outDir, "index.html"), await readFile(sablon, "utf-8"));
-  await writeFile(
-    join(outDir, "bozuk.txt"),
-    kayitlar
-      .filter((k) => k.durum === "bozuk")
-      .map((k) => `${k.id}\t${k.hata ?? ""}`)
-      .join("\n"),
-  );
+  await writeFile(join(outDir, "bozuk.txt"), bozukMetni(kayitlar));
   return kayitlar;
 }

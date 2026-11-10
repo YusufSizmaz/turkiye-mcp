@@ -21,7 +21,7 @@ describe("AFAD", () => {
     expect(u.searchParams.get("start")).toBe("2026-11-09T19:00:00");
     expect(u.searchParams.get("end")).toBe("2026-11-10T19:00:00");
     expect(u.searchParams.get("minmag")).toBe("3");
-    expect(s.veri[0]).toEqual({
+    expect(s.veri.depremler[0]).toEqual({
       id: "afad-733903",
       tarih: "2026-11-10T21:12:54+03:00",
       buyukluk: 3.7,
@@ -33,7 +33,7 @@ describe("AFAD", () => {
       il: "Adana",
       kaynak: "afad",
     });
-    expect(s.veri.every((d) => d.buyukluk >= 3)).toBe(true);
+    expect(s.veri.depremler.every((d) => d.buyukluk >= 3)).toBe(true);
   });
 
   it("il filtresi Türkçe karakter duyarsız", async () => {
@@ -41,8 +41,8 @@ describe("AFAD", () => {
       { match: "servisnet", body: fixture("deprem/afad.json"), contentType: "application/json" },
     ]);
     const s = await afad.getEarthquakes({ il: "MUGLA", limit: 200 });
-    expect(s.veri.length).toBeGreaterThan(0);
-    expect(s.veri.every((d) => d.il === "Muğla")).toBe(true);
+    expect(s.veri.depremler.length).toBeGreaterThan(0);
+    expect(s.veri.depremler.every((d) => d.il === "Muğla")).toBe(true);
   });
 });
 
@@ -58,7 +58,7 @@ describe("Kandilli", () => {
       },
     ]);
     const s = await kandilli.getEarthquakes({ saat: 24 });
-    expect(s.veri[0]).toEqual({
+    expect(s.veri.depremler[0]).toEqual({
       id: "kandilli-20261110211252-37.6492-35.3652",
       tarih: "2026-11-10T21:12:52+03:00",
       buyukluk: 3.7,
@@ -70,8 +70,10 @@ describe("Kandilli", () => {
       il: "ADANA",
       kaynak: "kandilli",
     });
-    expect(s.veri.find((d) => d.yer === "EGE DENIZI")?.il).toBeNull();
-    expect(s.veri.find((d) => d.yer === "KAYNAR-(KAHRAMANMARAS)")?.il).toBe("KAHRAMANMARAS");
+    expect(s.veri.depremler.find((d) => d.yer === "EGE DENIZI")?.il).toBeNull();
+    expect(s.veri.depremler.find((d) => d.yer === "KAYNAR-(KAHRAMANMARAS)")?.il).toBe(
+      "KAHRAMANMARAS",
+    );
   });
 
   it("il ve büyüklük filtreleri, varsayılan limit 20", async () => {
@@ -81,15 +83,17 @@ describe("Kandilli", () => {
       { match: "koeri", body: fixture("deprem/kandilli.html"), contentType: "text/html" },
     ]);
     const hepsi = await kandilli.getEarthquakes({ saat: 720 });
-    expect(hepsi.veri).toHaveLength(20);
+    expect(hepsi.veri.depremler).toHaveLength(20);
     const km = await kandilli.getEarthquakes({
       saat: 720,
       il: "Kahramanmaraş",
       minBuyukluk: 1.5,
       limit: 200,
     });
-    expect(km.veri.length).toBeGreaterThan(0);
-    expect(km.veri.every((d) => d.il === "KAHRAMANMARAS" && d.buyukluk >= 1.5)).toBe(true);
+    expect(km.veri.depremler.length).toBeGreaterThan(0);
+    expect(km.veri.depremler.every((d) => d.il === "KAHRAMANMARAS" && d.buyukluk >= 1.5)).toBe(
+      true,
+    );
   });
 
   it("saat penceresi dışındakileri eler", async () => {
@@ -100,7 +104,7 @@ describe("Kandilli", () => {
     ]);
     const s = await kandilli.getEarthquakes({ saat: 1, limit: 200 });
     // TR 21:00–22:00 arası: yalnız 21:12:52
-    expect(s.veri.map((d) => d.tarih)).toEqual(["2026-11-10T21:12:52+03:00"]);
+    expect(s.veri.depremler.map((d) => d.tarih)).toEqual(["2026-11-10T21:12:52+03:00"]);
   });
 });
 

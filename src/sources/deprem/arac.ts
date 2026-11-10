@@ -5,7 +5,7 @@ import type { Sonuc } from "../../core/types.js";
 import { defineTool } from "../../mcp/tool.js";
 import * as afad from "./afad.js";
 import * as kandilli from "./kandilli.js";
-import type { Deprem } from "./tipler.js";
+import type { DepremListesi } from "./tipler.js";
 
 const girdi = z.object({
   kaynak: z.enum(["afad", "kandilli"]).default("afad").describe("Veri kaynağı: AFAD veya Kandilli"),
@@ -31,19 +31,21 @@ export const araclar = [
       const { kaynak, ...sorgu } = g;
       return (kaynak === "kandilli" ? kandilli : afad).getEarthquakes(sorgu);
     },
-    ozet(s: Sonuc<Deprem[]>, g) {
+    ozet(s: Sonuc<DepremListesi>, g) {
       const { saat, minBuyukluk: min } = g;
       const nerede = g.il ? ` ${g.il} ilinde` : "";
       const kapsam = `Son ${saat} saatte${nerede}${min ? ` ${trSayi(min, 1)}+ büyüklüğünde` : ""}`;
-      if (!s.veri.length) return `${kapsam} deprem kaydedilmedi.`;
-      const enBuyuk = s.veri.reduce((a, b) => (b.buyukluk > a.buyukluk ? b : a));
-      const liste = s.veri
+      const { toplam, enBuyuk, depremler } = s.veri;
+      if (!toplam || !enBuyuk) return `${kapsam} deprem kaydedilmedi.`;
+      const liste = depremler
         .map(
           (d) =>
             `- ${trZaman(d.tarih)} · ${trSayi(d.buyukluk, 1)} ${d.tip} · ${trSayi(d.derinlikKm, 1)} km · ${d.yer}`,
         )
         .join("\n");
-      return `${kapsam} ${s.veri.length} deprem (en yeniden eskiye).\nEn büyüğü: ${trSayi(enBuyuk.buyukluk, 1)} — ${enBuyuk.yer}, ${trZaman(enBuyuk.tarih)}\n${liste}`;
+      const kesik =
+        depremler.length < toplam ? ` Aşağıda en yeni ilk ${depremler.length} tanesi var.` : "";
+      return `${kapsam} ${toplam} deprem.${kesik}\nEn büyüğü: ${trSayi(enBuyuk.buyukluk, 1)} ${enBuyuk.tip} — ${enBuyuk.yer}, ${trZaman(enBuyuk.tarih)}\n${liste}`;
     },
   }),
 ];

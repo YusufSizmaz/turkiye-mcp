@@ -46,7 +46,7 @@ Gerçek örnek çıktı:
   Motorin UltraForce: 95,09 TL
   Motorin EcoForce: 95,09 TL
 
-Kaynak: ✅ Birinci taraf Opet Akaryakıt Fiyatları — https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=34 (alındı 2026-11-10T22:13:50+03:00)
+Kaynak: ✅ Birinci taraf Opet Akaryakıt Fiyatları — https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=34 (alındı 2026-11-10T22:24:32+03:00)
 ```
 
 **Kütüphane olarak**

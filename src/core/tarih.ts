@@ -14,6 +14,11 @@ function parcalar(now: Date): Record<string, string> {
   return Object.fromEntries(fmt.formatToParts(now).map((p) => [p.type, p.value]));
 }
 
+/** Türkiye'de şu anki saat (0–23). */
+export function trSaat(now: Date = new Date()): number {
+  return Number(parcalar(now).hour);
+}
+
 /** Türkiye'de bugünün tarihi, "YYYY-MM-DD". */
 export function bugunTr(now: Date = new Date()): string {
   const p = parcalar(now);

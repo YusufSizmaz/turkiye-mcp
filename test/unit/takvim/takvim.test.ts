@@ -70,6 +70,24 @@ describe("Namaz vakitleri (Ezan Vakti)", () => {
       { match: "/ilceler/540", ...j("ezan-ilceler-izmir.json") },
       { match: "/vakitler/9560", ...j("ezan-vakitler-izmir.json") },
     ]);
+    mockFetch([
+      { match: "/sehirler/2", ...j("ezan-sehirler-2.json") },
+      { match: "/ilceler/540", ...j("ezan-ilceler-izmir.json") },
+      { match: "/vakitler/9560", ...j("ezan-vakitler-izmir.json") },
+      {
+        match: "api.turkiyeapi.dev/v1/provinces",
+        body: {
+          status: "OK",
+          data: [
+            {
+              id: 35,
+              name: "İzmir",
+              districts: [{ id: 1, name: "Bornova", population: 1, area: 1 }],
+            },
+          ],
+        },
+      },
+    ]);
     const s = await getPrayerTimes({ il: "izmir", ilce: "Bornova" }, {});
     expect(s.veri[0]?.yer).toBe("İZMİR / İZMİR");
     expect(s.not).toContain("Bornova");

@@ -12,6 +12,7 @@ export { buildServer, createServer } from "./mcp/server.js";
 export type { KategoriModulu, ToolDef } from "./mcp/tool.js";
 export { KATEGORILER, secilenKategoriler, TUM_KAYNAKLAR } from "./registry.js";
 export * as btcturk from "./sources/finans/btcturk.js";
+export * as evds from "./sources/finans/evds.js";
 export * as isyatirim from "./sources/finans/isyatirim.js";
 export * as kap from "./sources/finans/kap.js";
 export * as paribu from "./sources/finans/paribu.js";

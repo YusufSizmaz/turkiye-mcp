@@ -1,0 +1,76 @@
+{
+  "name": "turkiye-mcp",
+  "version": "0.1.0",
+  "description": "Türkiye'nin güncel kamu verileri için MCP sunucusu ve TypeScript kütüphanesi — TCMB, KAP, AFAD, Kandilli, Resmî Gazete, MGM, nöbetçi eczane ve daha fazlası.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "turkiye-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && chmod +x dist/cli.js",
+    "prepare": "npm run build",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:live": "vitest run -c vitest.live.config.ts",
+    "health": "tsx scripts/health.ts",
+    "readme": "tsx scripts/gen-readme.ts",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "turkey",
+    "turkiye",
+    "tcmb",
+    "deprem",
+    "kap",
+    "open-data",
+    "typescript",
+    "claude",
+    "afad",
+    "kandilli",
+    "resmi-gazete",
+    "nobetci-eczane"
+  ],
+  "author": "Yusuf Sızmaz (https://github.com/YusufSizmaz)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YusufSizmaz/turkiye-mcp.git"
+  },
+  "homepage": "https://github.com/YusufSizmaz/turkiye-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/YusufSizmaz/turkiye-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "cheerio": "^1.2.0",
+    "fast-xml-parser": "^5.12.0",
+    "iconv-lite": "^0.7.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.6",
+    "@modelcontextprotocol/client": "^2.4.0",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

@@ -52,6 +52,8 @@ if want sehir; then
   get sehir/ibb-trafik.json "https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndex_Sc1_Cont"
   get sehir/ispark.json "https://api.ibb.gov.tr/ispark/Park"
   get sehir/ckan-search-baraj.json "https://data.ibb.gov.tr/api/3/action/package_search?q=baraj&rows=5"
+  get sehir/ckan-datastore-baraj.json "https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id=af0b3902-cfd9-4096-85f7-e2c3017e4f21&limit=3&sort=_id%20desc"
+  get sehir/izmir-search-eczane.json "https://acikveri.bizizmir.com/api/3/action/package_search?q=eczane&rows=3"
 fi
 if want cografya; then
   get cografya/provinces-ankara.json "https://api.turkiyeapi.dev/v1/provinces?name=Ankara"

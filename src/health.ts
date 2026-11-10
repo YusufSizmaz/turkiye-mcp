@@ -50,6 +50,22 @@ export function bozukMetni(kayitlar: DurumKaydi[]): string {
     .join("");
 }
 
+/** README başındaki genel rozet: asıl soru "bozuk kaynak var mı?" (yalnızca TR / anahtarlılar bozuk sayılmaz). */
+export function genelRozet(kayitlar: DurumKaydi[]): {
+  schemaVersion: 1;
+  label: "kaynaklar";
+  message: string;
+  color: string;
+} {
+  const bozuk = kayitlar.filter((k) => k.durum === "bozuk").length;
+  return {
+    schemaVersion: 1,
+    label: "kaynaklar",
+    message: `${kayitlar.length} kaynak · ${bozuk ? `${bozuk} bozuk` : "bozuk yok"}`,
+    color: bozuk ? "orange" : "brightgreen",
+  };
+}
+
 const SINIR_MS = 30_000;
 
 function zamanSiniri<T>(p: Promise<T>): Promise<T> {
@@ -119,16 +135,7 @@ export async function runHealth(
   for (const k of kayitlar) {
     await writeFile(join(outDir, "badges", `${k.id}.json`), JSON.stringify(shieldsJson(k)));
   }
-  const tumu = kayitlar.every((k) => k.durum !== "bozuk");
-  await writeFile(
-    join(outDir, "badges", "_genel.json"),
-    JSON.stringify({
-      schemaVersion: 1,
-      label: "kaynaklar",
-      message: `${durum.ozet.calisiyor}/${durum.ozet.toplam} çalışıyor`,
-      color: tumu ? "brightgreen" : "orange",
-    }),
-  );
+  await writeFile(join(outDir, "badges", "_genel.json"), JSON.stringify(genelRozet(kayitlar)));
   const sablon = join(dirname(fileURLToPath(import.meta.url)), "..", "site", "index.html");
   await writeFile(join(outDir, "index.html"), await readFile(sablon, "utf-8"));
   await writeFile(join(outDir, "bozuk.txt"), bozukMetni(kayitlar));

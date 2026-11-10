@@ -9,4 +9,5 @@
 - `TURKIYE_MCP_CATEGORIES` ile kategori filtresi; anahtarlı kaynaklar yalnız anahtar tanımlıysa yüklenir; `list_sources` aracı.
 - Tipli TypeScript kütüphanesi olarak da kullanılabilir.
 - Günlük canlı sağlık kontrolü, GitHub Pages durum sayfası ve kaynak başına durum rozeti.
+- Yurt dışı IP'lerini engelleyen 7 kaynak (TCMB, İBB, bazı eczacı odaları…) günlük kontrolde 🌍 "yalnızca TR" olarak gösterilir; Türkiye'den normal çalışır.
 - EVDS, EPİAŞ ve Diyanet resmî API'leri 🧪 deneysel (belgeye göre yazıldı, anahtarla doğrulanmadı).

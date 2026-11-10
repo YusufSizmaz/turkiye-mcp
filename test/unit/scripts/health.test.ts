@@ -65,3 +65,31 @@ describe("yurt dışından engellenen kaynaklar", () => {
     ]);
   });
 });
+
+describe("genel rozet", () => {
+  const k = (durum: "calisiyor" | "bozuk" | "geo-kisitli" | "anahtar-yok") => ({
+    id: durum,
+    ad: "",
+    kategori: "finans" as const,
+    rozet: "resmi" as const,
+    durum,
+    sureMs: 1,
+    deneysel: false,
+  });
+  it("bozuk yoksa yeşil 'bozuk yok' (yalnızca TR ve anahtarlılar sorun sayılmaz)", async () => {
+    const { genelRozet } = await import("../../../src/health.js");
+    expect(genelRozet([k("calisiyor"), k("geo-kisitli"), k("anahtar-yok")])).toEqual({
+      schemaVersion: 1,
+      label: "kaynaklar",
+      message: "3 kaynak · bozuk yok",
+      color: "brightgreen",
+    });
+  });
+  it("bozuk varsa turuncu ve sayısı", async () => {
+    const { genelRozet } = await import("../../../src/health.js");
+    expect(genelRozet([k("calisiyor"), k("bozuk")])).toMatchObject({
+      message: "2 kaynak · 1 bozuk",
+      color: "orange",
+    });
+  });
+});

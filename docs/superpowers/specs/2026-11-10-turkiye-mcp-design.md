@@ -200,6 +200,7 @@ Her kaynak bir `SourceMeta` dışa aktarır: `{ id, ad, kategori, rozet, anahtar
 - **`ci.yml`:** Lint, typecheck, unit ve build.
 
 ### 5.6 README
+**Kullanıcının isteği:** README kategori başlıklarıyla bölünür. Her kategori başlığının altında o kategorideki tüm API'ler listelenir. Her API, açılır bir bölümle (`<details>`) tüm ayrıntılarını gösterir: açıklama, rozet, canlı durum, uç noktalar, MCP araçları ve parametre tablosu, örnek sorular, kütüphane kullanım örneği ve gerçek örnek çıktı. Bu bölüm registry'den otomatik üretilir.
 - Başlık, kısa açıklama ve rozetler (CI, kaynak sağlığı, lisans, Node sürümü).
 - "Ne sorabilirsin?" bölümü: örnek sorular.
 - Kurulum: Claude Desktop (`claude_desktop_config.json`), Claude Code (`claude mcp add turkiye -- npx -y turkiye-mcp`), Cursor. npm'e yayınlanana kadar yerel derleme ile kurulum talimatı.

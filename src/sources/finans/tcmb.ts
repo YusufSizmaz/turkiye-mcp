@@ -1,11 +1,14 @@
 import { XMLParser } from "fast-xml-parser";
+import * as z from "zod";
 import { cached } from "../../core/cache.js";
 import { KaynakHatasi } from "../../core/errors.js";
-import { sayiVeyaNull } from "../../core/format.js";
+import { sayiVeyaNull, trSayi, trZaman } from "../../core/format.js";
 import { fetchText } from "../../core/http.js";
+import { tarihSema } from "../../core/sema.js";
 import { sonuc } from "../../core/sonuc.js";
 import { gecerliIsoTarih, noktaliTarih, oncekiGun, trTarihParcalari } from "../../core/tarih.js";
 import type { Sonuc, SourceMeta } from "../../core/types.js";
+import { defineTool } from "../../mcp/tool.js";
 
 export const meta: SourceMeta = {
   id: "tcmb-kurlar",
@@ -126,10 +129,6 @@ export async function getRates(opts: { tarih?: string } = {}): Promise<Sonuc<Kur
 }
 
 // ── MCP aracı ──────────────────────────────────────────────────────────────
-import * as z from "zod";
-import { trSayi, trZaman } from "../../core/format.js";
-import { tarihSema } from "../../core/sema.js";
-import { defineTool } from "../../mcp/tool.js";
 
 const OZET_EN_FAZLA = 8;
 

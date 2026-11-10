@@ -65,6 +65,8 @@ export interface SourceMeta {
   anahtarGerekli: boolean; envVars: string[]; resmiUrl: string; aciklama: string;
   ttlSaniye: number; deneysel?: boolean; geoKisitli?: boolean;
   anahtarNasilAlinir?: string;           // anahtarGerekli ise Türkçe talimat + URL
+  ucNoktalar: string[];                  // README'de gösterilen ham uç noktalar (ör. "GET https://www.tcmb.gov.tr/kurlar/today.xml")
+  kutuphaneOrnegi: string;               // README'de gösterilen TS kullanım örneği (2–6 satır)
 }
 export interface KaynakBilgisi { id: string; ad: string; rozet: Rozet; url: string; alinmaZamani: string /* ISO */ }
 export interface Sonuc<T> { veri: T; kaynak: KaynakBilgisi; not?: string }
@@ -140,6 +142,7 @@ expect(await fetchText("https://x.test/w",{sourceId:"t",encoding:"windows-1254"}
 export interface ToolDef<S extends z.ZodObject = z.ZodObject> {
   name: string; title: string; description: string; inputSchema: S;
   sources: SourceMeta[];                                   // gating + kaynak gösterimi
+  ornekSorular: string[];                                  // README için 1–3 Türkçe doğal dil sorusu
   run(input: z.infer<S>, env: NodeJS.ProcessEnv): Promise<Sonuc<unknown>>;
   ozet(s: Sonuc<any>): string;                             // Türkçe, kısa, insan okunur
 }
@@ -391,17 +394,32 @@ export async function runHealth(outDir: string): Promise<DurumKaydi[]>; // probe
 
 **Files:** `scripts/gen-readme.ts`, `test/unit/scripts/gen-readme.test.ts`, `README.md`, `CONTRIBUTING.md`, `LICENSE`, `CHANGELOG.md`, `.env.example`, `.github/ISSUE_TEMPLATE/{kaynak-oner.yml,kaynak-bozuk.yml,config.yml}`, `.github/pull_request_template.md`
 
-**Produces:** `export function renderKaynakTablosu(moduller: KategoriModulu[]): string;` `export function readmeGuncelle(readme: string, tablo: string): string;` (`<!-- KAYNAKLAR:BASLA -->` ile `<!-- KAYNAKLAR:BITIR -->` arasını değiştirir; işaretler yoksa throw).
-- [ ] Test: tablo her kategori için `### 💱 Finans & Piyasalar` başlığı, her kaynak satırında rozet etiketi, araç adları `` `finans_get_exchange_rates` ``, 🔑 kaynaklarda env adı, 🧪 deneysellerde işaret ve `https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2F<id>.json` içerir; `readmeGuncelle` idempotent.
+**Produces:** `export function renderKatalog(moduller: KategoriModulu[], ornekCiktilar?: Record<string,string>): string;` `export function renderIcindekiler(moduller): string;` `export function readmeGuncelle(readme: string, isaret: "KATALOG"|"ICINDEKILER", icerik: string): string;` (`<!-- KATALOG:BASLA -->`…`<!-- KATALOG:BITIR -->` gibi işaretler arasını değiştirir; işaret yoksa throw). `ornekCiktilar` = `docs/ornek-ciktilar.json` (Task 16 smoke'tan, araç adı → gerçek özet metni), yoksa bölüm atlanır.
+
+**Katalog yapısı (kullanıcının isteği: kategori başlıkları → altında tüm API'ler → tıklayınca tüm detay):**
+```
+## 💱 Finans & Piyasalar
+Kısa kategori açıklaması. | Kaynak | Rozet | Araçlar | Durum |  ← özet tablo (tüm kaynaklar)
+<details><summary><b>TCMB Günlük Kurlar</b> · 🏛️ Resmî · <img durum rozeti></summary>
+  açıklama · resmî site linki · TTL ("5 dk önbellek") · 🔑/🧪 notu + anahtar alma talimatı
+  #### Uç noktalar        → ucNoktalar kod bloğu
+  #### MCP araçları       → her araç: `ad` — açıklama; parametre tablosu (ad | tip | zorunlu | varsayılan | açıklama) z.toJSONSchema(inputSchema)'dan
+  #### Örnek sorular      → ornekSorular madde listesi
+  #### Kütüphane kullanımı → kutuphaneOrnegi ts kod bloğu
+  #### Örnek çıktı        → ornekCiktilar[araç] (varsa) text kod bloğu
+</details>
+```
+Kategori sırası ve ikonları registry'den. Ayrıca `src/sources/<kategori>/README.md` dosyaları da aynı üreticiyle (yalnız o kategori) üretilir — elle yazılmaz.
+- [ ] Test: çıktı her kategori için `## 💱 Finans & Piyasalar` başlığı, her kaynak için bir `<details>` bloğu, rozet etiketi, araç adları `` `finans_get_exchange_rates` ``, parametre tablosunda zorunlu/varsayılan sütunları (ör. `limit` varsayılan `20`), 🔑 kaynaklarda env adı, 🧪 deneysellerde işaret ve `https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2F<id>.json` içerir; `readmeGuncelle` idempotent; içindekiler her kategoriye çapa linki verir.
 - [ ] `README.md` spec §5.6 + §5.9 sırasıyla: hero (ad, tek cümle, rozet satırı: CI, Kaynak sağlığı (health.yml), lisans, Node ≥20, MCP), "Ne sorabilirsin?" (6 örnek, Türkçe), "30 saniyede kur" (Claude Code `claude mcp add turkiye -- npx -y github:YusufSizmaz/turkiye-mcp`, Claude Desktop JSON, Cursor JSON; npm yayınlanınca `npx -y turkiye-mcp`), örnek konuşma bloğu (gerçek bir health/live çıktısından), kaynak tablosu (üretilmiş), rozetlerin anlamı, kategori filtreleme (`TURKIYE_MCP_CATEGORIES`), anahtarlı kaynaklar, kütüphane olarak kullanım (`import { tcmb, afad } from "turkiye-mcp"`), yerel geliştirme, elenen kaynaklar ve nedenleri (spec §4 son bölüm), sorumluluk reddi, English section. `npx github:` kurulumu `prepare: "npm run build"` script'ini gerektirir — package.json'a ekle.
 - [ ] `CONTRIBUTING.md`: yeni kaynak ekleme (Task 3–13 ortak kalıbı adım adım), yeni il eczane adaptörü, fixture kaydı, commit kuralları.
-- [ ] `npm run readme` → README tablosu doldu; `npm test` PASS.
+- [ ] `npm run readme` → README kataloğu ve kategori README'leri üretildi; `npm test` PASS.
 - [ ] Commit `docs: README, katkı rehberi ve şablonlar`.
 
 ### Task 16: Uçtan uca doğrulama ve yayın
 
 - [ ] `npm run lint && npm run typecheck && npm test && npm run build` → hepsi temiz.
-- [ ] Gerçek stdio uçtan uca: küçük bir `scripts/smoke.ts` (`@modelcontextprotocol/client` + `StdioClientTransport` ile `node dist/cli.js`'i başlatır), `listTools` → 27'ye yakın araç (anahtarsız ortamda 🔑 araçlar hariç) ve şu çağrılar `isError` olmadan döner: `finans_get_exchange_rates`, `deprem_get_recent`, `resmi_gazete_get_issue`, `hava_get_current {il:"Ankara"}`, `eczane_get_on_duty {il:"İzmir"}`, `takvim_get_prayer_times {il:"İstanbul"}`. Çıktıyı README örnek konuşmasında kullan.
+- [ ] Gerçek stdio uçtan uca: küçük bir `scripts/smoke.ts` (`@modelcontextprotocol/client` + `StdioClientTransport` ile `node dist/cli.js`'i başlatır), `listTools` → 27'ye yakın araç (anahtarsız ortamda 🔑 araçlar hariç) ve şu çağrılar `isError` olmadan döner: `finans_get_exchange_rates`, `deprem_get_recent`, `resmi_gazete_get_issue`, `hava_get_current {il:"Ankara"}`, `eczane_get_on_duty {il:"İzmir"}`, `takvim_get_prayer_times {il:"İstanbul"}`. Her aracın gerçek özet metnini `docs/ornek-ciktilar.json`'a yaz (araç adı → metin), `npm run readme` ile kataloğa işle ve README örnek konuşmasında kullan.
 - [ ] `git log --format='%an <%ae>%n%b' | grep -i -E 'claude|co-authored'` → boş çıktı.
 - [ ] `git push origin main`; GitHub'da CI yeşil (`gh run watch`).
 - [ ] Pages'i Actions modunda aç: `gh api -X POST repos/YusufSizmaz/turkiye-mcp/pages -f build_type=workflow` (zaten varsa `PUT`); `gh workflow run health.yml`; tamamlanınca `https://yusufsizmaz.github.io/turkiye-mcp/status.json` erişilebilir.

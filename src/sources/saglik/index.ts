@@ -6,6 +6,7 @@ import * as ankara from "./eczane/ankara.js";
 import { DESTEKLENEN_ILLER, type Eczane, getOnDuty, metalar } from "./eczane/index.js";
 import * as istanbul from "./eczane/istanbul.js";
 import * as izmir from "./eczane/izmir.js";
+import { adana, mersin } from "./eczane/oda-sayfasi.js";
 
 const haritaLinki = (e: Eczane) =>
   e.konum ? `https://www.google.com/maps?q=${e.konum.enlem},${e.konum.boylam}` : null;
@@ -57,6 +58,14 @@ export const saglik: KategoriModulu = {
     },
     [izmir.meta.id]: async () => {
       const s = await getOnDuty({ il: "İzmir" });
+      if (!s.veri.length) throw new Error("liste boş");
+    },
+    [adana.meta.id]: async () => {
+      const s = await getOnDuty({ il: "Adana" });
+      if (!s.veri.length) throw new Error("liste boş");
+    },
+    [mersin.meta.id]: async () => {
+      const s = await getOnDuty({ il: "Mersin" });
       if (!s.veri.length) throw new Error("liste boş");
     },
     [ankara.meta.id]: async () => {

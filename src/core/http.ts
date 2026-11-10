@@ -21,7 +21,9 @@ export interface HttpOptions {
 const VARSAYILAN_ZAMAN_ASIMI = 15_000;
 
 function yenidenDenenebilir(e: unknown): boolean {
-  if (e instanceof KaynakHatasi) return e.tur === "http" && (e.status ?? 0) >= 500;
+  // Ağ hatası (status yok) veya 5xx → tekrar denenir; 4xx, zaman aşımı ve ayrıştırma hataları denenmez.
+  if (e instanceof KaynakHatasi)
+    return e.tur === "http" && (e.status === undefined || e.status >= 500);
   return true; // ağ hatası
 }
 
@@ -80,6 +82,7 @@ export async function fetchBuffer(url: string, o: HttpOptions): Promise<Buffer> 
     } catch (e) {
       sonHata = e;
       if (!yenidenDenenebilir(e) || i === deneme - 1) break;
+      await new Promise((r) => setTimeout(r, 250 * (i + 1)));
     }
   }
   if (sonHata instanceof KaynakHatasi) throw sonHata;

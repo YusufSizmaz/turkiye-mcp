@@ -1,5 +1,7 @@
 <!-- Bu dosya `npm run readme` ile üretilir; elle düzenlemeyin. -->
 
+[← turkiye-mcp](../../../README.md#-araçlar)
+
 ## ⛽ Enerji & Akaryakıt
 
 İl/ilçe bazında akaryakıt pompa fiyatları ve EPİAŞ elektrik piyasası verileri.
@@ -46,7 +48,7 @@ Gerçek örnek çıktı:
   Motorin UltraForce: 95,09 TL
   Motorin EcoForce: 95,09 TL
 
-Kaynak: ✅ Birinci taraf Opet Akaryakıt Fiyatları — https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=34 (alındı 2026-11-10T22:24:32+03:00)
+Kaynak: ✅ Birinci taraf Opet Akaryakıt Fiyatları — https://api.opet.com.tr/api/fuelprices/prices?ProvinceCode=34 (alındı 2026-11-10T22:55:33+03:00)
 ```
 
 **Kütüphane olarak**
@@ -102,4 +104,4 @@ const ptf = await epias.getMarketClearingPrice({ tarih: "2026-11-10" }, process.
 
 </details>
 
-[← Tüm kategoriler](../../../README.md#kaynak-kataloğu)
+[← Tüm kategoriler](../../../README.md#-araçlar)

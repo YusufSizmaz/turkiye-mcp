@@ -23,6 +23,7 @@ export const portalMeta: Record<Portal, SourceMeta> = {
   ibb: {
     ...ortak,
     id: "ibb-acik-veri",
+    kisaAd: "İBB Açık Veri",
     geoKisitli: true,
     ad: "İBB Açık Veri Portalı",
     resmiUrl: "https://data.ibb.gov.tr",
@@ -40,6 +41,7 @@ const tablo = await acikVeri.queryDatastore("ibb", veri.sonuclar[0].kaynaklar[0]
   izmir: {
     ...ortak,
     id: "izmir-acik-veri",
+    kisaAd: "İzmir Açık Veri",
     ad: "İzmir Büyükşehir Belediyesi Açık Veri Portalı",
     resmiUrl: "https://acikveri.bizizmir.com",
     aciklama:

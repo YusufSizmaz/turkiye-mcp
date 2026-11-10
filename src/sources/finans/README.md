@@ -1,8 +1,10 @@
 <!-- Bu dosya `npm run readme` ile üretilir; elle düzenlemeyin. -->
 
+[← turkiye-mcp](../../../README.md#-araçlar)
+
 ## 💱 Finans & Piyasalar
 
-Döviz kurları, altın, BIST hisseleri, kripto paralar, KAP bildirimleri ve TCMB EVDS serileri.
+Döviz kurları, altın, BIST hisseleri ve endeksleri, kripto paralar, KAP bildirimleri ve TCMB EVDS serileri.
 
 | Kaynak | Rozet | MCP araçları | Durum |
 |---|---|---|---|
@@ -13,6 +15,7 @@ Döviz kurları, altın, BIST hisseleri, kripto paralar, KAP bildirimleri ve TCM
 | BtcTurk | ✅ Birinci taraf | `finans_get_crypto_prices` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fbtcturk.json) |
 | Paribu | ✅ Birinci taraf | `finans_get_crypto_prices` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fparibu.json) |
 | TCMB EVDS — Elektronik Veri Dağıtım Sistemi | 🏛️ Resmî · 🔑 Anahtar · 🧪 Deneysel | `finans_get_evds_series` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftcmb-evds.json) |
+| Borsa İstanbul — Endeks Bileşenleri | 🏛️ Resmî | `finans_get_bist_index` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fbist-endeks.json) |
 
 <details>
 <summary><b>TCMB Gösterge Niteliğindeki Döviz Kurları</b> — 🏛️ Resmî <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftcmb-kurlar.json" alt="durum" align="top"></summary>
@@ -51,7 +54,7 @@ USD (1 ABD DOLARI): alış 50,1078 · satış 50,1981
 EUR (1 EURO): alış 56,2781 · satış 56,3795
 GBP (1 İNGİLİZ STERLİNİ): alış 67,2269 · satış 67,5774
 
-Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: 🏛️ Resmî TCMB Gösterge Niteliğindeki Döviz Kurları — https://www.tcmb.gov.tr/kurlar/today.xml (alındı 2026-11-10T22:55:28+03:00)
 ```
 
 **Kütüphane olarak**
@@ -102,11 +105,11 @@ Gerçek örnek çıktı:
 
 ```text
 3 KAP bildirimi:
-- 10.11.2026 22:00 · LUXERA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri Hakkında (https://www.kap.org.tr/tr/Bildirim/1696756)
-- 10.11.2026 21:51 · PC İLETİŞİM VE MEDYA HİZMETLERİ SANAYİ TİCARET A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri (https://www.kap.org.tr/tr/Bildirim/1696755)
-- 10.11.2026 20:58 · İSTANBUL ULUSLARARASI DERECELENDİRME HİZMETLERİ A.Ş.: Kredi Derecelendirmesi — Kredi Derecelendirme Notunun Askıya Alınması (https://www.kap.org.tr/tr/Bildirim/1696754)
+- 10.11.2026 22:37 · CW ENERJİ MÜHENDİSLİK TİCARET VE SANAYİ A.Ş.: Geleceğe Dönük Değerlendirmeler — Geleceğe Yönelik Değerlendirmeler Kapsamında Şirket Sunumu (https://www.kap.org.tr/tr/Bildirim/1696760)
+- 10.11.2026 22:35 · DENGE YATIRIM HOLDİNG A.Ş.: Şirket Genel Bilgi Formu (https://www.kap.org.tr/tr/Bildirim/1696759)
+- 10.11.2026 22:26 · SANKO PAZARLAMA İTHALAT İHRACAT A.Ş.: Payların Geri Alınmasına İlişkin Bildirim — 10.11.2026 Tarihli Pay Geri Alım İşlemleri (https://www.kap.org.tr/tr/Bildirim/1696758)
 
-Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/disclosure/list/light (alındı 2026-11-10T22:55:28+03:00)
 ```
 
 **MCP aracı: `finans_search_kap_companies`** — KAP şirket/fon arama
@@ -127,7 +130,7 @@ Gerçek örnek çıktı:
 ```text
 - ASELS — ASELSAN ELEKTRONİK SANAYİ VE TİCARET A.Ş.
 
-Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: 🏛️ Resmî KAP — Kamuyu Aydınlatma Platformu — https://www.kap.org.tr/tr/api/search/combined (alındı 2026-11-10T22:55:28+03:00)
 ```
 
 **Kütüphane olarak**
@@ -172,12 +175,12 @@ GET https://finans.truncgil.com/v4/today.json
 Gerçek örnek çıktı:
 
 ```text
-Serbest piyasa — 10.11.2026 22:24
-- Gram Altın: alış 6.509,31 · satış 6.510,16 TL (-2,57%)
-- Çeyrek Altın: alış 10.591 · satış 10.680 TL (-2,44%)
-- Tam Altın: alış 42.287 · satış 42.550 TL (-2,44%)
+Serbest piyasa — 10.11.2026 22:55
+- Gram Altın: alış 6.510,63 · satış 6.511,39 TL (-2,55%)
+- Çeyrek Altın: alış 10.593 · satış 10.681 TL (-2,43%)
+- Tam Altın: alış 42.296 · satış 42.555 TL (-2,43%)
 
-Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: 🌐 Topluluk Truncgil Finans (altın ve serbest piyasa) — https://finans.truncgil.com/v4/today.json (alındı 2026-11-10T22:55:28+03:00)
 ```
 
 **Kütüphane olarak**
@@ -227,7 +230,7 @@ Gerçek örnek çıktı:
 Son kapanış: 313,75 TL · Dönem değişimi: +9,8%
 Dönem en düşük/en yüksek: 242,2 / 318,25 TL
 
-Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: 🌐 Topluluk İş Yatırım — BIST hisse geçmişi — https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/HisseTekil?hisse=THYAO&startdate=11-10-2026&enddate=10-11-2026 (alındı 2026-11-10T22:55:29+03:00)
 ```
 
 **Kütüphane olarak**
@@ -272,11 +275,11 @@ GET https://api.btcturk.com/api/v2/ticker
 Gerçek örnek çıktı:
 
 ```text
-- BTC/TRY: 3.681.753 (24s -1,58%)
-- ETH/TRY: 102.448 (24s -3,7%)
-- USDT/TRY: 50,2 (24s +0,21%)
+- BTC/TRY: 3.690.957 (24s -1,52%)
+- ETH/TRY: 102.683 (24s -3,74%)
+- USDT/TRY: 50,17 (24s +0,17%)
 
-Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:55:30+03:00)
 ```
 
 **Kütüphane olarak**
@@ -320,11 +323,11 @@ GET https://www.paribu.com/ticker
 Gerçek örnek çıktı:
 
 ```text
-- BTC/TRY: 3.681.753 (24s -1,58%)
-- ETH/TRY: 102.448 (24s -3,7%)
-- USDT/TRY: 50,2 (24s +0,21%)
+- BTC/TRY: 3.690.957 (24s -1,52%)
+- ETH/TRY: 102.683 (24s -3,74%)
+- USDT/TRY: 50,17 (24s +0,17%)
 
-Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: ✅ Birinci taraf BtcTurk — https://api.btcturk.com/api/v2/ticker (alındı 2026-11-10T22:55:30+03:00)
 ```
 
 **Kütüphane olarak**
@@ -382,4 +385,52 @@ const { veri } = await evds.getSeries(
 
 </details>
 
-[← Tüm kategoriler](../../../README.md#kaynak-kataloğu)
+<details>
+<summary><b>Borsa İstanbul — Endeks Bileşenleri</b> — 🏛️ Resmî <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fbist-endeks.json" alt="durum" align="top"></summary>
+
+Borsa İstanbul'un yayımladığı güncel endeks bileşenleri: BIST 30, BIST 100, banka, sanayi, katılım… 80'den fazla endeks ve hangi hissenin hangi endekste olduğu.
+
+- **Resmî site:** https://www.borsaistanbul.com/tr/endeksler
+- **Önbellek:** 24 saat
+
+**Uç noktalar**
+
+```text
+GET https://www.borsaistanbul.com/datum/hisse_endeks_ds.csv   (noktalı virgüllü CSV)
+```
+
+**MCP aracı: `finans_get_bist_index`** — BIST endeks bileşenleri
+
+> Borsa Istanbul index constituents (endeks bileşenleri: BIST 30/XU030, BIST 100/XU100, XBANK…) or, given a ticker, which indices that stock belongs to.
+
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `endeks` | metin | — | — | Endeks kodu, ör. "XU030", "XU100", "XBANK" |
+| `hisse` | metin | — | — | Hisse kodu verilirse dahil olduğu endeksler, ör. "ASELS" |
+
+Örnek sorular:
+
+- “BIST 30'da hangi hisseler var?”
+- “ASELS hangi endekslerde?”
+
+Gerçek örnek çıktı:
+
+```text
+BIST 30 (XU030) — 30 hisse:
+AEFES ANADOLU EFES · AKBNK AKBANK · ASELS ASELSAN · ASTOR ASTOR ENERJI · BIMAS BIM MAGAZALAR · EKGYO EMLAK KONUT GMYO · ENKAI ENKA INSAAT · EREGL EREGLI DEMIR CELIK · FROTO FORD OTOSAN · GARAN GARANTI BANKASI · GUBRF GUBRE FABRIK. · ISCTR IS BANKASI (C) · KCHOL KOC HOLDING · KRDMD KARDEMIR (D) · MGROS MIGROS TICARET · PETKM PETKIM · PGSUS PEGASUS · SAHOL SABANCI HOLDING · SASA SASA POLYESTER · SISE SISE CAM · TAVHL TAV HAVALIMANLARI · TCELL TURKCELL · THYAO TURK HAVA YOLLARI · TOASO TOFAS OTO. FAB. · TRALT TURK ALTIN ISLETMELERI · TRMET TR ANADOLU METAL MADENCILIK · TTKOM TURK TELEKOM · TUPRS TUPRAS · VAKBN VAKIFLAR BANKASI · YKBNK YAPI VE KREDI BANK.
+
+Kaynak: 🏛️ Resmî Borsa İstanbul — Endeks Bileşenleri — https://www.borsaistanbul.com/datum/hisse_endeks_ds.csv (alındı 2026-11-10T22:55:34+03:00)
+```
+
+**Kütüphane olarak**
+
+```ts
+import { bist } from "turkiye-mcp";
+
+const { veri } = await bist.getIndex({ endeks: "XU030" });   // BIST 30 hisseleri
+const endeksler = await bist.getStockIndices("ASELS");        // ASELS hangi endekslerde?
+```
+
+</details>
+
+[← Tüm kategoriler](../../../README.md#-araçlar)

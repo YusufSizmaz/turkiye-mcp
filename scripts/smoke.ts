@@ -29,6 +29,13 @@ const CAGRILAR: Array<[string, Record<string, unknown>]> = [
   ["cografya_get_provinces", { ad: "Eskişehir" }],
   ["cografya_get_districts", { il: "Muğla" }],
   ["cografya_get_neighborhoods", { il: "İstanbul", ilce: "Beşiktaş", limit: 3 }],
+  ["finans_get_bist_index", { endeks: "XU030" }],
+  ["resmi_mevzuat_search", { sorgu: "kişisel veri", tur: "kanun", limit: 3 }],
+  ["izmir_get_market_prices", { urun: "domates" }],
+  ["izmir_get_izban_times", { kalkis: "Alsancak", varis: "Menemen", limit: 3 }],
+  ["izmir_get_ferry_times", { iskele: "Karşıyaka", limit: 5 }],
+  ["izmir_find_places", { kategori: "afetaciltoplanmaalani", ilce: "Bornova", limit: 3 }],
+  ["eczane_get_on_duty", { il: "Adana", ilce: "Seyhan", limit: 2 }],
   ["takvim_get_holidays", {}],
   ["takvim_get_prayer_times", { il: "İstanbul", ilce: "Üsküdar" }],
 ];

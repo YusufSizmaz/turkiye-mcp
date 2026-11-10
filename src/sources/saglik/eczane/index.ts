@@ -5,13 +5,20 @@ import type { Sonuc } from "../../../core/types.js";
 import * as ankara from "./ankara.js";
 import * as istanbul from "./istanbul.js";
 import * as izmir from "./izmir.js";
+import { adana, mersin } from "./oda-sayfasi.js";
 import type { Eczane, EczaneAdaptoru } from "./tipler.js";
 
 export type { Eczane, EczaneAdaptoru } from "./tipler.js";
 
-export const ADAPTORLER: EczaneAdaptoru[] = [istanbul.adaptor, izmir.adaptor, ankara.adaptor];
+export const ADAPTORLER: EczaneAdaptoru[] = [
+  istanbul.adaptor,
+  ankara.adaptor,
+  izmir.adaptor,
+  adana,
+  mersin,
+];
 
-export const DESTEKLENEN_ILLER = "İstanbul, Yalova, İzmir, Ankara";
+export const DESTEKLENEN_ILLER = "İstanbul, Yalova, Ankara, İzmir, Adana, Mersin";
 
 export async function getOnDuty(o: {
   il: string;

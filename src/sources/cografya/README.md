@@ -1,5 +1,7 @@
 <!-- Bu dosya `npm run readme` ile üretilir; elle düzenlemeyin. -->
 
+[← turkiye-mcp](../../../README.md#-araçlar)
+
 ## 🗺️ Coğrafya
 
 81 il, ilçe ve mahalle bilgileri: nüfus, yüzölçümü, rakım, bölge, plaka, telefon kodu, koordinat.
@@ -41,7 +43,7 @@ Gerçek örnek çıktı:
 ```text
 - Eskişehir (26) · İç Anadolu · nüfus 927.956 · 13.960 km² · rakım 796 m · tel 222 · büyükşehir
 
-Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/provinces?name=Eski%C5%9Fehir (alındı 2026-11-10T22:24:34+03:00)
+Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/provinces?name=Eski%C5%9Fehir (alındı 2026-11-10T22:55:34+03:00)
 ```
 
 **MCP aracı: `cografya_get_districts`** — İlçeler
@@ -96,7 +98,7 @@ Gerçek örnek çıktı:
 - Akat: 12.089
 - Arnavutköy: 3.371
 
-Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/neighborhoods?province=%C4%B0stanbul&district=Be%C5%9Fikta%C5%9F&limit=1000 (alındı 2026-11-10T22:24:34+03:00)
+Kaynak: 🌐 Topluluk TurkiyeAPI — https://api.turkiyeapi.dev/v1/neighborhoods?province=%C4%B0stanbul&district=Be%C5%9Fikta%C5%9F&limit=1000 (alındı 2026-11-10T22:55:34+03:00)
 ```
 
 **Kütüphane olarak**
@@ -110,4 +112,4 @@ const ilceler = await turkiyeapi.getDistricts("İzmir");
 
 </details>
 
-[← Tüm kategoriler](../../../README.md#kaynak-kataloğu)
+[← Tüm kategoriler](../../../README.md#-araçlar)

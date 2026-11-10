@@ -15,6 +15,8 @@ export type Rozet = "resmi" | "birinci-taraf" | "topluluk";
 export interface SourceMeta {
   id: string;
   ad: string;
+  /** README kaynak satırında kullanılan kısa ad (yoksa ad'dan türetilir) */
+  kisaAd?: string;
   kategori: Kategori;
   rozet: Rozet;
   anahtarGerekli: boolean;

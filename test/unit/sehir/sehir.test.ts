@@ -109,13 +109,17 @@ describe("şehir araçları", () => {
     return a;
   };
 
-  it("4 araç: trafik, otopark, açık veri arama ve sorgu", async () => {
+  it("8 araç: İstanbul, açık veri ve İzmir", async () => {
     const { sehir } = await import("../../../src/sources/sehir/index.js");
     expect(sehir.tools.map((t) => t.name)).toEqual([
       "istanbul_get_traffic_index",
       "istanbul_get_parking",
       "opendata_search",
       "opendata_query",
+      "izmir_get_market_prices",
+      "izmir_get_izban_times",
+      "izmir_get_ferry_times",
+      "izmir_find_places",
     ]);
   });
 

@@ -19,6 +19,7 @@ import { defineTool } from "../../mcp/tool.js";
 
 export const meta: SourceMeta = {
   id: "resmi-gazete",
+  kisaAd: "Resmî Gazete",
   ad: "T.C. Resmî Gazete",
   kategori: "resmi",
   rozet: "resmi",

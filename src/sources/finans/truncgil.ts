@@ -9,6 +9,7 @@ import { defineTool } from "../../mcp/tool.js";
 
 export const meta: SourceMeta = {
   id: "truncgil",
+  kisaAd: "Truncgil",
   ad: "Truncgil Finans (altın ve serbest piyasa)",
   kategori: "finans",
   rozet: "topluluk",
@@ -76,7 +77,8 @@ export async function getGoldAndMarket(
   opts: { kodlar?: string[] } = {},
 ): Promise<Sonuc<{ guncelleme: string; kalemler: PiyasaKalemi[] }>> {
   const ham = await cached("truncgil", meta.ttlSaniye, () =>
-    fetchJson<Record<string, HamKalem | string>>(URL_, { sourceId: meta.id }),
+    // Sunucu zaman zaman bağlantıyı boş yanıtla kesiyor; birkaç tekrar yeterli oluyor.
+    fetchJson<Record<string, HamKalem | string>>(URL_, { sourceId: meta.id, retries: 3 }),
   );
   if (typeof ham !== "object" || !ham || typeof ham.Update_Date !== "string") {
     throw new KaynakHatasi(meta.id, "ayristirma", "Truncgil yanıtı beklenen biçimde değil.");

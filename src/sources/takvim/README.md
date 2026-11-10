@@ -1,5 +1,7 @@
 <!-- Bu dosya `npm run readme` ile üretilir; elle düzenlemeyin. -->
 
+[← turkiye-mcp](../../../README.md#-araçlar)
+
 ## 📅 Takvim & Vakitler
 
 Resmî tatiller ve dinî bayramlar; il/ilçe bazında namaz vakitleri (Diyanet verisi).
@@ -103,7 +105,7 @@ Gerçek örnek çıktı:
 İSTANBUL / İSTANBUL
 Salı 10.11.2026 (1 Cemaziyelahir 1448): İmsak 06:11 · Güneş 07:38 · Öğle 12:53 · İkindi 15:33 · Akşam 17:58 · Yatsı 19:20
 
-Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:24:35+03:00)
+Kaynak: 🌐 Topluluk Ezan Vakti API (Diyanet verisi) — https://ezanvakti.emushaf.net/vakitler/9541 (alındı 2026-11-10T22:55:41+03:00)
 Not: Diyanet "Üsküdar" için ayrı vakit yayımlamıyor (merkez ilçe); İstanbul merkez vakitleri verildi.
 ```
 
@@ -146,4 +148,4 @@ const { veri, kaynak } = await namaz.getPrayerTimes({ il: "Ankara" }, process.en
 
 </details>
 
-[← Tüm kategoriler](../../../README.md#kaynak-kataloğu)
+[← Tüm kategoriler](../../../README.md#-araçlar)

@@ -8,6 +8,7 @@ import type { Sonuc, SourceMeta } from "../../core/types.js";
 
 export const meta: SourceMeta = {
   id: "epias",
+  kisaAd: "EPİAŞ",
   ad: "EPİAŞ Şeffaflık Platformu",
   kategori: "enerji",
   rozet: "resmi",

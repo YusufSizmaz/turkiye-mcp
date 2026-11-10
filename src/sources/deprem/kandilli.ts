@@ -10,6 +10,7 @@ import { type Deprem, type DepremListesi, type DepremSorgusu, listele } from "./
 
 export const meta: SourceMeta = {
   id: "kandilli",
+  kisaAd: "Kandilli Rasathanesi",
   ad: "Boğaziçi Üniversitesi Kandilli Rasathanesi (KOERI)",
   kategori: "deprem",
   rozet: "resmi",

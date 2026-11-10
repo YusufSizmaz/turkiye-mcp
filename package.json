@@ -1,6 +1,6 @@
 {
   "name": "turkiye-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Türkiye'nin güncel kamu verileri için MCP sunucusu ve TypeScript kütüphanesi — TCMB, KAP, AFAD, Kandilli, Resmî Gazete, MGM, nöbetçi eczane ve daha fazlası.",
   "type": "module",
   "main": "./dist/index.js",

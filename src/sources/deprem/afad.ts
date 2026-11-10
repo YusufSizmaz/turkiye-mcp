@@ -9,6 +9,7 @@ import { type Deprem, type DepremListesi, type DepremSorgusu, listele } from "./
 
 export const meta: SourceMeta = {
   id: "afad",
+  kisaAd: "AFAD",
   ad: "AFAD Deprem Dairesi",
   kategori: "deprem",
   rozet: "resmi",

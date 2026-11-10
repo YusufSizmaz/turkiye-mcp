@@ -1,5 +1,19 @@
 # Değişiklik günlüğü
 
+## 0.2.0 — 2026-11-10
+
+**Yeni veri kaynakları (25 → 31 araç, 25 → 32 kaynak)**
+- `finans_get_bist_index` — Borsa İstanbul endeks bileşenleri (BIST 30, BIST 100, XBANK… ve bir hissenin dahil olduğu endeksler).
+- `resmi_mevzuat_search` — Mevzuat Bilgi Sistemi'nde kanun, KHK, tüzük, yönetmelik ve tebliğ araması.
+- `izmir_get_market_prices` — İzmir sebze-meyve ve balık hali günlük fiyatları.
+- `izmir_get_izban_times`, `izmir_get_ferry_times` — İZBAN ve İzdeniz vapur sefer saatleri.
+- `izmir_find_places` — İzmir kent rehberi: hastane, afet toplanma alanı, plaj, müze, noter, WizmirNET… 25 kategori.
+- Nöbetçi eczane: **Adana** ve **Mersin** eklendi (6 il); İzmir artık belediyenin resmî API'sinden.
+
+**Düzeltmeler**
+- Ağ hataları artık gerçekten bir kez (Truncgil'de üç kez, artan beklemeyle) tekrar deneniyor.
+- README sadeleştirildi: kategori başlıkları altında araç tabloları; parametreler ve kod örnekleri kategori sayfalarında.
+
 ## 0.1.0 — 2026-11-10
 
 İlk sürüm.

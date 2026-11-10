@@ -1,5 +1,7 @@
 <!-- Bu dosya `npm run readme` ile üretilir; elle düzenlemeyin. -->
 
+[← turkiye-mcp](../../../README.md#-araçlar)
+
 ## 🌍 Deprem & Afet
 
 AFAD ve Kandilli Rasathanesi'nden son depremler.
@@ -49,7 +51,7 @@ En büyüğü: 3,7 ML — Aladağ (Adana), 10.11.2026 21:12
 - 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
 - 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
 
-Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A24%3A00&end=2026-11-10T19%3A24%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A55%3A00&end=2026-11-10T19%3A55%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:55:30+03:00)
 ```
 
 **Kütüphane olarak**
@@ -103,7 +105,7 @@ En büyüğü: 3,7 ML — Aladağ (Adana), 10.11.2026 21:12
 - 10.11.2026 17:16 · 3,1 ML · 8,9 km · Kozan (Adana)
 - 10.11.2026 16:18 · 2,5 ML · 11,7 km · Ege Denizi - Gökova Körfezi - [05.07 km] Milas (Muğla)
 
-Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A24%3A00&end=2026-11-10T19%3A24%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:24:29+03:00)
+Kaynak: 🏛️ Resmî AFAD Deprem Dairesi — https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=2026-11-09T19%3A55%3A00&end=2026-11-10T19%3A55%3A00&minmag=2.5&orderby=timedesc&limit=1000 (alındı 2026-11-10T22:55:30+03:00)
 ```
 
 **Kütüphane olarak**
@@ -116,4 +118,4 @@ const { veri } = await kandilli.getEarthquakes({ saat: 6, il: "İzmir" });
 
 </details>
 
-[← Tüm kategoriler](../../../README.md#kaynak-kataloğu)
+[← Tüm kategoriler](../../../README.md#-araçlar)

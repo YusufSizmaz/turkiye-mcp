@@ -61,3 +61,30 @@ describe("details özeti", () => {
     expect(summary).not.toContain("![durum]");
   });
 });
+
+describe("ana README araç kataloğu (kategori + liste)", () => {
+  it("her kategori başlığı altında Araç | Ne yapar | Örnek soru tablosu, kaynak satırı ve ayrıntı linki", async () => {
+    const { renderAracKatalogu } = await import("../../../src/readme.js");
+    const md = renderAracKatalogu(KATEGORILER);
+    for (const k of KATEGORILER) {
+      expect(md).toContain(`### ${k.ikon} ${k.ad}`);
+      expect(md).toContain(`](src/sources/${k.kategori}/README.md)`);
+    }
+    expect(md).toContain("| Araç | Ne yapar | Örnek soru |");
+    expect(md).toMatch(
+      /\| `finans_get_exchange_rates` \| TCMB döviz kurları \| “Dolar ve euro bugün kaç TL\?” \|/,
+    );
+    expect(md).toContain("**Kaynaklar:** 🏛️ TCMB");
+    // ana README sade: details blokları, parametre tabloları ve canlı rozet yok
+    expect(md).not.toContain("<details>");
+    expect(md).not.toContain("| Parametre |");
+    expect(md).not.toContain("img.shields.io");
+  });
+
+  it("içindekiler tek satır, kategoriler arası nokta ile", async () => {
+    const { renderKategoriSatiri } = await import("../../../src/readme.js");
+    const satir = renderKategoriSatiri(KATEGORILER);
+    expect(satir.split("\n")).toHaveLength(1);
+    expect(satir).toContain("[💱 Finans & Piyasalar](#-finans--piyasalar)");
+  });
+});

@@ -7,6 +7,7 @@ import type { Sonuc, SourceMeta } from "../../core/types.js";
 
 export const meta: SourceMeta = {
   id: "nager-tatiller",
+  kisaAd: "Nager.Date",
   ad: "Nager.Date — Resmî Tatiller",
   kategori: "takvim",
   rozet: "topluluk",

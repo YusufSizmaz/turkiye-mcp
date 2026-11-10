@@ -45,41 +45,21 @@ describe("Nöbetçi eczane — İstanbul", () => {
   });
 });
 
-describe("Nöbetçi eczane — İzmir", () => {
-  it("HTML'den ad, semt, adres, telefon, konum", async () => {
-    mockFetch([{ match: "izmireczaciodasi.org.tr", ...f("izmir.html", "text/html") }]);
-    const s = await getOnDuty({ il: "İZMİR", limit: 200 });
-    expect(s.kaynak.id).toBe("eczane-izmir");
-    expect(s.veri.length).toBeGreaterThan(20);
-    expect(s.veri[0]).toEqual({
-      ad: "EYLÜL YILMAZ ECZANESİ",
-      ilce: "ALİAĞA",
-      adres: "SİTELER MH. 9 EYLÜL CD. NO:11/3",
-      telefon: "02325022084",
-      konum: { enlem: 38.789212, boylam: 26.960378 },
-      tarif: null,
-      nobet: null,
-    });
-  });
-
-  it("nöbet notları (kırmızı paragraflar) adres sanılmaz, nobet alanına girer", async () => {
-    mockFetch([{ match: "izmireczaciodasi.org.tr", ...f("izmir.html", "text/html") }]);
-    const s = await getOnDuty({ il: "izmir", limit: 200 });
-    const e = s.veri.find((x) => x.ad === "HAKAN BİLGİLİ ECZANESİ");
-    expect(e).toMatchObject({
-      adres: "ATATÜRK MAH. SÜLEYMANİYE CAD. NO:87/A",
-      telefon: "05521676967",
-      konum: { enlem: 38.481029, boylam: 27.193975 },
-    });
-    expect(e?.nobet).toContain("23:59");
-    expect(e?.nobet).toContain("BORNOVA 3");
-  });
-
-  it("semt/ilçe filtresi", async () => {
-    mockFetch([{ match: "izmireczaciodasi.org.tr", ...f("izmir.html", "text/html") }]);
-    const s = await getOnDuty({ il: "izmir", ilce: "alsancak" });
+describe("Nöbetçi eczane — İzmir (resmî API)", () => {
+  it("bölge/ilçe filtresi Türkçe karakter duyarsız", async () => {
+    mockFetch([
+      {
+        match: "openapi.izmir.bel.tr/api/ibb/nobetcieczaneler",
+        ...f("izmir-api.json", "application/json"),
+      },
+    ]);
+    const s = await getOnDuty({ il: "izmir", ilce: "altindag", limit: 200 });
     expect(s.veri.length).toBeGreaterThan(0);
-    expect(s.veri.every((e) => /ALSANCAK/.test(e.ilce) || /ALSANCAK/.test(e.adres))).toBe(true);
+    expect(
+      s.veri.every(
+        (e) => e.ilce === "ALTINDAĞ" || /ALTINDA/.test(e.adres) || /ALTINDA/.test(e.nobet ?? ""),
+      ),
+    ).toBe(true);
   });
 });
 
@@ -113,7 +93,7 @@ describe("Desteklenmeyen il", () => {
   it("desteklenmiyor hatası ve desteklenen iller", async () => {
     await expect(getOnDuty({ il: "Bursa" })).rejects.toMatchObject({
       tur: "desteklenmiyor",
-      message: expect.stringMatching(/İstanbul.*İzmir.*Ankara/),
+      message: expect.stringMatching(/İstanbul.*Ankara.*İzmir.*Adana.*Mersin/),
     });
   });
 });

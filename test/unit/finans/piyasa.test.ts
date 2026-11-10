@@ -113,3 +113,20 @@ describe("finans_get_crypto_prices aracı", () => {
     expect(arac.ozet(s, g)).toContain("3.696.359");
   });
 });
+
+describe("Truncgil dayanıklılık", () => {
+  it("sunucu art arda iki kez bağlantıyı keserse üçüncü denemede veri döner", async () => {
+    let n = 0;
+    const { vi } = await import("vitest");
+    vi.stubGlobal("fetch", async () => {
+      n++;
+      if (n <= 2) throw new TypeError("fetch failed");
+      return new Response(fixture("finans/truncgil.json"), {
+        headers: { "content-type": "application/json" },
+      });
+    });
+    const s = await truncgil.getGoldAndMarket();
+    expect(n).toBe(3);
+    expect(s.veri.kalemler.length).toBeGreaterThan(5);
+  });
+});

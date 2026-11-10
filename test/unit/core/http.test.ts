@@ -46,7 +46,7 @@ describe("http", () => {
     await fetchText("https://x.test/ua", { sourceId: "t" });
     await fetchText("https://x.test/ua", { sourceId: "t", browserUA: true });
     const ua = (i: number) => new Headers(calls[i]?.init?.headers).get("user-agent");
-    expect(ua(0)).toMatch(/^turkiye-mcp\/0\.1\.0/);
+    expect(ua(0)).toMatch(/^turkiye-mcp\/\d+\.\d+\.\d+ /);
     expect(ua(1)).toBe(BROWSER_UA);
   });
 
@@ -71,5 +71,19 @@ describe("http", () => {
       fetchText("https://x.test/slow", { sourceId: "t", timeoutMs: 20, retries: 0 }),
     ).rejects.toMatchObject({ tur: "zaman-asimi" });
     globalThis.fetch = yavas;
+  });
+});
+
+describe("http tekrar", () => {
+  it("ağ hatası (fetch failed) bir kez tekrar denenir", async () => {
+    let n = 0;
+    const { vi } = await import("vitest");
+    vi.stubGlobal("fetch", async () => {
+      n++;
+      if (n === 1) throw new TypeError("fetch failed");
+      return new Response("ok");
+    });
+    expect(await fetchText("https://x.test/a", { sourceId: "t" })).toBe("ok");
+    expect(n).toBe(2);
   });
 });

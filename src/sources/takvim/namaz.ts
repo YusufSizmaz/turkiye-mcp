@@ -12,6 +12,7 @@ import { getDistricts } from "../cografya/turkiyeapi.js";
 
 export const ezanMeta: SourceMeta = {
   id: "ezanvakti",
+  kisaAd: "Ezan Vakti",
   geoKisitli: true,
   ad: "Ezan Vakti API (Diyanet verisi)",
   kategori: "takvim",
@@ -34,6 +35,7 @@ const { veri } = await namaz.getPrayerTimes({ il: "İstanbul", ilce: "Üsküdar"
 
 export const diyanetMeta: SourceMeta = {
   id: "diyanet-namaz",
+  kisaAd: "Diyanet",
   ad: "Diyanet İşleri Başkanlığı Namaz Vakti API",
   kategori: "takvim",
   rozet: "resmi",

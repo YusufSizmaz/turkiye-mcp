@@ -153,3 +153,48 @@ export function readmeGuncelle(readme: string, isaret: string, icerik: string): 
     throw new Error(`README'de ${bas} … ${son} işaretleri bulunamadı`);
   return `${readme.slice(0, i + bas.length)}\n${icerik}\n${readme.slice(j)}`;
 }
+
+export const kisaAd = (s: SourceMeta): string =>
+  s.kisaAd ?? (s.ad.split(" — ")[0] ?? s.ad).split(" (")[0]?.trim() ?? s.ad;
+
+const ROZET_IKON: Record<SourceMeta["rozet"], string> = {
+  resmi: "🏛️",
+  "birinci-taraf": "✅",
+  topluluk: "🌐",
+};
+
+/** Ana README: kategori başlığı → araç tablosu → kaynak satırı → ayrıntı linki. */
+export function renderAracKatalogu(moduller: KategoriModulu[]): string {
+  return moduller
+    .map((k) => {
+      const satirlar = k.tools.map(
+        (t) =>
+          `| \`${t.name}\` | ${hucre(t.title)} | ${t.ornekSorular[0] ? `“${hucre(t.ornekSorular[0])}”` : "—"} |`,
+      );
+      const kaynaklar = k.sources
+        .map(
+          (s) =>
+            `${ROZET_IKON[s.rozet]} ${kisaAd(s)}${s.anahtarGerekli ? " 🔑" : ""}${s.geoKisitli ? " 🇹🇷" : ""}`,
+        )
+        .join(" · ");
+      return [
+        `### ${k.ikon} ${k.ad}`,
+        "",
+        k.aciklama,
+        "",
+        "| Araç | Ne yapar | Örnek soru |",
+        "|---|---|---|",
+        ...satirlar,
+        "",
+        `**Kaynaklar:** ${kaynaklar}  `,
+        `[Parametreler, uç noktalar ve kod örnekleri →](src/sources/${k.kategori}/README.md)`,
+        "",
+      ].join("\n");
+    })
+    .join("\n");
+}
+
+/** Tek satırlık kategori gezinmesi. */
+export function renderKategoriSatiri(moduller: KategoriModulu[]): string {
+  return moduller.map((k) => `[${k.ikon} ${k.ad}](${capa(`${k.ikon} ${k.ad}`)})`).join(" · ");
+}

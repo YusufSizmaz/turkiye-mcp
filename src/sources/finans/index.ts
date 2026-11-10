@@ -1,4 +1,5 @@
 import type { KategoriModulu } from "../../mcp/tool.js";
+import * as bist from "./bist.js";
 import * as btcturk from "./btcturk.js";
 import * as evds from "./evds.js";
 import * as isyatirim from "./isyatirim.js";
@@ -17,7 +18,7 @@ export const finans: KategoriModulu = {
   ad: "Finans & Piyasalar",
   ikon: "💱",
   aciklama:
-    "Döviz kurları, altın, BIST hisseleri, kripto paralar, KAP bildirimleri ve TCMB EVDS serileri.",
+    "Döviz kurları, altın, BIST hisseleri ve endeksleri, kripto paralar, KAP bildirimleri ve TCMB EVDS serileri.",
   sources: [
     tcmb.meta,
     kap.meta,
@@ -26,6 +27,7 @@ export const finans: KategoriModulu = {
     btcturk.meta,
     paribu.meta,
     evds.meta,
+    bist.meta,
   ],
   tools: [
     ...tcmb.araclar,
@@ -34,8 +36,11 @@ export const finans: KategoriModulu = {
     ...isyatirim.araclar,
     ...kripto.araclar,
     ...evds.araclar,
+    ...bist.araclar,
   ],
   probes: {
+    [bist.meta.id]: async () =>
+      bosDegil("BIST 30")((await bist.getIndex({ endeks: "XU030" })).veri.hisseler.length),
     [tcmb.meta.id]: async () => bosDegil("kur listesi")((await tcmb.getRates()).veri.kurlar.length),
     [kap.meta.id]: async () =>
       bosDegil("bildirim listesi")((await kap.getLatestDisclosures({ limit: 1 })).veri.length),

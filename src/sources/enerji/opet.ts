@@ -8,6 +8,7 @@ import type { Sonuc, SourceMeta } from "../../core/types.js";
 
 export const meta: SourceMeta = {
   id: "opet",
+  kisaAd: "Opet",
   ad: "Opet Akaryakıt Fiyatları",
   kategori: "enerji",
   rozet: "birinci-taraf",

@@ -209,9 +209,9 @@ describe("Eczane listesi kesilince söylenir", () => {
   it("limit altında kalan kayıt sayısı not ile bildirilir", async () => {
     mockFetch([
       {
-        match: "izmireczaciodasi.org.tr",
-        body: fixture("saglik/izmir.html"),
-        contentType: "text/html",
+        match: "openapi.izmir.bel.tr/api/ibb/nobetcieczaneler",
+        body: fixture("saglik/izmir-api.json"),
+        contentType: "application/json",
       },
     ]);
     const s = await getOnDuty({ il: "izmir" });

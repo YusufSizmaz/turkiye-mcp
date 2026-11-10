@@ -10,6 +10,7 @@ import { hadiseAdi } from "./hadise.js";
 
 export const meta: SourceMeta = {
   id: "mgm",
+  kisaAd: "MGM",
   ad: "Meteoroloji Genel Müdürlüğü (MGM)",
   kategori: "hava-cevre",
   rozet: "resmi",

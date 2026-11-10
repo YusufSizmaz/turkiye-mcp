@@ -12,6 +12,7 @@ import { defineTool } from "../../mcp/tool.js";
 
 export const meta: SourceMeta = {
   id: "tcmb-evds",
+  kisaAd: "TCMB EVDS",
   ad: "TCMB EVDS — Elektronik Veri Dağıtım Sistemi",
   kategori: "finans",
   rozet: "resmi",

@@ -16,6 +16,7 @@ const ortak = {
 export const trafikMeta: SourceMeta = {
   ...ortak,
   id: "ibb-trafik",
+  kisaAd: "İBB Trafik",
   geoKisitli: true,
   ad: "İBB Trafik Endeksi",
   resmiUrl: "https://uym.ibb.gov.tr",
@@ -30,6 +31,7 @@ const { veri } = await ibb.getTrafficIndex(); // { genel, anadolu, avrupa }`,
 export const isparkMeta: SourceMeta = {
   ...ortak,
   id: "ispark",
+  kisaAd: "İSPARK",
   geoKisitli: true,
   ad: "İSPARK Otopark Doluluk",
   resmiUrl: "https://ispark.istanbul",

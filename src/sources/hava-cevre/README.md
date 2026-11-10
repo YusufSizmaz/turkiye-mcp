@@ -1,5 +1,7 @@
 <!-- Bu dosya `npm run readme` ile üretilir; elle düzenlemeyin. -->
 
+[← turkiye-mcp](../../../README.md#-araçlar)
+
 ## 🌤️ Hava & Çevre
 
 MGM anlık hava durumu ve tahminleri, Ulusal Hava Kalitesi İzleme Ağı ölçümleri.
@@ -44,11 +46,11 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 Gerçek örnek çıktı:
 
 ```text
-Ankara / Keçiören — 10.11.2026 22:19
-3,1 °C (hissedilen 3,1 °C), Puslu
-Nem %96 · Rüzgâr 5 km/sa · Basınç 1.028,9 hPa
+Ankara / Keçiören — 10.11.2026 22:54
+3,1 °C (hissedilen 3,1 °C), Çok Bulutlu
+Nem %95 · Rüzgâr 5,8 km/sa · Basınç 1.028,9 hPa
 
-Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:24:30+03:00)
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/sondurumlar?merkezid=90601 (alındı 2026-11-10T22:55:30+03:00)
 ```
 
 **MCP aracı: `hava_get_forecast`** — Hava tahmini (MGM)
@@ -75,7 +77,7 @@ Gerçek örnek çıktı:
 - Cumartesi 14.11.2026: 16 / 24 °C, Gökgürültülü Sağanak Yağışlı
 - Pazar 15.11.2026: 14 / 24 °C, Gökgürültülü Sağanak Yağışlı
 
-Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:24:30+03:00)
+Kaynak: 🏛️ Resmî Meteoroloji Genel Müdürlüğü (MGM) — https://servis.mgm.gov.tr/web/tahminler/gunluk?istno=93501 (alındı 2026-11-10T22:55:30+03:00)
 ```
 
 **Kütüphane olarak**
@@ -126,7 +128,7 @@ Gerçek örnek çıktı:
 - İstanbul - Kağıthane: 72 (Orta, baskın PM10)
 - İstanbul - Arnavutköy: 70 (Orta, baskın NO2)
 
-Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:24:32+03:00)
+Kaynak: 🏛️ Resmî Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) — https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0 (alındı 2026-11-10T22:55:32+03:00)
 ```
 
 **Kütüphane olarak**
@@ -140,4 +142,4 @@ console.log(veri[0]?.istasyon, veri[0]?.indeks, veri[0]?.kategori);
 
 </details>
 
-[← Tüm kategoriler](../../../README.md#kaynak-kataloğu)
+[← Tüm kategoriler](../../../README.md#-araçlar)

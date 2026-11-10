@@ -47,7 +47,8 @@ export function mockFetch(routes: MockRoute[]): { calls: MockCall[] } {
         (typeof route.body === "object" && !Buffer.isBuffer(route.body)
           ? "application/json"
           : "text/plain");
-      return new Response(body as ConstructorParameters<typeof Response>[0], {
+      const bosGovde = route.status === 204 || route.status === 304;
+      return new Response(bosGovde ? null : (body as ConstructorParameters<typeof Response>[0]), {
         status: route.status ?? 200,
         headers: { "content-type": contentType },
       });

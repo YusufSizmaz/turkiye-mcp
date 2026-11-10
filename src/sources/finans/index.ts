@@ -1,5 +1,6 @@
 import type { KategoriModulu } from "../../mcp/tool.js";
 import * as btcturk from "./btcturk.js";
+import * as evds from "./evds.js";
 import * as isyatirim from "./isyatirim.js";
 import * as kap from "./kap.js";
 import * as kripto from "./kripto-arac.js";
@@ -17,13 +18,22 @@ export const finans: KategoriModulu = {
   ikon: "💱",
   aciklama:
     "Döviz kurları, altın, BIST hisseleri, kripto paralar, KAP bildirimleri ve TCMB EVDS serileri.",
-  sources: [tcmb.meta, kap.meta, truncgil.meta, isyatirim.meta, btcturk.meta, paribu.meta],
+  sources: [
+    tcmb.meta,
+    kap.meta,
+    truncgil.meta,
+    isyatirim.meta,
+    btcturk.meta,
+    paribu.meta,
+    evds.meta,
+  ],
   tools: [
     ...tcmb.araclar,
     ...kap.araclar,
     ...truncgil.araclar,
     ...isyatirim.araclar,
     ...kripto.araclar,
+    ...evds.araclar,
   ],
   probes: {
     [tcmb.meta.id]: async () => bosDegil("kur listesi")((await tcmb.getRates()).veri.kurlar.length),
@@ -43,5 +53,14 @@ export const finans: KategoriModulu = {
     },
     [btcturk.meta.id]: async () => bosDegil("BtcTurk")((await btcturk.getTickers()).veri.length),
     [paribu.meta.id]: async () => bosDegil("Paribu")((await paribu.getTickers()).veri.length),
+    [evds.meta.id]: async () => {
+      const { bugunTr, gunEkle } = await import("../../core/tarih.js");
+      const bitis = bugunTr();
+      const s = await evds.getSeries(
+        { seriler: ["TP.DK.USD.A"], baslangic: gunEkle(bitis, -10), bitis },
+        process.env,
+      );
+      bosDegil("EVDS serisi")(s.veri.length);
+    },
   },
 };

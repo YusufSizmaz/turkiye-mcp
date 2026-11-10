@@ -4,10 +4,10 @@
 
 MGM anlık hava durumu ve tahminleri, Ulusal Hava Kalitesi İzleme Ağı ölçümleri.
 
-| Kaynak                                                                             | Rozet    | MCP araçları                              | Durum                                                                                                                         |
-| ---------------------------------------------------------------------------------- | -------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Meteoroloji Genel Müdürlüğü (MGM)                                                  | 🏛️ Resmî | `hava_get_current`<br>`hava_get_forecast` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fmgm.json)           |
-| Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) | 🏛️ Resmî | `hava_get_air_quality`                    | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fhava-kalitesi.json) |
+| Kaynak | Rozet | MCP araçları | Durum |
+|---|---|---|---|
+| Meteoroloji Genel Müdürlüğü (MGM) | 🏛️ Resmî | `hava_get_current`<br>`hava_get_forecast` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fmgm.json) |
+| Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı) | 🏛️ Resmî | `hava_get_air_quality` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fhava-kalitesi.json) |
 
 <details>
 <summary><b>Meteoroloji Genel Müdürlüğü (MGM)</b> — 🏛️ Resmî <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fmgm.json" alt="durum" align="top"></summary>
@@ -31,10 +31,10 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 
 > Current observed weather (hava durumu, sıcaklık) for a Turkish province/district from the Turkish State Meteorological Service (MGM): temperature, feels-like, humidity, wind, pressure, precipitation, condition.
 
-| Parametre | Tip   | Zorunlu | Varsayılan | Açıklama                                                            |
-| --------- | ----- | ------- | ---------- | ------------------------------------------------------------------- |
-| `il`      | metin | ✔       | —          | İl adı veya plaka, ör. "İstanbul", "izmir", "6"                     |
-| `ilce`    | metin | —       | —          | İlçe, ör. "Kadıköy" (Türkçe karakter şart değil). Boşsa il merkezi. |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `il` | metin | ✔ | — | İl adı veya plaka, ör. "İstanbul", "izmir", "6" |
+| `ilce` | metin | — | — | İlçe, ör. "Kadıköy" (Türkçe karakter şart değil). Boşsa il merkezi. |
 
 Örnek sorular:
 
@@ -45,11 +45,11 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 
 > Weather forecast (hava tahmini) for a Turkish province/district from MGM: 5-day daily min/max and condition, or 3-hourly forecast.
 
-| Parametre | Tip                   | Zorunlu | Varsayılan | Açıklama                                                            |
-| --------- | --------------------- | ------- | ---------- | ------------------------------------------------------------------- |
-| `il`      | metin                 | ✔       | —          | İl adı veya plaka, ör. "İstanbul", "izmir", "6"                     |
-| `ilce`    | metin                 | —       | —          | İlçe, ör. "Kadıköy" (Türkçe karakter şart değil). Boşsa il merkezi. |
-| `tur`     | `gunluk` \| `saatlik` | —       | `"gunluk"` | gunluk: 5 gün · saatlik: 3 saatlik                                  |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `il` | metin | ✔ | — | İl adı veya plaka, ör. "İstanbul", "izmir", "6" |
+| `ilce` | metin | — | — | İlçe, ör. "Kadıköy" (Türkçe karakter şart değil). Boşsa il merkezi. |
+| `tur` | `gunluk` \| `saatlik` | — | `"gunluk"` | gunluk: 5 gün · saatlik: 3 saatlik |
 
 Örnek sorular:
 
@@ -62,7 +62,7 @@ GET https://servis.mgm.gov.tr/web/tahminler/saatlik?istno={saatlikTahminIstNo}
 import { mgm } from "turkiye-mcp";
 
 const simdi = await mgm.getCurrent("İstanbul", "Kadıköy");
-const tahmin = await mgm.getForecast("ankara"); // 5 günlük
+const tahmin = await mgm.getForecast("ankara");               // 5 günlük
 const saatlik = await mgm.getForecast("izmir", undefined, "saatlik");
 ```
 
@@ -87,10 +87,10 @@ POST https://sim.csb.gov.tr/Services/GetAirQualityStations?type=0  {"Location":n
 
 > Air quality (hava kalitesi, kirlilik, PM10, PM2.5) from Türkiye's National Air Quality Monitoring Network: latest hourly AQI, category and dominant pollutant per station, worst first. Filter by province.
 
-| Parametre | Tip   | Zorunlu | Varsayılan | Açıklama                                              |
-| --------- | ----- | ------- | ---------- | ----------------------------------------------------- |
-| `il`      | metin | —       | —          | İl adı. Boşsa tüm Türkiye (en kötüden iyiye).         |
-| `limit`   | sayı  | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `il` | metin | — | — | İl adı. Boşsa tüm Türkiye (en kötüden iyiye). |
+| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
 
 Örnek sorular:
 

@@ -4,11 +4,11 @@
 
 İstanbul'un canlı trafik endeksi ve İSPARK doluluğu; İBB ve İzmir açık veri portallarında arama ve tablo sorgusu (barajlar, hal, ulaşım, afet ve yüzlercesi).
 
-| Kaynak                                        | Rozet    | MCP araçları                          | Durum                                                                                                                           |
-| --------------------------------------------- | -------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| İBB Trafik Endeksi                            | 🏛️ Resmî | `istanbul_get_traffic_index`          | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fibb-trafik.json)      |
-| İSPARK Otopark Doluluk                        | 🏛️ Resmî | `istanbul_get_parking`                | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fispark.json)          |
-| İBB Açık Veri Portalı                         | 🏛️ Resmî | `opendata_search`<br>`opendata_query` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fibb-acik-veri.json)   |
+| Kaynak | Rozet | MCP araçları | Durum |
+|---|---|---|---|
+| İBB Trafik Endeksi | 🏛️ Resmî | `istanbul_get_traffic_index` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fibb-trafik.json) |
+| İSPARK Otopark Doluluk | 🏛️ Resmî | `istanbul_get_parking` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fispark.json) |
+| İBB Açık Veri Portalı | 🏛️ Resmî | `opendata_search`<br>`opendata_query` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fibb-acik-veri.json) |
 | İzmir Büyükşehir Belediyesi Açık Veri Portalı | 🏛️ Resmî | `opendata_search`<br>`opendata_query` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fizmir-acik-veri.json) |
 
 <details>
@@ -64,11 +64,11 @@ GET https://api.ibb.gov.tr/ispark/Park
 
 > Live İSPARK car park availability in Istanbul (otopark, boş yer): free spaces, capacity, type, hours, free minutes, location. Sorted by most free spaces.
 
-| Parametre    | Tip        | Zorunlu | Varsayılan | Açıklama                                              |
-| ------------ | ---------- | ------- | ---------- | ----------------------------------------------------- |
-| `ilce`       | metin      | —       | —          | İlçe, ör. "Kadıköy", "Şişli"                          |
-| `sadeceAcik` | evet/hayır | —       | `true`     | Yalnız şu an açık otoparklar                          |
-| `limit`      | sayı       | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `ilce` | metin | — | — | İlçe, ör. "Kadıköy", "Şişli" |
+| `sadeceAcik` | evet/hayır | — | `true` | Yalnız şu an açık otoparklar |
+| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
 
 Örnek sorular:
 
@@ -103,11 +103,11 @@ GET https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id={id}&q=&li
 
 > Search open datasets of Istanbul (İBB) or İzmir metropolitan municipalities (açık veri): transport, dams/baraj, markets/hal, environment, disaster areas… Returns datasets and their resource ids; resources marked queryable can be read with opendata_query.
 
-| Parametre | Tip              | Zorunlu | Varsayılan | Açıklama                                                               |
-| --------- | ---------------- | ------- | ---------- | ---------------------------------------------------------------------- |
-| `portal`  | `ibb` \| `izmir` | ✔       | —          | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
-| `sorgu`   | metin            | ✔       | —          | Arama, ör. "baraj doluluk", "hal fiyat", "toplanma alanı"              |
-| `limit`   | sayı             | —       | `10`       |                                                                        |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `portal` | `ibb` \| `izmir` | ✔ | — | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
+| `sorgu` | metin | ✔ | — | Arama, ör. "baraj doluluk", "hal fiyat", "toplanma alanı" |
+| `limit` | sayı | — | `10` |  |
 
 Örnek sorular:
 
@@ -118,13 +118,13 @@ GET https://data.ibb.gov.tr/api/3/action/datastore_search?resource_id={id}&q=&li
 
 > Read rows from a queryable (datastore) resource of İBB or İzmir open data portals. Use opendata_search first to find the resource id. Supports full-text filter and sorting.
 
-| Parametre  | Tip              | Zorunlu | Varsayılan | Açıklama                                                               |
-| ---------- | ---------------- | ------- | ---------- | ---------------------------------------------------------------------- |
-| `portal`   | `ibb` \| `izmir` | ✔       | —          | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
-| `kaynakId` | metin            | ✔       | —          | opendata_search sonucundaki 'sorgulanabilir' kaynak id'si              |
-| `sorgu`    | metin            | —       | —          | Tablo içinde tam metin arama                                           |
-| `sirala`   | metin            | —       | —          | Sıralama, ör. "_id desc" (en yeni kayıtlar)                            |
-| `limit`    | sayı             | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20)                  |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `portal` | `ibb` \| `izmir` | ✔ | — | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
+| `kaynakId` | metin | ✔ | — | opendata_search sonucundaki 'sorgulanabilir' kaynak id'si |
+| `sorgu` | metin | — | — | Tablo içinde tam metin arama |
+| `sirala` | metin | — | — | Sıralama, ör. "_id desc" (en yeni kayıtlar) |
+| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
 
 Örnek sorular:
 
@@ -160,11 +160,11 @@ GET https://acikveri.bizizmir.com/api/3/action/datastore_search?resource_id={id}
 
 > Search open datasets of Istanbul (İBB) or İzmir metropolitan municipalities (açık veri): transport, dams/baraj, markets/hal, environment, disaster areas… Returns datasets and their resource ids; resources marked queryable can be read with opendata_query.
 
-| Parametre | Tip              | Zorunlu | Varsayılan | Açıklama                                                               |
-| --------- | ---------------- | ------- | ---------- | ---------------------------------------------------------------------- |
-| `portal`  | `ibb` \| `izmir` | ✔       | —          | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
-| `sorgu`   | metin            | ✔       | —          | Arama, ör. "baraj doluluk", "hal fiyat", "toplanma alanı"              |
-| `limit`   | sayı             | —       | `10`       |                                                                        |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `portal` | `ibb` \| `izmir` | ✔ | — | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
+| `sorgu` | metin | ✔ | — | Arama, ör. "baraj doluluk", "hal fiyat", "toplanma alanı" |
+| `limit` | sayı | — | `10` |  |
 
 Örnek sorular:
 
@@ -175,13 +175,13 @@ GET https://acikveri.bizizmir.com/api/3/action/datastore_search?resource_id={id}
 
 > Read rows from a queryable (datastore) resource of İBB or İzmir open data portals. Use opendata_search first to find the resource id. Supports full-text filter and sorting.
 
-| Parametre  | Tip              | Zorunlu | Varsayılan | Açıklama                                                               |
-| ---------- | ---------------- | ------- | ---------- | ---------------------------------------------------------------------- |
-| `portal`   | `ibb` \| `izmir` | ✔       | —          | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
-| `kaynakId` | metin            | ✔       | —          | opendata_search sonucundaki 'sorgulanabilir' kaynak id'si              |
-| `sorgu`    | metin            | —       | —          | Tablo içinde tam metin arama                                           |
-| `sirala`   | metin            | —       | —          | Sıralama, ör. "_id desc" (en yeni kayıtlar)                            |
-| `limit`    | sayı             | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20)                  |
+| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
+|---|---|---|---|---|
+| `portal` | `ibb` \| `izmir` | ✔ | — | ibb: İstanbul (data.ibb.gov.tr) · izmir: İzmir (acikveri.bizizmir.com) |
+| `kaynakId` | metin | ✔ | — | opendata_search sonucundaki 'sorgulanabilir' kaynak id'si |
+| `sorgu` | metin | — | — | Tablo içinde tam metin arama |
+| `sirala` | metin | — | — | Sıralama, ör. "_id desc" (en yeni kayıtlar) |
+| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
 
 Örnek sorular:
 

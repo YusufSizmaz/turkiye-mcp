@@ -9,6 +9,7 @@ import type { Sonuc, SourceMeta } from "../../core/types.js";
 
 export const meta: SourceMeta = {
   id: "hava-kalitesi",
+  geoKisitli: true,
   ad: "Ulusal Hava Kalitesi İzleme Ağı (Çevre, Şehircilik ve İklim Değişikliği Bakanlığı)",
   kategori: "hava-cevre",
   rozet: "resmi",

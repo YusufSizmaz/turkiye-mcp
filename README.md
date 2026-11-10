@@ -100,6 +100,8 @@ Güvenilir şekilde çalışan her kaynak pakete dahil. Hangisine güveneceğini
 | 🔑 **Anahtar** | Ücretsiz kayıtla alınan anahtar ister (ek rozet) | TCMB EVDS, EPİAŞ, Diyanet |
 | 🧪 **Deneysel** | Belgeye göre yazıldı, gerçek anahtarla henüz doğrulanmadı | EVDS, EPİAŞ, Diyanet |
 
+> 🌍 **Yalnızca TR:** Bazı kamu siteleri (TCMB, İBB, bazı eczacı odaları…) yurt dışı IP'lerini engelliyor. Günlük kontrol GitHub'ın ABD sunucularında koştuğu için bu kaynaklar orada gri "yalnızca TR" rozetiyle görünür; Türkiye'den kullanırken normal çalışırlar. Sunucuyu yurt dışındaki bir makinede çalıştırıyorsanız bu kaynaklar yanıt vermeyebilir.
+
 Her kaynağın yanındaki **durum rozeti**, GitHub Actions'ın her sabah 09:00'da (TSİ) attığı gerçek istekten gelir. Tüm sonuçlar [durum sayfasında](https://yusufsizmaz.github.io/turkiye-mcp) görünür. Bozulan bir kaynak için otomatik olarak issue açılır.
 
 ## Kaynak kataloğu

@@ -9,6 +9,7 @@ import { type Eczane, type EczaneAdaptoru, konumAyristir, temiz } from "./tipler
 
 export const meta: SourceMeta = {
   id: "eczane-izmir",
+  geoKisitli: true,
   ad: "İzmir Eczacı Odası — Nöbetçi Eczaneler",
   kategori: "saglik",
   rozet: "resmi",

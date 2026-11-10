@@ -46,3 +46,22 @@ describe("shieldsJson", () => {
     expect(shieldsJson(k(durum))).toEqual({ schemaVersion: 1, label: "durum", message, color });
   });
 });
+
+describe("yurt dışından engellenen kaynaklar", () => {
+  it("GitHub Actions (ABD) koşusunda engellenen 8 kaynak geoKisitli işaretli", async () => {
+    const { TUM_KAYNAKLAR } = await import("../../../src/registry.js");
+    const geo = TUM_KAYNAKLAR.filter((s) => s.geoKisitli)
+      .map((s) => s.id)
+      .sort();
+    expect(geo).toEqual([
+      "eczane-ankara",
+      "eczane-izmir",
+      "ezanvakti",
+      "hava-kalitesi",
+      "ibb-acik-veri",
+      "ibb-trafik",
+      "ispark",
+      "tcmb-kurlar",
+    ]);
+  });
+});

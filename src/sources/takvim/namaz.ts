@@ -12,6 +12,7 @@ import { getDistricts } from "../cografya/turkiyeapi.js";
 
 export const ezanMeta: SourceMeta = {
   id: "ezanvakti",
+  geoKisitli: true,
   ad: "Ezan Vakti API (Diyanet verisi)",
   kategori: "takvim",
   rozet: "topluluk",

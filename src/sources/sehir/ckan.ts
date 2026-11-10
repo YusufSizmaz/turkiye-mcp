@@ -23,6 +23,7 @@ export const portalMeta: Record<Portal, SourceMeta> = {
   ibb: {
     ...ortak,
     id: "ibb-acik-veri",
+    geoKisitli: true,
     ad: "İBB Açık Veri Portalı",
     resmiUrl: "https://data.ibb.gov.tr",
     aciklama:

@@ -4,9 +4,9 @@
 
 AFAD ve Kandilli Rasathanesi'nden son depremler.
 
-| Kaynak | Rozet | MCP araçları | Durum |
-|---|---|---|---|
-| AFAD Deprem Dairesi | 🏛️ Resmî | `deprem_get_recent` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fafad.json) |
+| Kaynak                                             | Rozet    | MCP araçları        | Durum                                                                                                                    |
+| -------------------------------------------------- | -------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| AFAD Deprem Dairesi                                | 🏛️ Resmî | `deprem_get_recent` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fafad.json)     |
 | Boğaziçi Üniversitesi Kandilli Rasathanesi (KOERI) | 🏛️ Resmî | `deprem_get_recent` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fkandilli.json) |
 
 <details>
@@ -27,13 +27,13 @@ GET https://servisnet.afad.gov.tr/apigateway/deprem/apiv2/event/filter?start=…
 
 > Recent earthquakes in and around Türkiye (son depremler, deprem listesi) from AFAD or Kandilli Observatory, newest first. Filter by hours, minimum magnitude and province (il).
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `kaynak` | `afad` \| `kandilli` | — | `"afad"` | Veri kaynağı: AFAD veya Kandilli |
-| `saat` | sayı | — | `24` | Son kaç saat (1–720, varsayılan 24) |
-| `minBuyukluk` | sayı | — | `0` | En küçük büyüklük, ör. 3 |
-| `il` | metin | — | — | İl filtresi, ör. "İzmir" (Türkçe karakter şart değil) |
-| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
+| Parametre     | Tip                  | Zorunlu | Varsayılan | Açıklama                                              |
+| ------------- | -------------------- | ------- | ---------- | ----------------------------------------------------- |
+| `kaynak`      | `afad` \| `kandilli` | —       | `"afad"`   | Veri kaynağı: AFAD veya Kandilli                      |
+| `saat`        | sayı                 | —       | `24`       | Son kaç saat (1–720, varsayılan 24)                   |
+| `minBuyukluk` | sayı                 | —       | `0`        | En küçük büyüklük, ör. 3                              |
+| `il`          | metin                | —       | —          | İl filtresi, ör. "İzmir" (Türkçe karakter şart değil) |
+| `limit`       | sayı                 | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
 
 Örnek sorular:
 
@@ -69,13 +69,13 @@ GET http://www.koeri.boun.edu.tr/scripts/lst0.asp  (windows-1254, <pre> içinde 
 
 > Recent earthquakes in and around Türkiye (son depremler, deprem listesi) from AFAD or Kandilli Observatory, newest first. Filter by hours, minimum magnitude and province (il).
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `kaynak` | `afad` \| `kandilli` | — | `"afad"` | Veri kaynağı: AFAD veya Kandilli |
-| `saat` | sayı | — | `24` | Son kaç saat (1–720, varsayılan 24) |
-| `minBuyukluk` | sayı | — | `0` | En küçük büyüklük, ör. 3 |
-| `il` | metin | — | — | İl filtresi, ör. "İzmir" (Türkçe karakter şart değil) |
-| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
+| Parametre     | Tip                  | Zorunlu | Varsayılan | Açıklama                                              |
+| ------------- | -------------------- | ------- | ---------- | ----------------------------------------------------- |
+| `kaynak`      | `afad` \| `kandilli` | —       | `"afad"`   | Veri kaynağı: AFAD veya Kandilli                      |
+| `saat`        | sayı                 | —       | `24`       | Son kaç saat (1–720, varsayılan 24)                   |
+| `minBuyukluk` | sayı                 | —       | `0`        | En küçük büyüklük, ör. 3                              |
+| `il`          | metin                | —       | —          | İl filtresi, ör. "İzmir" (Türkçe karakter şart değil) |
+| `limit`       | sayı                 | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
 
 Örnek sorular:
 

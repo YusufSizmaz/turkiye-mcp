@@ -4,8 +4,8 @@
  * Gerçek örnek çıktılar varsa (docs/ornek-ciktilar.json, scripts/smoke.ts üretir) kataloğa eklenir.
  */
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { KATEGORILER, TUM_KAYNAKLAR } from "../src/registry.js";
 import { readmeGuncelle, renderIcindekiler, renderKatalog, renderKategori } from "../src/readme.js";
+import { KATEGORILER, TUM_KAYNAKLAR } from "../src/registry.js";
 
 const ornekler: Record<string, string> = existsSync("docs/ornek-ciktilar.json")
   ? JSON.parse(readFileSync("docs/ornek-ciktilar.json", "utf-8"))

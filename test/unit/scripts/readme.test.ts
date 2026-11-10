@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { KATEGORILER } from "../../../src/registry.js";
 import { readmeGuncelle, renderIcindekiler, renderKatalog } from "../../../src/readme.js";
+import { KATEGORILER } from "../../../src/registry.js";
 
-const katalog = renderKatalog(KATEGORILER, { finans_get_exchange_rates: "TCMB kurları — 10.11.2026" });
+const katalog = renderKatalog(KATEGORILER, {
+  finans_get_exchange_rates: "TCMB kurları — 10.11.2026",
+});
 
 describe("README kataloğu", () => {
   it("her kategori için başlık", () => {

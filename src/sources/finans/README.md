@@ -4,15 +4,15 @@
 
 Döviz kurları, altın, BIST hisseleri, kripto paralar, KAP bildirimleri ve TCMB EVDS serileri.
 
-| Kaynak | Rozet | MCP araçları | Durum |
-|---|---|---|---|
-| TCMB Gösterge Niteliğindeki Döviz Kurları | 🏛️ Resmî | `finans_get_exchange_rates` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftcmb-kurlar.json) |
-| KAP — Kamuyu Aydınlatma Platformu | 🏛️ Resmî | `finans_get_kap_disclosures`<br>`finans_search_kap_companies` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fkap.json) |
-| Truncgil Finans (altın ve serbest piyasa) | 🌐 Topluluk | `finans_get_gold_prices` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftruncgil.json) |
-| İş Yatırım — BIST hisse geçmişi | 🌐 Topluluk | `finans_get_stock_history` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fisyatirim.json) |
-| BtcTurk | ✅ Birinci taraf | `finans_get_crypto_prices` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fbtcturk.json) |
-| Paribu | ✅ Birinci taraf | `finans_get_crypto_prices` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fparibu.json) |
-| TCMB EVDS — Elektronik Veri Dağıtım Sistemi | 🏛️ Resmî · 🔑 Anahtar · 🧪 Deneysel | `finans_get_evds_series` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftcmb-evds.json) |
+| Kaynak                                      | Rozet                               | MCP araçları                                                  | Durum                                                                                                                       |
+| ------------------------------------------- | ----------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| TCMB Gösterge Niteliğindeki Döviz Kurları   | 🏛️ Resmî                            | `finans_get_exchange_rates`                                   | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftcmb-kurlar.json) |
+| KAP — Kamuyu Aydınlatma Platformu           | 🏛️ Resmî                            | `finans_get_kap_disclosures`<br>`finans_search_kap_companies` | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fkap.json)         |
+| Truncgil Finans (altın ve serbest piyasa)   | 🌐 Topluluk                         | `finans_get_gold_prices`                                      | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftruncgil.json)    |
+| İş Yatırım — BIST hisse geçmişi             | 🌐 Topluluk                         | `finans_get_stock_history`                                    | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fisyatirim.json)   |
+| BtcTurk                                     | ✅ Birinci taraf                    | `finans_get_crypto_prices`                                    | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fbtcturk.json)     |
+| Paribu                                      | ✅ Birinci taraf                    | `finans_get_crypto_prices`                                    | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Fparibu.json)      |
+| TCMB EVDS — Elektronik Veri Dağıtım Sistemi | 🏛️ Resmî · 🔑 Anahtar · 🧪 Deneysel | `finans_get_evds_series`                                      | ![durum](https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftcmb-evds.json)   |
 
 <details>
 <summary><b>TCMB Gösterge Niteliğindeki Döviz Kurları</b> — 🏛️ Resmî <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fyusufsizmaz.github.io%2Fturkiye-mcp%2Fbadges%2Ftcmb-kurlar.json" alt="durum" align="top"></summary>
@@ -33,10 +33,10 @@ GET https://www.tcmb.gov.tr/kurlar/{YYYYMM}/{DDMMYYYY}.xml
 
 > Official Central Bank of Türkiye (TCMB) exchange rates (döviz kuru, dolar, euro, sterlin) for today or a past date. Returns forex and banknote buying/selling rates in TRY.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `tarih` | metin | — | — | Geçmiş tarih (YYYY-MM-DD). Boşsa bugünün bülteni. |
-| `kodlar` | metin listesi | — | — | Yalnız bu döviz kodları, ör. ["USD","EUR"]. Boşsa hepsi. |
+| Parametre | Tip           | Zorunlu | Varsayılan | Açıklama                                                 |
+| --------- | ------------- | ------- | ---------- | -------------------------------------------------------- |
+| `tarih`   | metin         | —       | —          | Geçmiş tarih (YYYY-MM-DD). Boşsa bugünün bülteni.        |
+| `kodlar`  | metin listesi | —       | —          | Yalnız bu döviz kodları, ör. ["USD","EUR"]. Boşsa hepsi. |
 
 Örnek sorular:
 
@@ -48,7 +48,7 @@ GET https://www.tcmb.gov.tr/kurlar/{YYYYMM}/{DDMMYYYY}.xml
 ```ts
 import { tcmb } from "turkiye-mcp";
 
-const { veri } = await tcmb.getRates();                 // bugünün bülteni
+const { veri } = await tcmb.getRates(); // bugünün bülteni
 const usd = veri.kurlar.find((k) => k.kod === "USD");
 const gecmis = await tcmb.getRates({ tarih: "2026-01-02" });
 ```
@@ -75,12 +75,12 @@ POST https://www.kap.org.tr/tr/api/search/combined  {"keyword":"türk hava"}
 
 > Public disclosures from KAP (Kamuyu Aydınlatma Platformu) for Borsa Istanbul companies: material event disclosures (özel durum açıklaması), financial reports etc. Latest disclosures, or a date range optionally filtered by stock ticker (hisse kodu).
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `baslangic` | metin | — | — | Başlangıç tarihi (YYYY-MM-DD). Boşsa en son bildirimler. |
-| `bitis` | metin | — | — | Bitiş tarihi (YYYY-MM-DD). Boşsa bugün. |
-| `hisseKodu` | metin | — | — | Hisse kodu, ör. THYAO. Verilirse tarih aralığı kullanılır (varsayılan son 7 gün). |
-| `limit` | sayı | — | `20` | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20) |
+| Parametre   | Tip   | Zorunlu | Varsayılan | Açıklama                                                                          |
+| ----------- | ----- | ------- | ---------- | --------------------------------------------------------------------------------- |
+| `baslangic` | metin | —       | —          | Başlangıç tarihi (YYYY-MM-DD). Boşsa en son bildirimler.                          |
+| `bitis`     | metin | —       | —          | Bitiş tarihi (YYYY-MM-DD). Boşsa bugün.                                           |
+| `hisseKodu` | metin | —       | —          | Hisse kodu, ör. THYAO. Verilirse tarih aralığı kullanılır (varsayılan son 7 gün). |
+| `limit`     | sayı  | —       | `20`       | En fazla kaç kayıt döndürülsün (1–200, varsayılan 20)                             |
 
 Örnek sorular:
 
@@ -91,9 +91,9 @@ POST https://www.kap.org.tr/tr/api/search/combined  {"keyword":"türk hava"}
 
 > Search companies and funds on KAP by name or ticker (şirket ara, hisse kodu bul). Returns name, ticker and KAP company page link.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `sorgu` | metin | ✔ | — | Şirket adı veya kod, ör. "türk hava", "aselsan" |
+| Parametre | Tip   | Zorunlu | Varsayılan | Açıklama                                        |
+| --------- | ----- | ------- | ---------- | ----------------------------------------------- |
+| `sorgu`   | metin | ✔       | —          | Şirket adı veya kod, ör. "türk hava", "aselsan" |
 
 Örnek sorular:
 
@@ -106,7 +106,11 @@ POST https://www.kap.org.tr/tr/api/search/combined  {"keyword":"türk hava"}
 import { kap } from "turkiye-mcp";
 
 const son = await kap.getLatestDisclosures({ limit: 10 });
-const thy = await kap.getDisclosures({ baslangic: "2026-11-01", bitis: "2026-11-10", hisseKodu: "THYAO" });
+const thy = await kap.getDisclosures({
+  baslangic: "2026-11-01",
+  bitis: "2026-11-10",
+  hisseKodu: "THYAO",
+});
 const sirket = await kap.searchCompanies("türk hava");
 ```
 
@@ -130,9 +134,9 @@ GET https://finans.truncgil.com/v4/today.json
 
 > Turkish free-market gold prices (altın fiyatları: gram, çeyrek, yarım, tam, Cumhuriyet, 22/18/14 ayar), silver, platinum and palladium in TRY. Optionally any code from the feed (e.g. USD, EUR for free-market FX).
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `kodlar` | metin listesi | — | — | Yalnız bu kodlar, ör. ["GRA","CEYREKALTIN","USD"]. Boşsa tüm değerli metaller. |
+| Parametre | Tip           | Zorunlu | Varsayılan | Açıklama                                                                       |
+| --------- | ------------- | ------- | ---------- | ------------------------------------------------------------------------------ |
+| `kodlar`  | metin listesi | —       | —          | Yalnız bu kodlar, ör. ["GRA","CEYREKALTIN","USD"]. Boşsa tüm değerli metaller. |
 
 Örnek sorular:
 
@@ -168,11 +172,11 @@ GET https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/
 
 > Daily end-of-day price history for a Borsa Istanbul stock (hisse, BIST): close, low, high, weighted average, volume, market cap. Default last 30 days.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `hisse` | metin | ✔ | — | Hisse kodu, ör. THYAO, ASELS |
-| `baslangic` | metin | — | — | Başlangıç (YYYY-MM-DD). Boşsa 30 gün önce. |
-| `bitis` | metin | — | — | Bitiş (YYYY-MM-DD). Boşsa bugün. |
+| Parametre   | Tip   | Zorunlu | Varsayılan | Açıklama                                   |
+| ----------- | ----- | ------- | ---------- | ------------------------------------------ |
+| `hisse`     | metin | ✔       | —          | Hisse kodu, ör. THYAO, ASELS               |
+| `baslangic` | metin | —       | —          | Başlangıç (YYYY-MM-DD). Boşsa 30 gün önce. |
+| `bitis`     | metin | —       | —          | Bitiş (YYYY-MM-DD). Boşsa bugün.           |
 
 Örnek sorular:
 
@@ -184,7 +188,11 @@ GET https://www.isyatirim.com.tr/_layouts/15/Isyatirim.Website/Common/Data.aspx/
 ```ts
 import { isyatirim } from "turkiye-mcp";
 
-const { veri } = await isyatirim.getStockHistory({ hisse: "THYAO", baslangic: "2026-10-01", bitis: "2026-11-10" });
+const { veri } = await isyatirim.getStockHistory({
+  hisse: "THYAO",
+  baslangic: "2026-10-01",
+  bitis: "2026-11-10",
+});
 console.log(veri.at(-1)?.kapanis);
 ```
 
@@ -208,10 +216,10 @@ GET https://api.btcturk.com/api/v2/ticker
 
 > Live cryptocurrency prices in TRY from Turkish exchanges BtcTurk or Paribu (kripto, bitcoin, ethereum, USDT). Default pairs BTC_TRY, ETH_TRY, USDT_TRY.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `borsa` | `btcturk` \| `paribu` | — | `"btcturk"` | Borsa |
-| `pariteler` | metin listesi | — | — | Pariteler, ör. ["BTC","ETH_TRY","AVAXTRY"]. Boşsa BTC, ETH, USDT. |
+| Parametre   | Tip                   | Zorunlu | Varsayılan  | Açıklama                                                          |
+| ----------- | --------------------- | ------- | ----------- | ----------------------------------------------------------------- |
+| `borsa`     | `btcturk` \| `paribu` | —       | `"btcturk"` | Borsa                                                             |
+| `pariteler` | metin listesi         | —       | —           | Pariteler, ör. ["BTC","ETH_TRY","AVAXTRY"]. Boşsa BTC, ETH, USDT. |
 
 Örnek sorular:
 
@@ -246,10 +254,10 @@ GET https://www.paribu.com/ticker
 
 > Live cryptocurrency prices in TRY from Turkish exchanges BtcTurk or Paribu (kripto, bitcoin, ethereum, USDT). Default pairs BTC_TRY, ETH_TRY, USDT_TRY.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `borsa` | `btcturk` \| `paribu` | — | `"btcturk"` | Borsa |
-| `pariteler` | metin listesi | — | — | Pariteler, ör. ["BTC","ETH_TRY","AVAXTRY"]. Boşsa BTC, ETH, USDT. |
+| Parametre   | Tip                   | Zorunlu | Varsayılan  | Açıklama                                                          |
+| ----------- | --------------------- | ------- | ----------- | ----------------------------------------------------------------- |
+| `borsa`     | `btcturk` \| `paribu` | —       | `"btcturk"` | Borsa                                                             |
+| `pariteler` | metin listesi         | —       | —           | Pariteler, ör. ["BTC","ETH_TRY","AVAXTRY"]. Boşsa BTC, ETH, USDT. |
 
 Örnek sorular:
 
@@ -287,12 +295,12 @@ GET https://evds3.tcmb.gov.tr/igmevdsms-dis/series={KOD1-KOD2}&startDate=DD-MM-Y
 
 > Economic time series from the Central Bank of Türkiye EVDS (inflation/enflasyon TÜFE, interest rates/faiz, reserves/rezerv, credit, FX). Requires TCMB_EVDS_KEY. Pass EVDS series codes like TP.DK.USD.A or TP.FG.J0.
 
-| Parametre | Tip | Zorunlu | Varsayılan | Açıklama |
-|---|---|---|---|---|
-| `seriler` | metin listesi | ✔ | — | EVDS seri kodları, ör. ["TP.FG.J0"] |
-| `baslangic` | metin | — | — | Başlangıç (YYYY-MM-DD). Boşsa 1 yıl önce. |
-| `bitis` | metin | — | — | Bitiş (YYYY-MM-DD). Boşsa bugün. |
-| `frekans` | `gunluk` \| `isgunu` \| `haftalik` \| `aylik` \| `ceyreklik` \| `yillik` | — | — |  |
+| Parametre   | Tip                                                                      | Zorunlu | Varsayılan | Açıklama                                  |
+| ----------- | ------------------------------------------------------------------------ | ------- | ---------- | ----------------------------------------- |
+| `seriler`   | metin listesi                                                            | ✔       | —          | EVDS seri kodları, ör. ["TP.FG.J0"]       |
+| `baslangic` | metin                                                                    | —       | —          | Başlangıç (YYYY-MM-DD). Boşsa 1 yıl önce. |
+| `bitis`     | metin                                                                    | —       | —          | Bitiş (YYYY-MM-DD). Boşsa bugün.          |
+| `frekans`   | `gunluk` \| `isgunu` \| `haftalik` \| `aylik` \| `ceyreklik` \| `yillik` | —       | —          |                                           |
 
 Örnek sorular:
 
